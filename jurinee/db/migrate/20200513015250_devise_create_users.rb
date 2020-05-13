@@ -49,4 +49,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
+
+  def init_profile
+    self.create_profile!
+  end
+
+  # 위의 코드 다른 버전
+  # def init_profile
+  #   self.build_profile.save(validate: false)
+  # end
+
 end
