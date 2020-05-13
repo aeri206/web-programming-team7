@@ -14,6 +14,10 @@
 			<div class='header'>
 				<div class='container'>
 					<% if user_signed_in? %>
+<<<<<<< HEAD
+=======
+						<%= link_to 'Sign out', '/users/sign_out', method: :delete  %>
+>>>>>>> redirect home after login
 						<a href="/users/sign_out" data-method="delete">로그아웃</a>
 					<% else %>
 						<a href="/users/sign_in"> Sign in </a>
