@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
     def index
-        # @profile = Profile[:id] # 이런 식으로 user id에 대응하는 Profile 가져오기
+        @profile = current_user.profile # 현재 login한 user 기준  
+        # @profile = Profile.find(params[:id]) 
         render 'index'
     end
 
@@ -15,7 +16,7 @@ class ProfileController < ApplicationController
 
         profile.nickname = nickname
         profile.info = info
-        profile.sve
+        profile.save
 
         redirect_to action: 'index'
     end
