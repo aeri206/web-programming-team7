@@ -16,15 +16,9 @@ class ProfileController < ApplicationController
     #     nickname = params[:nickname]
     #     info = params[:info]
 
-<<<<<<< HEAD
     #     profile.nickname = nickname
     #     profile.info = info
     #     profile.save
-=======
-        profile.nickname = nickname
-        profile.info = info
-        profile.save
->>>>>>> temp save
 
     #     redirect_to action: 'index'
     # end
