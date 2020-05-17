@@ -20,7 +20,8 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
-    def after_sign_in_path_for(resource_or_scope)
+    # 로그아웃 후 redirect인데 작동 안하는 듯 (현재 routes의 root directory 이용해서 돌아감)
+    def after_sign_in_path_for(resource_or_scope) 
       stored_location_for(resource_or_scope) || super
     end
 

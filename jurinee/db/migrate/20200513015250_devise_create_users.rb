@@ -4,7 +4,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       t.has_one :profile, dependent: :destroy
-      t.after_create :init_profile # devise로 user 생성 후 profile 자동 생성
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -43,10 +42,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-  end
-
-  def init_profile
-    self.create_profile!
   end
 
   # 위의 코드 다른 버전
