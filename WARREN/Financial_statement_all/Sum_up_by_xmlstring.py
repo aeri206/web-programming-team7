@@ -29,18 +29,15 @@ print(response.text)
 
 corp_code_list = list(company.company.values()) # ["234235","2342352",....,"234234"]
 
-for corp_code in corp_code_list[:50]: # [:N]으로 조절하기.
+for corp_code in corp_code_list[44929:44931]: # [:N]으로 조절하기.
     final_url = url + args1 + private_key + args2 + corp_code + args3 + bsns_year + args4 + report_code + args5 + fs_div
     print(final_url)
     response = requests.get(final_url)
     print(response)
     print(response.text)
     file_name = company_backward.company[corp_code]
-    f = open("%s.xml" % file_name, "w")
-    f.write(response.text)
-    f.close()
 
-    tree = ET.parse("%s.xml" % file_name)
+    tree = ET.fromstring(response.text) # parse 객체는 <xml.etree.ElementTree.ElementTree object at 0x1100ae390>
     root = tree.getroot()
     print(root)
 
