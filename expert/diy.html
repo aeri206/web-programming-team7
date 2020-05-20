@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/diy.css" />
 	</head>
 	<body class="is-preload">
 
@@ -43,37 +44,53 @@
 							<!-- Content -->
 								<section>
 									<header class="main">
-										<h1><a href="doityourself.html">직접해보기</a></h1>
+										<h1><a href="diy.html">직접해보기</a></h1>
 									</header>
 
 
 									<p>지금까지 배운 내용을 바탕으로 직접 투자하고 싶은 기업을 찾아보세요!</p>
 
 
-								<p>PER
-								<select name="per">
-								    <option value="1">1</option>
-								    <option value="2">2</option>
-								    <option value="3">3</option>
-								    <option value="4">4</option>
-								</select></p>
-
+								<div class="diy-option-block"><div class="select-sub">PER</div>
+								<select name="PER" class="diy-option under">
+								    <option value="5">5</option>
+								    <option value="10">10</option>
+								    <option value="15">15</option>
+									<option value="20">20</option>
+									<option value="25">25</option>
+									<option selected="selected" value="30">30</option>
+								</select>
+							<text class="select-sub">이하</text></div>
+							<div class="diy-option-block"><div class="select-sub">PBR</div>
+								<select name="PBR" class="diy-option under">
+								    <option value="0.5">0.5</option>
+								    <option value="1.0">1.0</option>
+								    <option value="1.5">1.5</option>
+									<option value="2.0">2.0</option>
+									<option value="2.5">2.5</option>
+									<option selected="selected"  value="3.0">3.0</option>
+								</select>
+							<text class="select-sub">이하</text></div>
+							<div class="diy-option-block"><div class="select-sub">부채비율</div>
+								<select name="DERatio" class="diy-option under">
+								    <option value="20">20%</option>
+								    <option value="40">40%</option>
+								    <option value="60">60%</option>
+									<option value="80">80%</option>
+									<option value="100">100%</option>
+									<option value="120">120%</option>
+									<option selected="selected" value="140">140%</option>
+								</select>
+							<text class="select-sub">이하</text></div>
+							<button id="search">를 만족하는 기업찾기</button>
 								</section>
 
 									<hr class="major" />
-									<table border="1">
-										<th>테이블</th>
-										<th>만들기</th>
-										<tr><!-- 첫번째 줄 시작 -->
-										    <td>첫번째 칸</td>
-										    <td>두번째 칸</td>
-										</tr><!-- 첫번째 줄 끝 -->
-										<tr><!-- 두번째 줄 시작 -->
-										    <td>첫번째 칸</td>
-										    <td>두번째 칸</td>
-										</tr><!-- 두번째 줄 끝 -->
+									<table id="result-table" border="1">
+										<thead></thead>
+										<tbody></tbody>
 									</table>
-
+									<hr class="major" />
 
 
 
@@ -141,6 +158,6 @@
 			<script src="js/breakpoints.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
-
+			<script src="js/diy.js"></script>
 	</body>
 </html>
