@@ -60,14 +60,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  # 지은 추가 -> 있어야 하는지? 
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     redirect_to root_url, :notice => "You have succesfully signed up!"
-  #   else
-  #     render "new"
-  #   end
-  # end
+
 
 end

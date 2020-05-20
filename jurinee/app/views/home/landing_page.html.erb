@@ -12,14 +12,11 @@
 		<section class="banner full">
 
 			<div class='header'>
-				<div class='container'>
+				<div class='accounts'>
 					<% if user_signed_in? %>
-<<<<<<< HEAD
-=======
-						<%= link_to 'Sign out', '/users/sign_out', method: :delete  %>
->>>>>>> redirect home after login
+						<div class="greeting"><%= current_user.id %>님, 안녕하세요</div>
 						<a href="/users/sign_out" data-method="delete">로그아웃</a>
-						<%= link_to "My page", profile_path %>
+						<%= link_to "My page", controller: "profile", action: "index", id: current_user.id %>
 					<% else %>
 						<a href="/users/sign_in"> Sign in </a>
 						<a href="/users/sign_up"> Sign up </a>
@@ -41,6 +38,7 @@
 						<div class="box">
 
 							<div class="content">
+								<%= image_tag "wiki.png", :alt => "", style: 'width: 400px;' %>
 
 								<p>주식을 처음 입문하는 주린이들이 알아야할 기초 상식들에 대한 쉽고 친절한 설명을 제공합니다.</p>
 								<footer class="align-center">

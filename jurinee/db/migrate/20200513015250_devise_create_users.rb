@@ -3,9 +3,8 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
-      t.has_one :profile, dependent: :destroy
-
       ## Database authenticatable
+      # t.string :name,               null: false, default: "" # 추가 
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -38,15 +37,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.timestamps null: false
     end
 
+    # 지은 추가
+    create_table :profiles do |t|
+      t.integer :user_id
+      t.timestamps
+    end
+
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
-
-  # 위의 코드 다른 버전
-  # def init_profile
-  #   self.build_profile.save(validate: false)
-  # end
 
 end
