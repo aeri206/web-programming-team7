@@ -1,0 +1,25 @@
+select.diy-option {
+    display:inline;
+}
+select.diy-option ~ text.select-sub,
+text.select-sub {
+    padding:0 5px 0 5px;
+}
+
+div.select-sub {
+    display:inline-block;
+    width:80px;
+    text-align:center;
+}
+
+div.diy-option-block{
+    padding:10px 20px 10px 20px;
+}
+
+th.table-company {
+    width: 120px;
+}
+
+#result-table > tbody {
+    text-align:center;
+}
