@@ -459,7 +459,11 @@
 
 /* login, logout */
 
+<<<<<<< HEAD
 #landing .accounts {
+=======
+.accounts {
+>>>>>>> my page entry
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
@@ -467,7 +471,11 @@
 	/* align-items: flex-end; */
 }
 
+<<<<<<< HEAD
 #landing .accounts > a {
+=======
+.accounts > a {
+>>>>>>> my page entry
 	position: relative;
 	font-size: 20px;
 	text-decoration: none;
@@ -475,6 +483,12 @@
 	margin: 20px;
 }
 
+<<<<<<< HEAD
 #landing .mypage {
 
 }
+=======
+.mypage {
+
+}
+>>>>>>> my page entry

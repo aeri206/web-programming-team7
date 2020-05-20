@@ -26,7 +26,12 @@ ActiveRecord::Schema.define(version: 2020_05_26_081614) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
+<<<<<<< HEAD
     t.string "name"
+=======
+    t.string "nickname"
+    t.text "info"
+>>>>>>> my page entry
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
