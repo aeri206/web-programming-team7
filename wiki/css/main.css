@@ -94,7 +94,7 @@ input, select, textarea {
 
 table{
   width: 100%;
-    border: 1px solid #444444;
+    border: none; 
 
 }
 /* Basic */
