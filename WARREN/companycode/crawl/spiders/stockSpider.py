@@ -21,7 +21,6 @@ class stockSpider(scrapy.Spider):
     def start_requests(self):
         print ('start_request')
         urls = [ {"url" : ''.join(['https://m.stock.naver.com/item/main.nhn#/stocks/', company_code[x], '/annual']), "company_name" : x} for x in company_code]
-        
         for link in urls:
             print(link["url"])
             yield scrapy.Request(

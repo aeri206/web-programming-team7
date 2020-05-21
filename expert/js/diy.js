@@ -16,6 +16,40 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
+const sortTable = n => {
+    let switching = true;
+    let i;
+    let dir = "asc";
+    let rows, shouldSwitch, cnt = 0;
+    const table = document.querySelector('#result-table');
+    while (switching){
+        switching = false;
+        rows = table.rows;
+        for (i = 0 ; i < (rows.length - 1) ; i++){
+            shouldSwitch = false;
+            let x = rows[i].querySelectorAll('td')[n].innerText;
+            let y = rows[i+1].querySelectorAll('td')[n].innerText;
+            if (dir == "asc" && x > y){
+                shouldSwitch = true;
+                break;
+            }
+            else if (dir == "desc" && x < y){
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch){
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            cnt++;
+        } else {
+            if (cnt == 0 && dir == "asc"){
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
 
 document.querySelector('#search').addEventListener('click', () => {
     const options = document.querySelectorAll('select.diy-option')
@@ -57,15 +91,14 @@ document.querySelector('#search').addEventListener('click', () => {
         });
         tbody.appendChild(tr);
     });
+    sortTable(0);
 })
 
 window.onload = function(){
     naver_stock = {};
     dart_stock = {};
     company_code = {};
-    console.log('hi there?');
     this.readTextFile('./company_code_naver.json', text => {
-        console.log(text);
         company_code = JSON.parse(text);
     })
     readTextFile("./stock.json", text => {naver_stock = JSON.parse(text)});
@@ -91,6 +124,12 @@ window.onload = function(){
     document.querySelectorAll('select.diy-option').forEach(option => {
         let th = document.createElement('th');
         th.innerText = option_ko[option.name];
+        th.setAttribute('id', option.name);
         thead.appendChild(th);
     })
+    thead.childNodes.forEach((item, idx) => {
+        item.addEventListener('click', () => {
+            sortTable(idx);
+        })
+    });
 };
