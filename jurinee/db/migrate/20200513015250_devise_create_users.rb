@@ -38,18 +38,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     end
 
     # 지은 추가
-<<<<<<< HEAD
     # create_table :profiles do |t|
     #   t.string :user_name
     #   t.integer :user_id
     #   t.timestamps
     # end
-=======
-    create_table :profiles do |t|
-      t.integer :user_id
-      t.timestamps
-    end
->>>>>>> my page entry
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
