@@ -1,7 +1,15 @@
 <h1>My Page</h1>
-<a href="/profile/:id/edit">프로필 수정하기</a>
+<%= link_to  "프로필 수정하기", edit_profile_path(current_user.id) %>
 
 <%# 하기 코드 확인 필요 %>
-<%# <div><%= @profile.nickname</div> %>
-<%# <div><%= @profile.info</div> %>
+<div>이름: <%= current_user.name %></div>
+
+<h3>내가 찜한 기업</h3>
+<ul>
+</ul>
+
+<h3>좋아요한 아티클</h3>
+<ul>
+</ul>
+
 

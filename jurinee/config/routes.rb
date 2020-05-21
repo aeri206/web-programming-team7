@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # get 'user/:id/new_profile' => 'user/profiles#new', as: :profile
   # post 'user/:id/new_profile' => 'user/profiles#create', as: :profile
 
-  get '/profile/:id', to: 'profile#index'
-  # get '/profile/:id/edit', to: 'profile#edit' 
+  get '/profile/:id', to: 'profile#index', as: 'profile'
+  get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'
   # post '/profile/:id', to: 'profile#update'
 end

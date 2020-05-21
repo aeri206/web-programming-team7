@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2020_05_13_021108) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.string "nickname"
-    t.text "info"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

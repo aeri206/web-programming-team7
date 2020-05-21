@@ -7,19 +7,8 @@ class ProfileController < ApplicationController
         render 'index'
     end
 
-    # def new 
-    #     @profile = Profile.new
-    # end
-
-    # def create
-    #     @profile = Profile.new(profile_params)
-    #     @profile.user_id = current_user.id
-    #     @profile.save
-    #     respond_with(@profile) # respond_with?
-    # end
-
     # def edit
-    #     # render 'edit'
+    #     render 'edit'
 
     #     profile_id = params[:id]
     #     profile = Profile(profile_id) # 확인 필요 
