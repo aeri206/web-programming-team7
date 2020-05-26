@@ -1,0 +1,81 @@
+<head>
+	<title>웹프개 7조 - 주린이를 위한 안내서</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="landing_page.css" />
+</head>
+<body>
+
+
+	<!-- Banner -->
+		
+
+		<section class="banner full">
+
+			<div class='header'>
+				<div class='accounts'>
+					<% if user_signed_in? %>
+						<div class="greeting"><%= current_user.email %>님, 안녕하세요</div>
+						<a href="/users/sign_out" data-method="delete">로그아웃</a>
+						<%= link_to "My page", controller: "profile", action: "index", id: current_user.id %>
+					<% else %>
+						<a href="/users/sign_in"> Sign in </a>
+						<a href="/users/sign_up"> Sign up </a>
+					<% end %>
+				</div>
+			</div>
+
+			<%= image_tag "logo_1.png", :alt => "", style: 'width: 60%;' %>
+
+		</section>
+
+	<!-- One -->
+		<section id="one" class="wrapper style2">
+			<div class="inner">
+				<div class="grid-style">
+
+
+					<div>
+						<div class="box">
+
+							<div class="content">
+								<%= image_tag "wiki.png", :alt => "", style: 'width: 400px;' %>
+
+								<p>주식을 처음 입문하는 주린이들이 알아야할 기초 상식들에 대한 쉽고 친절한 설명을 제공합니다.</p>
+								<footer class="align-center">
+									<a href="../wiki/wiki_0.html" class="button alt">Learn More</a>
+								</footer>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div class="box">
+
+							<div class="content">
+								<%= image_tag "expert.png", :alt => "", style: 'width: 400px;' %>
+								<p> WIKI를 통해 기초 지식을 배운 주린이들을 위해 실전 분석을 제공하고, 실제 데이터를 통해 직접 원하는 기업을 찾아볼 수 있습니다.</p>
+								<footer class="align-center">
+									<a href="../expert/expert_company.html" class="button alt">Learn More</a>
+								</footer>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+	<!-- Footer -->
+		<footer id="footer">
+
+			<div class="copyright">
+				2020-1 웹프로그래밍개론 7조 - 송지은 박소형 조애리 서용삼 장현익
+			</div>
+		</footer>
+
+
+</body>
