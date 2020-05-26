@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get '/home', to: 'home#index'
-
+  resources :articles
   # get 'user/:id/new_profile' => 'user/profiles#new', as: :profile
   # post 'user/:id/new_profile' => 'user/profiles#create', as: :profile
 
