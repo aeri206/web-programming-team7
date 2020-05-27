@@ -1,0 +1,29 @@
+<h1> New Article </h1>
+<%= form_for :article, url: articles_path do |f| %>
+    <p>
+        <%= f.label :title %><br>
+        title : <%= f.text_field :title %><br>
+        chapter_number: <%= f.text_field :chapter %>
+    </p>
+    <p>
+        <%= f.label :sub_title %><br>
+        sub_title: <%= f.text_field :sub_title %><br>
+        sub_ chapter_number: <%= f.text_field :sub_chapter %>
+    </p>
+    <p>
+        <%= f.label :content %><br>
+        <%= f.text_area :content %>
+    </p>
+    <p>
+        <%= f.label :if_wiki %><br>
+        <%= f.check_box :if_wiki %>
+    </p>
+    <p>
+        <%= f.label :if_sub %><br>
+        <%= f.check_box :if_sub %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+    <% end %>

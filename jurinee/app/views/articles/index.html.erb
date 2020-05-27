@@ -1,0 +1,22 @@
+<h1>Listing articles</h1>
+<table>
+<tr>
+<th>Title</th>
+<th>Sub_Title</th>
+<th>Chapter</th>
+<th>Sub_Chapter</th>
+<th>If_wiki</th>
+<th>If_sub</th>
+<th>Content</th>
+</tr>
+<% @articles.each do |article| %>
+    <tr>
+        <td><%= article.title %></td>
+        <td><%= article.sub_title %></td>
+        <td><%= article.chapter %></td>
+        <td><%= article.sub_chapter %></td>
+        <td><%= article.if_wiki %></td>
+        <td><%= article.if_sub %></td>
+        <td><%= article.content.html_safe.first(50) %></td>
+    </tr>
+<% end %> </table>
