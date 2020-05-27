@@ -92,11 +92,13 @@ input, select, textarea {
   -ms-appearance: none;
   appearance: none; }
 
-table{
-  width: 100%;
-    border: none; 
 
-}
+table{
+    width: 100%;
+      border: 1px solid #444444;
+
+  }
+
 /* Basic */
 @-ms-viewport {
   width: device-width; }
@@ -144,7 +146,6 @@ a {
   color: #254653;
   text-decoration: none; }
   a:hover {
-;
     color: #254653 !important; }
     a:hover strong {
       color: inherit; }
@@ -1076,6 +1077,23 @@ textarea {
   padding: 0 1em;
   text-decoration: none;
   width: 100%; }
+
+  select{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: #ffffff;
+    border-radius: 0.375em;
+    border: none;
+    border: solid 1px rgba(210, 215, 217, 0.75);
+    color: inherit;
+    display: block;
+    outline: 0;
+    padding: 0 1em;
+    text-decoration: none;
+    width: 8em; }
+
   input[type="text"]:invalid,
   input[type="password"]:invalid,
   input[type="email"]:invalid,
@@ -1416,6 +1434,7 @@ button,
   height: 3.3em;
   letter-spacing: 0.075em;
   line-height: 3.5em;
+  margin-left: 1em;
   padding: 0 1.8em;
   text-align: center;
   text-decoration: none;
