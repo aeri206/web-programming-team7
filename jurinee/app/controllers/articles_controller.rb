@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     def show
         if params[:type] == "wiki"
+            @titles = Article.where(if_sub:false).select(:title, :chapter)
+            @sub_titles = Article.where(if_sub:true).select(:chapter, :sub_title, :sub_chapter)
             if params.has_key?(:sub_chapter)
                 if Article.where(chapter: params[:chapter], sub_chapter: params[:sub_chapter]).exists?
                     @title_url = '/wiki/'+params[:chapter]
@@ -35,7 +37,7 @@ class ArticlesController < ApplicationController
         else
             print('not wiki')
             redirect_to '/home'
-            # not wiki
+            # not wiki => TODO : expert
         end
 
     end
