@@ -1,8 +1,20 @@
-<p>
-    <strong>Title:</strong>
-    <%= @article.title %>
-</p>
-<p>
-    <strong>Text:</strong>
-    <%= @article.content %>
-</p>
+<section>
+<% if @article.if_sub %>
+    <h5>
+        <%= link_to @article.title, @title_url %>&gt;
+        <%= link_to @article.sub_title, @sub_url %> 
+    </h5>
+<% else %>
+    <h5>
+        <%= link_to @article.title, @title_url %>
+    </h5>
+<% end %>
+    <br>
+<header class="main">
+<h1><%= @article.title %></h1></header>
+<div><%= @article.content.html_safe %></div>
+<h5><%= link_to '다음페이지로 이동', @next_url %></h5>
+</section>
+
+
+
