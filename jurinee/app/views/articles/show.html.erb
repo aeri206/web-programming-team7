@@ -1,25 +1,127 @@
-<section>
-<% if @article.if_sub %>
-    <h5>
-        <%= link_to @article.title, @title_url %>&gt;
-        <%= link_to @article.sub_title, @sub_url %> 
-    </h5>
-<% else %>
-    <h5>
-        <%= link_to @article.title, @title_url %>
-    </h5>
-<% end %>
-    <br>
-<header class="main">
-<% if @article.if_sub %>
-    <h1><%= @article.sub_title %></h1>
-<% else %>
-    <h1><%= @article.title %></h1>
-<% end %>
-</header>
-<div><%= @article.content.html_safe %></div>
-<h5><%= link_to '다음페이지로 이동', @next_url %></h5>
-</section>
+<head>
+		<title>웹프개 7조 - 주린이를 위한 안내서 > 주린이 WIKI</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "browser.min" %>
+        <%= javascript_include_tag "breakpoints.min" %>
+        <%= javascript_include_tag "util" %>
+        <%= javascript_include_tag "main" %>
+        
+        <%= stylesheet_link_tag "main", media: "all" %>
+        
+    </head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+<div id="main">
+        <div class="inner">
+            <!-- Header -->
+								<header id="header">
+                                    <!--여기에 배너 + 메뉴 넣기-->
+                                    <%= image_tag "logo_2_navy.png", :alt => "", style: 'width: 0.4em;' %>
+									<ul class="actions">
+                                        <li>
+                                            <%= link_to '고수되기', '/expert', :class=> 'button' %>
+                                        </li>
+									</ul>
+									<ul class="mypage">
+                                        <li>
+                                            <%= link_to '마이페이지', '/home' %>
+                                        </li>
+									</ul>
+									<ul class="mypage">
+                                        <li>
+                                            <%= link_to '초기화면', '/home' %>
+                                        </li>
+									</ul>
+                                    <br>
+                                </header>
+                                <!-- Content -->
+            <section>
+                <% if @article.if_sub %>
+                    <h5>
+                        <%= link_to @article.title, @title_url %>&gt;
+                        <%= link_to @article.sub_title, @sub_url %> 
+                    </h5>
+                <% else %>
+                    <h5>
+                        <%= link_to @article.title, @title_url %>
+                    </h5>
+                <% end %>
+                    <br>
+                <header class="main">
+                <% if @article.if_sub %>
+                    <h1><%= @article.sub_title %></h1>
+                <% else %>
+                    <h1><%= @article.title %></h1>
+                <% end %>
+                </header>
+                <div><%= @article.content.html_safe %></div>
+                <h5><%= link_to '다음페이지로 이동', @next_url %></h5>
+            </section>
+        </div>
+</div> 
+<!-- Sidebar -->
+    <div id="sidebar">
+        <div id="inner">
+        <!-- Search -->
+        <section id="search" class="alt">
+            <form method="post" action="#">
+                <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+        </section>
+
+    <!-- Menu -->
+        <nav id="menu">
+            <header class="major">
+                <h2>주린이 WIKI</h2>
+                <h2>INDEX</h2>
+            </header>
+            <ul>
+                <li>
+                    <span class="opener"><a href = "wiki_0.html">0.그래서 주식이 뭐라고?</a></span>
+                    <ul>
+                        <li><a href="wiki_0_A.html">A.주식에 대한 진짜 처음 시작 이야기</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="opener"><a href = "wiki_1.html">1.진짜 주식을 시작해보자</a></span>
+                    <ul>
+                        <li><a href="wiki_1_A.html">A.증권사 가입</a></li>
+                        <li><a href="wiki_1_B.html">B.주식 구입(매수)</a></li>
+                        <li><a href="wiki_1_C.html">C.주식 판매(매도)</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <span class="opener"><a href = "wiki_2.html">2.용어 해설</a></span>
+                    <ul>
+                        <li><a href="wiki_2_A.html">A.필수 용어</a></li>
+                        <li><a href="wiki_2_B.html">B.기업 지표</a></li>
+                        <li><a href="wiki_2_C.html">C.</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <span class="opener"><a href = "wiki_3.html">3.주식의 기술</a></span>
+                    <ul>
+                        <li><a href="wiki_3_A.html">A.차트 분석</a></li>
+                        <li><a href="wiki_3_B.html">B.가치 투자</a></li>
+                        <li><a href="wiki_3_C.html">C.단타</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+                <!-- Footer -->
+                    <footer id="footer">
+                        <p class="copyright">2020-1 웹프로그래밍 7조 - 주린이를 위한 안내서</p>
+                    </footer>
+        </div>
+    </div>
+</div> #wrapper
+</body>
 
 
 
