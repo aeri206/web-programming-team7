@@ -11,7 +11,12 @@
 <% end %>
     <br>
 <header class="main">
-<h1><%= @article.title %></h1></header>
+<% if @article.if_sub %>
+    <h1><%= @article.sub_title %></h1>
+<% else %>
+    <h1><%= @article.title %></h1>
+<% end %>
+</header>
 <div><%= @article.content.html_safe %></div>
 <h5><%= link_to '다음페이지로 이동', @next_url %></h5>
 </section>
