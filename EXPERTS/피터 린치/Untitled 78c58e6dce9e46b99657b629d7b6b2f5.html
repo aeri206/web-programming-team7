@@ -1,0 +1,626 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>피터 린치</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="78c58e6d-ce9e-46b9-9657-b629d7b6b2f5" class="page sans"><header><h1 class="page-title">피터 린치</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@May 16, 2020 4:54 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Created By</th><td><span class="user"><img src="Untitled%2078c58e6dce9e46b99657b629d7b6b2f5/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Last Edited By</th><td><span class="user"><img src="Untitled%2078c58e6dce9e46b99657b629d7b6b2f5/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Last Edited Time</th><td><time>@May 16, 2020 4:54 PM</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Stakeholders</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><td></td></tr></tbody></table></header><div class="page-body"><p id="f54f0801-36e0-488f-b538-fd0bc1241ca6" class="">
+</p><h3 id="69a5ce93-bb3a-4d99-8868-10a0d899af8a" class="">피터 린치</h3><p id="d4f067f7-2cf9-4338-9607-3ef6701549a7" class="">
+</p><ol id="d4aec045-c0ec-4b13-b8ba-74a4daa7df9c" class="numbered-list" start="1"><li>생애(투자약력)<p id="64bbccea-3450-4166-98f0-646be16a759b" class=""> 피터 린치(January 19, 1944)는 1944년 매세추세스에서 태어났다. 대공황 이후 1930년대의 좋지 못했던 상황은 미국 가정들의 트라우마로 남았고, 피터 린치의 가정도 별반 다르지 않았다. 하지만 그는 골프장에서 아르바이트를 하면서 사람들의 투자 얘기에 귀를 기울이게 되었고, 투자의 수익성에 눈을 뜨게 되어 주식시장에 대한 두려움에서 벗어나게 되었다. 보스턴 대학에 진학한 이후 그는 수학, 과학 등의 과목을 피하고 역사, 심리, 정치학 등 인문학을 공부하였고, 이러한 그의 공부는 주식 투자를 수학적으로 도출된 어떤 것이 아닌 논리적이고 상식적인 접근으로 보는 가치관에 도움을 주게 되었다. <div class="indented"><p id="8a4da8fb-8f3d-488e-9108-ed2f99649896" class="">&quot;...나는 논리를 통해 월가의 비논리적인 면을 확인할 수 있었다...월가는 그리스인이 했던 것과 똑같이 생각한다. 초기 그리스인은 며칠 동안 둘러앉아서 말의 이빨을 확인하지 않고 말의 이빨이 몇개인지에 대해 토론하곤 했다. 많은 투자자가 둘러앉아서 기업을 점검하지 않고 그 주식이 어디로 갈 것인지를 토론한다. 그들은 마치 금융의 여신이 그들에게 답을 해줄 것 처럼 토론하는 것이다.&quot;</p></div></p><p id="047907dc-98fe-4bf2-9f44-b1e5aad3bb12" class=""> 그가 대학 시절  아르바이트를 하면서 인연을 맺게 된 피델리티의 사장인 조지 설리번은 그에게 인턴 자리를 주었다. 이로 인해 실무와 학문의 거리를 깨닫는다. 효율적시장가설과 랜덤워크 등의 재무적 이론들이 실제 주식시장을 설명하는데 큰 도움이 되지 못한 것이다.</p><p id="ff8af50f-57fc-4f89-afa8-9f146ea1e306" class=""> 그는 피델리티에 1970년 입사하고, 74년도에 임원이 되어 77년도에 1800만 달러 규모의 마젤란 펀드를 맡았다. 그는 매우 광범위한 선택권을 받아, 1980년 말에는 대부분 국가의 GDP보다 큰 규모의 펀드로 키워낸다.</p><p id="b30e8441-1f88-4517-820e-2b3a0f77e4d9" class=""> </p></li></ol><ol id="2781ad8f-7d01-4007-88a4-262b575ea2fc" class="numbered-list" start="2"><li>그가 추구 하는 것<p id="556f3974-5a31-43be-9b56-d2a6a94b150e" class="">1) 투자원칙 : </p><p id="1f11a7fb-47b2-44b1-8c72-bf5e1babf9c6" class=""> 그는 펀드운용자이면서 펀드운용자를 전혀 신뢰하지 않는 독특한 사람이었다. 그는 정상적인 사람이라면 누구든 &#x27;대부분의&#x27; 월가의 전문가만큼 똑같이 주식을 선정할 수 있다는 것을 확신하게 되었다고 한다. 투자라는 영역에서 전문가는 생각보다 영리하지 못하고, 아마추어들에게 오히려 많은 이점이 있다는 주장이다. 그렇다면 그가 주장하는 월가의 전문가들이 영리하지 못한 이유는 무엇일까?</p><p id="b826eef0-3be5-42e0-b156-32956e5f22b1" class=""> ㄱ) 관례적 실패</p><p id="d654620a-ee82-4d59-8771-63f5e2e4106a" class=""> 그들은 분명히 똑똑하지만, 투자생태계에서의 불문율들이 그들을 옥죈다. 관습적인 방식을 시도해 실패하는 것은 괜찮지만, 관습적이지 않은 새로운 방식을 시도하다 실패하면 고소득의 직업을 잃게 된다. 때문에 그들은 관습에서 벗어나기 힘들다. IBM에서 돈을 잃는다면 투자자들은 IBM에서 무슨 문제가 있었냐고 물을 것이지만, 만약 듣보잡 주식에서 돈을 잃으면 당신에게 무슨 문제가 있냐고 물을 것이라는 유명한 말이 있다.</p><p id="cd7d2dbf-a146-4871-a9a7-9c97dfe39751" class=""> ㄴ) 규제자</p><p id="8111e11b-7d88-499f-af85-fe6ca6eed2f6" class=""> 비록 운용자가 색다른 시도를 하려고 해도 펀드나 규제기관의 규정 때문에 시도가 막힐 수 있다. 위원회의 다수가 참여하는 주식이 펀드에 종목으로 편입되기 때문. 하지만 위원회 구성원들은 기업에 대해 거의 알지 못한다. </p><p id="6b4eaeb4-0363-4755-be29-fdcfec9ec015" class=""> ㄷ) 중소형주를 무시</p><p id="22413a3f-ae23-469c-a90f-59f8ffd280e2" class=""> SEC의 규정과 관례가 대형주만을 사도록 조장하기도 한다. 펀드는 자산의 5% 이상을 특정 자산에 투자할 수 없다. 따라서 이들 펀드는 S&amp;P 500 기업에 투자할 수 밖에 없고 미국 내 다른 수많은 기업에 시선을 주지 못한다. 일부 펀드는 또한 시총 1000억 미만의 회사는 매수를 금지하는 규정도 두어 더더욱 이런 경향성을 가중시킨다.</p><p id="a4e1fb32-a436-4fe2-8969-b36138d96dcc" class=""> ㄹ) 무지로의 투자</p><p id="15c40b6b-3d76-405f-8c88-e33cd294802e" class=""> 월가는 이해하기 어려운 산업에 투자하는 경향이 있다. 하지만 투자는 본인이 이해할 수 있는 영역에 해야한다.</p><p id="1cdcd05c-57f1-424a-b36e-e275867a2ff6" class=""> ㅁ) 행동의 동질성</p><p id="f433bf9c-c6d7-484a-852b-f564e858c0d7" class=""> 월가 사람들은 ㄱ)에서 언급한 관례적 실패의 이유로 많은 대형 기관들이 인정하고 서로가 매수하는 것을 과도하게 신경쓰다 보니 새로운 것을 매수하여 큰 수익을 벌기 힘들다. 예컨데 월마트 같은 기업이나 새로운 형태의 기업이 나타나면 이미 한번 크게 상승한 후에야 매수하게 된다. </p><p id="21b4d932-7921-4338-8b50-7c5719be1229" class=""> 이러한 이유들로 인해서 펀드 운용자들은 개별 투자자보다 나을 게 없다는 것이 피터 린치의 주장이다. 개인 투자자들은 상기와 같은 불리한 점을 겪지 않고, 특정 기업들의 지식을 축적할 수 있다. 큰 규모의 주식들만 보게 되는 전문가들보다 훨씬 일찍 이를 일상생활에서 관찰할 수 있다. 예컨데 그가 투자해서 크게 성공한 라 퀸타 모텔은 홀리데이 인의 직원이 말해주었고, 던컨 도너츠는 직접 먹어본 그곳의 커피를 통해서 알게 되었고, 애플은 아이들이 집에서 이를 사용해서 알게 되었으며 타코벨은 캘리포니아 여행 도중에 직접 먹어보게 되었다. 이러한 단서를 얻게 되면 개인 투자자는 연차보고서, 기업 주담, 방문, 품질 리서치 등을 직접 해볼 수 있는 것이다.</p><p id="18594024-a213-4f08-b7a8-d9c2f37a3e65" class="">
+</p><p id="eaa61584-8560-401e-86e3-c963cd97f4c4" class="">2) 투자 방법과 포트폴리오 구성</p><p id="98097c15-c3f3-47eb-b37d-736234df3a21" class="">ㄱ) 투자 방법 — 고성장주</p><p id="704fe20c-a97d-4ed6-b0b8-b32e2cc676b0" class=""> 마젤란 펀드는 그 규모 때문에 저성장주/대형우량주/경기순환주/고성장주/회생주/자산주 여섯개의 카테고리로 나누어 주식을 선정한다. 그 중 린치는 &#x27;고성장주&#x27;를 제일 선호한다. 고성장주는 &lt;고속 서앙하는 중소형 기업으로, 높은 잠재력을 지닌 틈새 사업을 운영하며 연간 20-25% 성장하는 기업&gt; 이다. 이러한 고성장주를 포착하는 데에는 4가지 요소가 필요하다. <div class="indented"><p id="cc6f0914-3524-4277-bc2b-cda9f10c4e0a" class="">(1) 강력한 독점권<div class="indented"><p id="eef03623-683f-4ab0-b2e9-ed9d0ed6a743" class=""> 린치는 저성장 기업에서 기업이 우수한 독점력을 더 잘 활용한다고 생각한다. 그는 오히려 통념과는 다르게 장례 서비스처럼 산업이 전혀 성장하지 않은 것을 더 선호하기도 한다. 예컨데 컴퓨터 업계는 우수한 인력들이 수천명씩 공급되어 혁신을 찾지만, 따분한 사업들에서는 이런 일들이 일어나지 않기 때문에 경쟁의 문제가 덜하다. 심지어 따분해 보이는 이러한 산업들은 고성장을 이루기도 한다. 사업에서 모방은 가장 진정한 형태의 타격이라고 생각하는 그는, 정체된 시장에서 높은 점유율을 확보하는 기업이 활발한 시장에서 점점 떨어지는 점유율을 지닌 기업보다 바람직하다고 주장한다. </p><p id="1bd8e95c-5479-46dd-b3d8-4b23744b776d" class=""> 때문에 이런 따분한 시장에서 강력한 독점권을 찾아야 한다. 이런 기업을 찾기 위해 여러 힌트가 있는데, 예컨데 기업이 고객을 잃지 않으면서 가격 결정력이 있을 때, EPS가 꾸준히 증가할 때, 기업이 한 지역에서의 성공을 타 지역으로 복제할 때, 제품의 많은 부분을 한 소비자에게 의존하지 않을 때, 명시적인 지역 독점을 유지할 때가 그것이다. 이러한 기업은 단순한 사업을 영위할 것이며, 단순한 사업에 대해 이해하고 결론을 내리는 것은 훨씬 쉽다.</p></div></p><p id="a03caff5-4817-42fc-b0af-29d0b81e904d" class="">(2) 소유주 지향 경영 — 우수한 경영진<div class="indented"><p id="e2a85bef-f74c-40cc-9738-3b557cc0d407" class=""> 경영진은 우수해야 한다. 이는 경영진이 얼마나 본인이 아니라 주주를 위하는지를 살펴보면 알 수 있다. 경영자가 본인의 사무실 및 건물에 얼만큼의 투자를 하는지, 직원을 어떻게 대우하는지, 여분의 현금흐름을 어떻게 취급하는지, M&amp;A에 대한 생각이 어떠한지 등이 그것이다. 특히 경영진 본인이 주주가 되려고 주식을 지속적으로 매수할 때 그는 이를 굉장히 좋은 신호로 해석한다.</p></div></p><p id="e6800837-edef-4cc3-97c1-9d98117ef0a6" class="">(3) 재무 건전성 <div class="indented"><p id="2f202414-bfb2-42c0-a8b9-2de35928f6d8" class="">  주식에서의 최대의 손실은 취약한 재무제표에서 나온다고 린치는 주장한다. 그는 부채 총계 뿐만이 아니라 부채 구조에도 그만큼의 관심을 보인다. 채무가 단기에 몰려있거나 상환 일자가 얼마 남지 않은 경우, 현금에 비해 부채가 점점 증가하는 경우 모두 좋지 않은 징조이다. 이런 경우 경기의 하강 국면에 심각한 위기에 처할 수 있다.</p></div></p><p id="2568ee9e-04d9-41a9-a168-1f11d2c594b3" class="">(4) 낮은 가격<div class="indented"><p id="f9379abf-9479-4663-a55a-b5d581edd113" class="">  린치는 그레이엄과 마찬가지로 주식을 기업의 일부로 평가해야 한다고 한다. 주식은 기업 소유권을 나타내므로, 만약 기업이 향후에 수익이 지속적으로 상승할 것이라고 예상하지 않으면 높은 수준의 가격(PER)을 거부해야 한다고 한다. 높은 PER을 보이는 회사는 이를 정당화하기 위해 높은 ROE를 가져야하는 것이다. 이를 위해 그는 간편한 식을 제시한다. <div class="indented"><p id="33a6f642-c182-4a9f-b9f6-5c7400afa5b4" class="">성장률 * 1/2 &lt; PER &lt; 성장률 * 2</p></div></p><p id="696eac36-b46b-44ce-bad3-0aae8945a904" class=""> 하지만 이러한 린치의 식은 현재의 낮은 인플레이션율 시대와 어울리지 않는다. 요는 성장 전망에 비해 높은 PER을 보이는 회사를 피해야 한다는 것이고, 이러한 수치의 상한선은 개인 투자자가 현명하게 결정하면 될 것이다.</p></div></p></div></p><p id="965902e6-a971-4ab2-90f8-fbcc08b558ae" class=""> 이러한 4가지의 요소를 충족시키는 기업을 찾으면, 많은 고려사항을 몇가지 핵심적인 요점으로 추출하여 2분간 다른 사람을 설득시키는 형태로 이해시킬 수 있어야 한다고 한다. </p><p id="a649c185-0779-4333-846b-a2f6f5a74542" class="">
+</p><p id="a193cd38-d847-4b5d-9392-d742c01d86a7" class="">ㄴ) 포트폴리오 관리</p><p id="1fd8e3d1-16fe-466a-9035-c2f649d78835" class=""> 투자자는 종목 선정뿐만이 아니라 위험을 줄이기 위해 포트폴리오 관리를 해야 한다. 하지만 동시에 너무 많은 기업에 투자해서는 안된다. 왜냐하면 개인이 &#x27;전문가&#x27;에 비해 가질 수 있는 이점인 분석적인 우위를 포기해야 하기 때문이다. 투자에 있어서 군중들은 본인의 의견과 반대되는 의견을 항상 제시할 것이다. 이러한 두려움을 물리칠 수 있는 유일한 방법은 그들보다 지식적으로 많이 아는 방법 뿐이다. 따라서 본인이 높은 수준의 지식을 가지고 있고 이를 유지할 수 있을때만 그 주식을 보유해야하고, 이를 위한 적절한 포트폴리오 수는 3개에서 12개 사이가 되어야 한다. </p><p id="079525ef-f76c-403d-9959-1057eb184450" class=""> 주식의 보유 단계에 있어서 가장 중요한 것은 상기에서 언급했듯이 계속해서 모니터링하는 것이다. <div class="indented"><p id="e24424c2-b681-4df9-9368-93ceade7a590" class="">1) 주식이 여전히 향후 이익 전망에 비해 매력적인 가격을 보이는지</p><p id="b02da68c-2239-4227-880c-a6c68a1385a4" class="">2) 향후 이익을 늘리기 위해 기업에서 무엇을 하고 있는지</p></div></p><p id="553ddcab-60d0-4713-990f-9fe25ad56a89" class=""> 인내심을 가지고 잘 파악하는 것이다. 본인이 소유한 주식 10 종목 중 7종목이 예상대로 움직이면 굉장한 것이고 6종목이어도 엄청난 수익을 낼 수 있다. 나머지 종목들이 손실을 내거나, 한 해 -의 수익률을 거두었다고 해서 인내심이 바닥나면 안된다. </p></li></ol><ol id="9bafbd4a-d1b6-4fbb-9af7-d903b0da1a96" class="numbered-list" start="3"><li>그가 피하는 것<p id="0ab90299-cb79-4518-91f4-d6ee30dc28e8" class="">1) 시장을 예측하려 하지 마라<div class="indented"><p id="45e68d45-f196-48fb-acc8-569dab899d2b" class=""> 거시지표 등으로 시장을 예측하려는 수많은 사람들이 있지만 지속적인 수익을 거두는 사람은 없다는 것이 린치의 주장이다. 미국의 6만명의 경제학자들이 있는데, 이들이 두 번 연속으로 경기침체국면을 예측하는데 성공했다면 지금쯤 백만장자가 되어있을 것이라고 린치는 비판한다. </p></div></p><p id="e8e5f8d1-320a-49f2-b680-7e06a4a6026a" class="">2) 기술적 분석을 믿지 마라 <div class="indented"><p id="7d646e32-b657-4bc8-882a-1ce601c2a737" class=""> 이 역시 시장 예측만큼이나 쓸데 없는 짓이다. 그는 &#x27;들쭉날쭉하게 움직이는 선의 과학에 관심을 기울이지 않는다&#x27;라고 한다. 투자자는 해당 기업의 기본적 사업 분석에 집중해야 하고, 불가능한 것을 이루려고 하는데 시간을 낭비해서는 안된다고 한다. </p></div></p><p id="4db2ecb7-f407-4cbb-8fb4-db90822f7c9b" class="">3) 가장 인기 있는 산업에서 가장 인기 있는 주식/유행하는 주식은 피하라<div class="indented"><p id="8f5861c4-1311-40f1-bd1a-1fa3d02f711d" class=""> 매스컴에서 호평을 받는 주식은 희망과 환상에 의해서 지탱된다. 이런 기업들은 기업의 가치가 증명이 되지 않았을 때 올라간 만큼 빠르게 떨어질 것이다. </p></div></p><p id="ead3fc29-ec59-48c9-920e-5400ca468ba5" class="">4) 파생상품을 하지 마라<div class="indented"><p id="7de97f60-60ff-4115-bdde-f4fdc8b6073f" class=""> 린치는 투자 경력에서 선물/옵션을 한 적이 없다고 한다. 그는 워렌 버핏이 파생상품은 불법화되어야 한다고 하는 데에 동의한다. </p></div></p><p id="89cf9001-b908-46e5-9bb7-a3308ddb2d97" class="">5) 타인의 승리를 보고 본인의 손실이라고 생각하지 마라<div class="indented"><p id="42cff1eb-539b-4bf8-b769-738cc6793a3a" class=""> 본인이 다른 주식을 매수했으면 훨씬 더 큰 수익을 냈을 것이라고 생각하지마라. 빠른 보상을 받을 수 있지만 건전한 투자 기준에 맞지 않는 위험한 주식을 매수하게 될 수도 있기 때문이다. </p></div></p><p id="458941e5-87ec-4c9b-a92b-592702cf1de8" class="">6) 주식 유동성이 적다고 배척하지마라<div class="indented"><p id="ef5046b8-87a8-4d23-afcf-ad9424b7f66a" class=""> 대다수의 주식은 하루에 단지 몇 천주만 거래된다. 며칠동안 전혀 거래되지 않는 주식도 있다. </p></div></p></li></ol><ol id="1b930af4-188e-4d4f-afcb-25c4e0ad3ace" class="numbered-list" start="4"><li>결론(요약)<p id="840733e5-8278-4dd4-a043-16d78ed478fa" class=""> 린치는 개인투자자가 전문가만큼, 혹은 그보다 더 높은 수익률을 올릴 수 있다고 믿는 사람이다. 전문가는 업계의 분위기, 규제 등의 여러 제약이 있지만 개인 투자자는 상기의 제약에 얽매이지 않고 투자를 수행할 수 있다. 주식의 분류는 여러가지로 나눌 수 있지만 린치가 제일 좋아하는 범주의 주식은 빠르게 성장하는 중소형주이다. 이러한 주식은 강력한 독점력을 가지고, 제한된 경쟁을 펼치며 사업의 내용이 단순하다. 경영진은 우수하며 재무상태가 매우 양호하고 성장 전망에 비해 낮은 PER을 가지고 있다. 이러한 주식을 고른 뒤에는 위험을 피하기 위해 포트폴리오를 구성해야 하는데, 앞서 말한 개인 투자자의 이점을 살리기 위해 너무 많은 다각화를 꾀하면 안된다. 이러한 포트폴리오를 구성한 후에는 기업의 펀더멘탈을 지속적으로 살펴보아 이익 전망이 훼손되는지 잘 살펴보고 매도해야 한다. 이러한 그의 투자는 양적인 요소와 질적인 요소가 적절히 섞인 투자법이라고 볼 수 있다. </p></li></ol></div></article></body></html>
