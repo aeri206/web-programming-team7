@@ -1,0 +1,84 @@
+<head>
+		<title>웹프개 7조 - 주린이를 위한 안내서 > 주린이 WIKI</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "browser.min" %>
+        <%= javascript_include_tag "breakpoints.min" %>
+        <%= javascript_include_tag "util" %>
+        <%= javascript_include_tag "main" %>
+        <%= stylesheet_link_tag "main", media: "all" %>
+        
+</head>
+<body id="article-show">
+<!-- Wrapper -->
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <header id="header">
+                    <!--여기에 배너 + 메뉴 넣기-->
+                    <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
+                    <div class="mypage">
+                    <% if user_signed_in? %>
+                        <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+                        <div><%= link_to "마이페이지", controller: "profile", action: "index", id: current_user.id %></div>
+                        <% else %>
+                        <a href="/users/sign_in"> Sign in </a>
+                        <a href="/users/sign_up"> Sign up </a>
+                        <% end %>
+                    </div><br>
+                </header>
+                <!-- Content -->
+                <section>
+                    <h4><%= 'Search Results about ' + @query %></h4>
+                    <hr class="major"></hr>
+                    <% @articles.each do |article| %>
+                            <% if article.if_sub %>
+                                <% if article.if_wiki %>
+                                    <%= link_to '/wiki/'+article.chapter.to_s + '/' + article.sub_chapter.to_s do %>
+                                        <h4><%= article.title + ' > ' + article.sub_title %></h4>
+                                        <h5><%= article.content.html_safe.first(100) %></h5>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to '/expert/'+article.chapter.to_s + '/' + article.sub_chapter.to_s do %>
+                                        <h4><%= article.title + ' > ' + article.sub_title %></h4>
+                                        <h5><%= article.content.html_safe.first(100) %></h5>
+                                    <% end %>
+                                <% end %>
+                            <% else %>
+                                <% if article.if_wiki %>
+                                    <%= link_to '/wiki/'+ article.chapter.to_s do %>
+                                        <h4><%= article.title %></h4>
+                                        <h5><%= article.content.html_safe.first(100) %></h5>
+                                    <% end %>
+                                <% else %>
+                                    <%= link_to '/expert/'+article.chapter.to_s do %>
+                                        <h4><%= article.title %></h4>
+                                        <h5><%= article.content.html_safe.first(100) %></h5>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                                
+                        <hr class="major"></hr>
+                    <% end %>
+                </section>
+            </div>
+
+        </div>
+        <div id="sidebar">
+            <div class="inner">
+                <!-- Search -->
+                <section id="search" class="alt">
+                    <%= form_tag("/search", method: "get") do %>
+                        <%= text_field_tag 'query' ,nil, :placeholder => "Search" %>
+                    <% end %>
+                </section>
+                <nav id="menu"></nav>
+                <footer id="footer">
+                    <p class="copyright">2020-1 웹프로그래밍 7조 - 주린이를 위한 안내서</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+

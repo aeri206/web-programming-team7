@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/expert/:chapter' => 'articles#show', :defaults => {:type => 'expert'}
   get '/expert/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'expert'}
   get '/expert' => 'articles#index', :defaults => {:type => 'expert'}
+  get '/search' => 'articles#search'
   
   
   # get 'user/:id/new_profile' => 'user/profiles#new', as: :profile

@@ -117,7 +117,12 @@ class ArticlesController < ApplicationController
         print(@articles)
         redirect_to '/home'
     end
-    
+
+    def search
+        @query = params[:query]
+        @articles = (Article.where('title LIKE ?', '%'+params[:query]+'%')).or(Article.where('sub_title LIKE ?', '%'+params[:query]+'%')).or(Article.where('content LIKE ?', '%'+params[:query]+'%'))
+    end
+
 private
     def article_params
         params.require(:article).permit(:title, :sub_title, :content, :if_wiki, :if_sub, :chapter, :sub_chapter)

@@ -34,9 +34,6 @@
 						<a href="/users/sign_in"> Sign in </a>
 						<a href="/users/sign_up"> Sign up </a>
 					<% end %>
-                                        <div>
-                                            <%= link_to '초기화면', '/home' %>
-                                        </div>
                                         </div>
                                     <br>
                                 </header>
@@ -82,9 +79,9 @@
         <div class="inner">
         <!-- Search -->
         <section id="search" class="alt">
-            <form method="post" action="#">
-                <input type="text" name="query" id="query" placeholder="Search" />
-            </form>
+            <%= form_tag("/search", method: "get") do %>
+                <%= text_field_tag 'query' ,nil, :placeholder => "Search" %>
+            <% end %>
         </section>
 
     <!-- Menu -->
