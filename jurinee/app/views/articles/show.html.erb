@@ -10,7 +10,7 @@
         <%= stylesheet_link_tag "main", media: "all" %>
         
     </head>
-<body>
+<body id="article-show">
 <!-- Wrapper -->
 <div id="wrapper">
 <div id="main">
@@ -79,7 +79,7 @@
 </div> 
 <!-- Sidebar -->
     <div id="sidebar">
-        <div id="inner">
+        <div class="inner">
         <!-- Search -->
         <section id="search" class="alt">
             <form method="post" action="#">
@@ -90,7 +90,11 @@
     <!-- Menu -->
         <nav id="menu">
             <header class="major">
+            <% if @article.if_wiki %>
                 <h2>주린이 WIKI</h2>
+            <% else %>
+                <h2>고수되기</h2>
+            <% end %>
                 <h2>INDEX</h2>
             </header>
             <ul>
