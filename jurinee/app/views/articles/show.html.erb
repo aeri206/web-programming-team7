@@ -19,21 +19,22 @@
 								<header id="header">
                                     <!--여기에 배너 + 메뉴 넣기-->
                                     <%= image_tag "logo_2_navy.png", :alt => "", style: 'width: 0.4em;' %>
-									<ul class="actions">
-                                        <li>
+									<div class="actions">
+                                    
                                             <%= link_to '고수되기', '/expert', :class=> 'button' %>
-                                        </li>
-									</ul>
-									<ul class="mypage">
-                                        <li>
-                                            <%= link_to '마이페이지', '/home' %>
-                                        </li>
-									</ul>
-									<ul class="mypage">
-                                        <li>
+									</div>
+                                    <div class="mypage">
+                                    <% if user_signed_in? %>
+						<div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+						<div><%= link_to "마이페이지", controller: "profile", action: "index", id: current_user.id %></div>
+					<% else %>
+						<a href="/users/sign_in"> Sign in </a>
+						<a href="/users/sign_up"> Sign up </a>
+					<% end %>
+                                        <div>
                                             <%= link_to '초기화면', '/home' %>
-                                        </li>
-									</ul>
+                                        </div>
+                                        </div>
                                     <br>
                                 </header>
                                 <!-- Content -->
