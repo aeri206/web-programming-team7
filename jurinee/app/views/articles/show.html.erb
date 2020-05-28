@@ -19,9 +19,12 @@
 								<header id="header">
                                     <!--여기에 배너 + 메뉴 넣기-->
                                     <%= image_tag "logo_2_navy.png", :alt => "", style: 'width: 0.4em;' %>
-									<div class="actions">
-                                    
-                                            <%= link_to '고수되기', '/expert', :class=> 'button' %>
+                                    <div class="actions">
+                                        <% if @article.if_wiki %>
+                                            <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
+                                        <% else %>
+                                            <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
+                                        <% end %>
 									</div>
                                     <div class="mypage">
                                     <% if user_signed_in? %>
@@ -79,18 +82,34 @@
                 <h2>INDEX</h2>
             </header>
             <ul>
-            <% @titles.each do |title| %>
-                <li>
-                    <span class="opener">
-                    <%= link_to title.title, '/wiki/'+title.chapter.to_s %>
-                    </span>
-                    <ul>
-                    <% @sub_titles.select { |s| s.chapter == title.chapter }.each do |subs| %>
-                        <li><%= link_to subs.sub_title, '/wiki/'+subs.chapter.to_s + '/'+subs.sub_chapter.to_s %></li>
-                        <% end %>
-                    </ul>
-                </li>
+            <% if @article.if_wiki %>
+                <% @titles.each do |title| %>
+                    <li>
+                        <span class="opener">
+                        <%= link_to title.title, '/wiki/'+title.chapter.to_s %>
+                        </span>
+                        <ul>
+                        <% @sub_titles.select { |s| s.chapter == title.chapter }.each do |subs| %>
+                            <li><%= link_to subs.sub_title, '/wiki/'+subs.chapter.to_s + '/'+subs.sub_chapter.to_s %></li>
+                            <% end %>
+                        </ul>
+                    </li>
+                <% end %>                   
+            <% else %>
+                <% @titles.each do |title| %>
+                    <li>
+                        <span class="opener">
+                        <%= link_to title.title, '/expert/'+title.chapter.to_s %>
+                        </span>
+                        <ul>
+                        <% @sub_titles.select { |s| s.chapter == title.chapter }.each do |subs| %>
+                            <li><%= link_to subs.sub_title, '/expert/'+subs.chapter.to_s + '/'+subs.sub_chapter.to_s %></li>
+                            <% end %>
+                        </ul>
+                    </li>
+                <% end %>    
             <% end %>
+            
             </ul>
         </nav>
                 <!-- Footer -->

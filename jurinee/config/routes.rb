@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get '/expert' => 'articles#index', :defaults => {:type => 'expert'}
   
   
-  
   # get 'user/:id/new_profile' => 'user/profiles#new', as: :profile
   # post 'user/:id/new_profile' => 'user/profiles#create', as: :profile
 
