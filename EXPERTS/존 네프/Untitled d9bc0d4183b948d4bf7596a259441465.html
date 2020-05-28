@@ -1,0 +1,626 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>존 네프</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d9bc0d41-83b9-48d4-bf75-96a259441465" class="page sans"><header><h1 class="page-title">존 네프</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@May 24, 2020 10:37 AM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Created By</th><td><span class="user"><img src="Untitled%20d9bc0d4183b948d4bf7596a259441465/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Last Edited By</th><td><span class="user"><img src="Untitled%20d9bc0d4183b948d4bf7596a259441465/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Last Edited Time</th><td><time>@May 28, 2020 12:37 PM</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Stakeholders</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><td><span class="selected-value select-value-color-default">Product Spec</span></td></tr></tbody></table></header><div class="page-body"><h3 id="cc99433d-3fde-491f-bf56-132a158bb56f" class="">존 네프</h3><p id="164da4d2-d288-49ea-9ad8-cf1529be3532" class="">
+</p><ol id="4df4bf7f-0fa1-4881-8e9b-96ddd2137f3e" class="numbered-list" start="1"><li>생애(투자약력)<p id="ea3c80ff-5dd4-4ae4-ad06-a71ab9ab58ec" class=""> 존 네프(September 19, 1931 – June 4, 2019)는 1931년 오하이오에서 태어났다. 어렸을 때 집안이 파산하면서 돈의 중요성에 대해서 깨달았다. 초등학교 시절 야구 카드를 거래하면서 기본적인 주식의 흐름에 대해서 알게 되었다. 대학시절에는 벤저민 그레이엄의 제자인 시드니 로빈스에게 영향을 받았고, 이어서 윈저 펀드에 일자리를 잡는다. 31년 동안 운영한 윈저펀드는 그 중 25년간 시장 수익률을 능가했다. 윈저펀드가 거둔 5546.5%의 수익률은 S&amp;P 500 인덱스를 두배 이상 능가했다.</p><p id="172d20b8-586e-481f-a1f4-83ebdb4b47fb" class=""> </p></li></ol><ol id="7c53077e-15fc-4d10-a1cc-6a02bb73050a" class="numbered-list" start="2"><li>그가 추구 하는 것<p id="6e8221ba-6069-4d35-9756-c3d2cc437593" class="">1) 투자원칙 : <div class="indented"><p id="0e07a9be-85bc-4c56-b82a-89a91a6254e0" class=""> 네프는 기본적으로 남들이 외면하는 인기없는 주식에 관심을 기울였다. 이런 주식들은 정당한 평가를 못받는 경우가 대부분이어서 낮은 PER을 보여준다. 시장은 일시적 유행에 휩쓸리는 경우가 많기 때문에, 관심을 많이 받는 주식들은 과대평가되는 경우가 많고, 그렇지 않은 주식은 과소평가되는 경우가 많다. 하지만 네프는 단순히 낮은 PER을 가지고 있다고 해서 매수하는 것이 아니라 추가적인 여러 조건을 만족해야 하기 때문에 사람들은 그의 투자 방법을 정교한 저 PER 주식 투자법이라고 한다.</p></div></p><p id="1b289249-149f-47a9-a1d7-f24b68b00702" class="">
+</p><p id="74e5b69a-9b20-42dc-a3ad-c86c4321aa79" class="">2) 투자 방법과 포트폴리오 구성</p><p id="0fdab54d-0e7f-480d-9e9f-6e8b7715cbd2" class="">ㄱ) 투자 방법<div class="indented"><p id="08e75301-c6a3-48b0-b629-69be7858810d" class=""> 존 네프는 시장보다 40-60% 낮은 PER을 보이는 주식을 주로 매수했다. 위에서 언급했듯이 낮은 PER을 가진 주식은 성장동력이 정말로 작기 때문에 그런 경우도 있지만, 시장에서 관심을 덜 받기 때문에 낮은 PER을 지닌 경우도 많다. 때문에 이러한 요소를 엄격하게 배제하고 분석해 본다면 분명히 저평가된 주식을 발견할 수 있다. 이 경우 시간이 흐르면 시장이 기업에 대해서 재평가를 하게 되고 가격이 상승할 여지가 큰 것이다. </p><p id="8a30e0d6-e4a8-44a3-a2dd-2be884719743" class=""> 이와 같은 저 PER 주식의 경우 이미 낮은 주가로 인해서 악재가 터져도 가격이 하방 경직성을 가진다는 장점 또한 가지고 있다. </p><p id="bcd39f6e-c9a5-4fbb-b62d-1fb1cef7df6d" class=""> 하지만 저 PER 주식은 언급했듯이 정말로 낮은 성장 잠재력을 가지고 있기 때문에 저 PER인 경우가 굉장히 많기 때문에 추가적인 요소들이 필요하다. 때문에 그는 몇가지 원칙을 제시하는데, 다음과 같다</p><ul id="49d72900-e8fe-4c41-ac5a-f1471f1a0159" class="bulleted-list"><li>적절한 이익 성장</li></ul><ul id="c0459fcc-881e-4d21-ac44-cf7b1fbb3e8d" class="bulleted-list"><li>배당 수익</li></ul><ul id="f1a5795e-4dd3-40cc-8098-569c3297fcb5" class="bulleted-list"><li>PER 대비 총 수익률</li></ul><ul id="4c90152c-9b56-4388-8bfa-dcf3dd52197d" class="bulleted-list"><li>좋은 기업 전망</li></ul><ul id="547c889b-1571-43ee-a25b-68adf15e9b95" class="bulleted-list"><li>건실한 재무 구조</li></ul></div></p><p id="45bf0fd3-55e5-4622-b93e-916c26d0f64f" class="">ㄴ) 구체적 적용<div class="indented"><ol id="fa05de13-8c40-4e8b-ae32-ea27ddc70eff" class="numbered-list" start="1"><li>적절한 이익 성장<p id="e4040116-0ceb-4984-94bf-95fee619357a" class=""> 연에 적어도 7% 이상의 이익 성장을 보이면서 저 PER인 경우, 적어도 과거 데이터 상으로는 좋은 성장력을 가진다. 하지만 이는 미래의 성장력을 담보하지 않기 때문에 기업 분석에 의거해서 장래의 이익 추정치 역시 좋은 성장력이 있음을 확신할 수 있으면 비로소 투자가 가능하다. 존 네프는 5년 정도를 추정하는 것으로 알려져 있다.</p></li></ol><ol id="cacdfc1f-ea24-4616-9455-ee344a22c165" class="numbered-list" start="2"><li>배당 수익<p id="549b7521-21c6-4c32-a03a-b17aba754023" class=""> 높은 배당 수익은 저평가된 기업을 시장이 재인식하기 전까지 만족스러운 소득을 제공해준다. 그는 15%의 예상 성장률과 1%의 배당 수익을 주는 주식보다 11%의 예상 성장률과 5%의 배당 수익을 주는 주식을 선호한다. 존 네프는 평균적인 주식에 비해 적어도 2% 이상 높은 배당 수익을 추구한 것으로 알려져 있다.</p></li></ol><ol id="b146eca3-3927-46b8-9e16-1e75dd53f53a" class="numbered-list" start="3"><li>PER 대비 총 수익률 <p id="76c281ef-8fc2-40ab-a96d-664e0b9df347" class=""> 존 네프는 경험상 총수익률/PER이 시장의 2배가 되는 주식이 저평가 된 주식이라고 생각한다. 이러한 공식은, 시장의 종합적인 흥분도를 말한다. 즉 시장의 총 수익률의 평균이 10% 정도이고 PER이 20정도라고 하면 비율은 1이 될 것이다. 이 경우 개별 기업 A의 수익률이 8%이고 PER은 낮은 4 정도를 기록할 때 이 비율은 2가 될 것이다. 이 경우 시장의 비율은 1인데 반해 A는 1을 크게 상회하기 때문에 이는 구매할만한 저평가 주식이 되는 것이다.</p></li></ol><ol id="0049f25c-3958-4f9b-bbeb-dd7133f7c444" class="numbered-list" start="4"><li>좋은 기업 전망<p id="7929f56d-5113-41f5-8546-33f7bf60a65e" class=""> 여태까지는 양적인 분석을 말했지만 이 부분은 질적인 분석을 말한다. 미래의 이익성장률은 많은 부분이 기업의 전략과 인력에 따라 달려있다. 네프는 산업이 어떻게 흘러가는지 배우라고 한다. 네프는 기업의 선발업체 여부, 평판, 산업의 성장 전망, 가격결정력, 경쟁자, 경영진 등을 다양하게 분석하여 정말 잘 아는 기업의 중요성을 강조한다. 아는 범위 내에서 깊게 산업 분석을 하고 난 뒤에야 장래 수익성에 대한 판단을 할 수 있는 것이다. </p></li></ol><ol id="71e7caef-0a98-4eb1-8d29-cf3b7aa6fa3a" class="numbered-list" start="5"><li>건실한 재무 구조<p id="a8cc10f1-e65d-48f5-94ea-5e5c4fe50422" class=""> 네프는 우선 많은 데이터를 모은다. 이를 통해 ROE를 보고 재무 구조를 나쁘게 할만큼 부족한지, 현금흐름을 살펴보아 혹시 차입이 장래에 필요한지 살펴본다.</p></li></ol></div></p><p id="58567b9f-de11-4ca7-aa24-eb9a30eb196f" class="">
+</p></li></ol><ol id="55bd0a95-bcd7-473e-acc6-a7767ae43e1b" class="numbered-list" start="3"><li>그가 피하는 것<p id="5f6228e2-fa3e-4ffc-a1d3-7d21dbd04205" class="">1) 높은 거래 비용<div class="indented"><p id="3f1d68fb-9aa8-4b5d-9c3b-c46918f9f79e" class=""> 그의 펀드는 포트폴리오 매매를 빈번하게 하지 않기 때문에 거래 비용이 낮다. 거래 비용에서 절약한 돈으로 정보 수집과 분석을 한다. </p></div></p><p id="b2cbb4db-ddc5-42eb-bf87-8dfc2b1e77fb" class="">2) 지나친 다각화<div class="indented"><p id="d38c3369-872d-4b67-a33d-12c2275ef683" class=""> 어느 정도의 다각화는 필요하지만 너무 지나치면 독이 된다. S&amp;P 500 종목 중에도 그는 정말 많을 때에도 60개 종목만을 보유할 뿐이었다. 그는 저평가가 분명한 기업을 적당한 다각화를 통해 보유했다.</p></div></p><p id="271be8a1-173c-48da-b540-c3f08c1a1811" class="">3) 기술 주식<div class="indented"><p id="67b17b1c-be72-44ee-acef-a0f8f00e6ee5" class=""> 그는 기술 주식을 너무 위험하고, PER 기준을 충족하지 못하고, 본인이 충분한 지식이 없다는 이유로 기피했다. </p></div></p><p id="108dea40-54a8-4785-97c1-710808f78483" class="">4) 과거의 교훈 잊기<div class="indented"><p id="0b779036-9c88-492b-a324-52edcb18295c" class=""> 시장은 어리석어서 과거를 잘 잊는다. 1950년대에 전기전자와 관련된 기업들이 뜰 때 -트로닉스라는 이름을 경쟁적으로 붙인 행위는 90년대 닷컴을 붙이는 행위와 정확히 동일하다. 각 세대는 마법의 기업 몇 개가 있어서 이에 편승해야 한다고 생각하지만, 좋은 전망이 있어도 기술에 대한 정확한 이해와 경쟁자 진입과 같은 것을 명확히 판단한 후에야 결정할 수 있다. </p></div></p><p id="bd73a636-9456-4480-b0ea-1cecae3e406d" class="">5) 강세 시장에 흥분하기<div class="indented"><p id="f2e068c8-797b-4713-8165-2999b6bf977f" class=""> 시장은 주기가 있는데 내재가치를 훨씬 뛰어넘는 가격에 거래가 되는 강세장이 있을 때 투자자들은 이에 현혹되기 쉽다. 피상적인 근거 하에 매매하는 투기적인 상황에 결국 돈을 잃고 만다.</p></div></p><p id="13b20fa5-15e9-4f7c-b239-99cb7461b0d8" class="">6) 기술적/모멘텀 투자<div class="indented"><p id="8649d904-af86-4a9d-892f-89e0c0776f23" class=""> 네프는 시장 움직임을 예측하려고 하지 않는다. </p></div></p><p id="1189591d-c149-45ad-9128-da105bd84f43" class="">7) 고 PER 성장주<div class="indented"><p id="8d5a973d-995f-4bcf-9596-c02a6806c67d" class=""> 고 PER인 주식은 잠재력이라 불리는 것에 시장이 크게 주목했을 때 나타난다. 이는 5)의 경우와 맞물려 주가를 비현실적인 수준까지 올라가게 하기 쉽다.</p></div></p><p id="e2ba3617-d222-42a0-a09b-a4cf360e3a39" class="">8) 주체적인 결정을 못하는 것<div class="indented"><p id="3f1dd504-13e1-4fba-ad4d-d5afb0ea5388" class=""> 네프는 스스로 결정한다. 시장의 대세에 휩쓸리지 않았다. 다만 시장이 항상 틀리다고 가정하면 안된다. 군중이 옳다고 믿을 때 근거가 있는 경우도 많기 때문에 열린 마음을 유지해야 하는 것이다.</p><p id="12bab028-68fe-4598-9b09-0032d5a9a1ff" class="">
+</p></div></p></li></ol><ol id="23449e28-ab22-4bc9-94f3-5f00db7b254c" class="numbered-list" start="4"><li>결론(요약)<p id="fcfd34cf-8ebe-4a0c-9ab3-73c086d74368" class=""> 존 네프는 그레이엄의 영향으로 저 PER 주식을 찾는 계량적인 면모를 보인다. 또한 피터 린치와 유사하게 시장에서 군중과 전문가들이 틀리는 경우가 많다는 것을 간파하고 이를 피해야 한다고 강력하게 역설한다. 네프는 계량적인 방법에 토대를 두고 있지만, 단순히 계량적인 것으로만 거래를 하지 않는다. 그는 기업 분석과 같은 질적인 측면을 매우 강조하며 잘 아는 곳에 투자해야 한다는 원칙을 제시한다.</p><p id="f8c0674b-4acb-46e0-952b-290c539fbae1" class=""> </p></li></ol></div></article></body></html>

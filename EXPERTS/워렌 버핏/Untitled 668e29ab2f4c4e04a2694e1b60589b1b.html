@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>워렌 버핏</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="668e29ab-2f4c-4e04-a269-4e1b60589b1b" class="page sans"><header><h1 class="page-title">워렌 버핏</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@May 24, 2020 1:35 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Created By</th><td><span class="user"><img src="Untitled%20668e29ab2f4c4e04a2694e1b60589b1b/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Last Edited By</th><td><span class="user"><img src="Untitled%20668e29ab2f4c4e04a2694e1b60589b1b/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Last Edited Time</th><td><time>@May 26, 2020 3:20 PM</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Stakeholders</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="d0ffbbaa-b743-458f-8515-12345ec05496" class="">워렌 버핏</h3><p id="25bac776-818f-4455-a148-e3706c07985d" class="">
+</p><ol id="34c5061b-6e69-49bb-983a-64bf01a0ca24" class="numbered-list" start="1"><li>생애(투자약력)<p id="9fda89a1-7551-464e-b315-61bd5ac640ae" class=""> 워렌 버핏(August 30, 1930)은 1930년 네브라스카에서 태어났다. 주식브로커였던 아버지의 영향을 받아서 8살때부터 아버지가 쓴 주식시장에 대한 책을 읽고, 11살 때는 아버지의 사무실에서 잡일을 하기도 했다. 그는 어렸을 때부터 돈을 버는 일에 명석함을 보였다. 신문배달을 하고, 콜라 여러 꾸러미를 사서 조금 더 비싼 값으로 친구들에게 팔기도 하고, 이렇게 번 돈을 핀볼 게임 기계를 사서 설치해서 더 큰 수익으로 불리는 수완을 보여주기도 했다. 이후 이 자금을 바탕으로 자동차를 사서 대여해서 또 돈을 버는 등, 고등학교를 졸업할 즈음 5천달러 이상을 벌었다. </p><p id="52f3ca18-c5bc-47de-ad71-57caa3616b83" class=""> 이후 대학에 진학한 그는 그레이엄의 &lt;현명한 투자자&gt;를 읽고 매료되었다. 그 전에 그는 여느 투자자와 다를 바 없이 차트와 기술적 분석, 각종 소식에 집착했으나 그레이엄의 책을 읽고 기술적 분석의 무의미함을 깨달았다.  </p><p id="36212c25-15fa-4c5a-b093-08241e9b2f99" class=""> 그레이엄 밑에서 일을 하다 고향으로 돌아온 그는 1957년부터 본인의 펀드 운용 사업을 시작했다. 그는 12년 동안에 걸쳐 CAGR 31.6%라는 수익률을 기록한다. 이는 미국 지수의 9.1%보다 경이적으로 높은 수치다. 이후 꾸준히 높은 수익률을 거두며 아직까지 엄청난 수익을 거두고 있다.</p><p id="d8a8011b-1caf-4619-a8ab-5873609a9982" class=""> </p></li></ol><ol id="37f3941f-821a-4a6a-ab2c-025c8d29391c" class="numbered-list" start="2"><li>그가 추구 하는 것<p id="43e7e1d4-6c16-411e-a39d-3dc0f015b557" class="">1) 투자원칙 : <div class="indented"><p id="b9d6dbff-092e-459a-abeb-52055b7e8ef4" class=""> 성공적인 투자를 하기 위해서는 좋은 기업 평가자가 되어야 한다. 버핏은 그레이엄과 같이 주식 1주를 전체 기업의 일부분이라고 생각한다. 따라서 주식의 일부만 매수해도 기업 전부를 매수하는 것처럼 접근한다. 이렇게 생각하면, 그 주식이 단기적으로 주가가 어디로 흐를지 생각하는 것이 아니라 자연스럽게 장기적인 안목을 가지게 된다. 나의 경쟁자는 누구인가? 고객은 누구인가? 경쟁력은 누구인가? 와 같은 것들을 신경쓰게 되는 것이다. 이러한 조사는 IQ와 상관없이, 진지한 리서치와 공들인 시간으로 해결할 수 있는 것들이다. 좋은 기업을 고르는 방법은 다음과 같다.</p><p id="c2ecd0cb-c8ce-484f-9e78-eb35cb01c814" class="">ㄱ) 유망한 장기전망 — 독점판매권 : <div class="indented"><p id="563668ba-47e3-4854-b90a-dd118620fa84" class="">기업은 모방하기 어려운 사업적인 이점이 있고 영속적이어야 한다. 버핏은 이를 &#x27;해자&#x27;라고 표현한다. 이러한 기업은 가격 결정력이 있다. 코카콜라나 디즈니가 그런 기업이다. 이러한 기업들은 매출액을 떨어트리지 않고도 가격을 올릴 수 있다. 대체재도 별로 존재하지 않으며, 다른 기업이 쉽게 산업에 진입할 수도 없다. 이러한 요소들은 높은 ROE로도 확인할 수 있다. </p></div></p><p id="fa6a9d4c-f4b1-4b99-91bf-d8ac87b02f87" class="">ㄴ) 유능하고 정직한 경영진 :<div class="indented"><p id="f0d93769-d206-4676-8a45-bb9fb4f43be1" class="">경영진은 현명한 자본 분배를 하고 장기적인 전망을 가지는 한편, 주주의 이익을 위해 일하는 정직함을 가져야 한다. 이러한 경영진은 일에 열정적이고 장기적인 안목을 가졌고, 인품이 훌륭하며, 회계적인 조작을 하지 않고 본인의 잘못을 인정하는 데 인색하지 않다. </p></div></p><p id="e25b1dbe-e852-4a41-9508-564122295a19" class="">ㄷ) 이해할 수 있는 기업 :<div class="indented"><p id="aaca0a02-ab9c-448e-a262-d118225ce42c" class=""> 투자자의 성과는 오직 수익률로만 평가되기 때문에 더 어려운 기업을 분석하려고 애쓰지 않아도 된다. 이는 능력의 범위와 관련된다. 기술주에 대한 지식이 적다면 이곳에 투자하면 안된다. 물론 그럼으로 인해 마이크로소프트나 구글과 같은 엄청난 기업을 놓칠 수 있다. 하지만 이는 불가피한 일일 뿐이다. </p></div></p><p id="3e08fb15-8856-4641-8020-17d2d0b952ae" class="">ㄹ) 매력적인 가격 :<div class="indented"><p id="c1c09b2b-0b72-4f78-a46c-a51ba2e1951c" class=""> 앞의 기준들을 충족하는 기업들은 많으나, 합리적인 안전마진을 지닌 기업은 적다. 시장이 그 기업을 잘못 평가하고 있을 때 구매해야 한다. 기업이 미래에 벌어들일 수 있는 모든 현금을 할인했을 때 나오는 추정치에, 혹시 잘못 파악하고 있는 것이 있어서 안전하게 남겨둘 수 있는 안전망 격인 가격까지 더하고도 주가가 이보다 적다면 매수한다. </p><p id="6e047564-d43d-4233-9c2c-1ef354970be2" class="">
+</p></div></p><p id="bcbdc27b-fbb5-40e2-a7c0-a9861a5e93bd" class=""> 버핏은 위와 같은 기준을 통해 기업을 선정한다. 그는 기업을 평가하여 내재가치를 도출하고, 이 기업이 10년, 30년이 지나도 좋은 경쟁력을 가질 것이라고 현 시점에서 확신하는 때 주가를 살펴본다. 이 주가가 본인이 도출한 내재가치에 비해 큰 안전마진을 남기고도 작다면 매수를 하는 것이다. </p></div></p><p id="eb62b54e-97f7-4962-9d5b-c99ad40a1e80" class="">
+</p><p id="9ae258ee-ef57-4bff-90ba-27db71484a51" class="">2) 현금흐름할인방법<div class="indented"><p id="5a149bff-6d60-42cd-bc17-090c2c158069" class=""> 버핏이 기업을 평가하여 내재가치를 도출한다는데, 이는 어떻게 이루어지는 것일까? 다소 기본적인 회계,재무적인 지식이 필요할 수 있다. 앞서서 버핏은 기업이 벌어들일 수 있는 모든 현금흐름을 할인한 것이 기업의 내재가치라고 하였다. </p><p id="67364df8-a4be-455e-bf5c-a505d6e54c3e" class="">ㄱ) 현금흐름<div class="indented"><p id="e5e42ed3-dd6c-46a8-b7d3-79fa655871f2" class=""> 버핏이 말하는 현금흐름은 1. 보고된 회계상 이익 2. 감가상각과 같은 비현금비용 3. 기업이 장기적인 경쟁력을 유지하기 위해 지출한 구매 비용 4. 장기적인 경쟁력 유지를 위해 지출한 운영자본의 4가지로 구성되어 있다. 즉 현금흐름 = 1 + 2 -3 - 4</p><p id="82059ea0-9938-426d-b1f1-2fef0a06653f" class=""> 보고된 회계상 이익은 간단하다. 재무제표 상의 당기순이익 수치를 쓰면 된다. 여기에 2. 감가상각을 더해주는 이유는, 비록 감가상각이 비용으로 1의 당기순이익 수치에서 빠져있지만 이것은 실제로 현금이 나가지 않은 금액이므로 다시 더해주어야만 실제로 기업이 들고 있는 현금을 제대로 측정할 수 있는 것이다. 3과 4는 비용으로 되어있지 않아서 1에 포함시켜서 1을 작게 해야 하나, 현재 1에서 빠져있는 상태이다. 따라서 3과 4를 실제로 빼줘야지만 기업이 들고 있는 현금 수치가 나온다.</p></div></p><p id="b2e286bf-4e56-429b-a1aa-d4f9e63727b1" class="">ㄴ) 할인율<div class="indented"><p id="2f2983bc-116c-47a0-bbd2-301f30ee8f2e" class=""> 버핏은 명확하게 본인이 어떠한 할인율을 사용하는지 얘기하지 않는다. 넌지시 파산의 위험이 없는(무위험수익률) 미국 국채 수익률을 사용한다고는 하나, 기업에는 위험이 상존하기 마련이다. 물론 버핏은 본인이 철저한 분석을 마쳤기 때문에 본인이 투자하는 곳에는 위험이 크게 없다고 생각한다. </p><p id="fac96725-28c7-4872-8980-777adf73234a" class="">
+</p></div></p></div></p></li></ol><ol id="b3eb3fff-8266-4e7e-aff5-d7a6a7270c75" class="numbered-list" start="3"><li>그가 피하는 것<p id="f21d2ad0-1fa3-410d-854d-6c558c817e68" class="">1) 거시 경제적 예상, 차트<div class="indented"><p id="2e1a1f6b-a320-4300-bacd-393b1c85a7cc" class=""> 전체 경제에 대한 단기 예측은 주의 분산 요소일 뿐이다. 버핏은 이자율, 실업률, 성장률, 환율 등에 대해 단기적으로 관심을 기울이지 않는다. 거시 경제적 환경에 대해 걱정하지 말고 좋은 기업을 현명한 가격에 매수만 하면 된다. 오히려 거시적으로 지표가 좋지 않을 때 더 좋은 가격에 좋은 기업을 구매할 수 있다. </p><p id="8f4d78b8-c7f0-4e93-9f74-3629566092f3" class=""> 투자자는 주가의 움직임이 아니라 가격과 기업가치의 관계를 봐야 한다. 언제 시장이 움직일지는 도저히 예측할 수 없는 문제이다. 공포와 탐욕이 단기적으로 주식 시장에서 이상한 흐름을 만들어내기 때문에 확실한 가치에 집중해야 하는 것이다.</p></div></p><p id="fbcfa324-f5fb-429c-ad51-40e583c60664" class="">2) 인내심 부족<div class="indented"><p id="08cbad36-41f0-428e-93a5-3679a78ab59d" class=""> 나에게 꼭 맞는 기회가 올 때 까지 기다렸다가 그 기회만 잡으면 된다. 조사하는 모든 주식이 과대평가 되어있다고 생각하면 자금을 비축하고 기다려야 한다. 주식을 보유하고 난 다음에도 기업가치가 가격에 근접할 때 까지 인내심 있게 기다려야 한다.</p></div></p><p id="65a9ed20-ca2b-4eae-94b9-4556ac0c89eb" class="">3) 레밍효과<div class="indented"><p id="670dfae7-dc0d-4662-8702-8c54f73970f5" class=""> 투자자는 독립적으로 생각해야 한다. 자료를 모으고 스스로 추론한 뒤에는 전문가라고 자칭하는 무리들의 말을 듣지 말아야 한다. 수십년 동안 믿을만하다고 증명된 기준을 사용해서 합리적인 구조 하에 가치를 도출했으면 다른 사람들에게 휘둘리면 안되는 것이다.</p></div></p><p id="0367f6fa-5004-41ab-b772-65c6b2dba2c5" class="">4) 파생상품<div class="indented"><p id="ec30151a-485e-47b8-ada4-5f18700ced8c" class=""> 파생상품은 도박과 같다. 진지한 투자자라면 파생상품 시장을 카지노로 여겨야 한다. 투자자는 예측할 수 있는 기업의 장기 전망에 집중해야지 도박꾼이 되어서는 안된다.</p></div></p><p id="cc4becf0-332c-42e2-a21a-772b762d957e" class="">5) 펀드 운용가 신뢰하기<div class="indented"><p id="84a1b864-c740-445c-b847-04f632d0ff38" class=""> 펀드는 수수료로 돈을 벌기 때문에 믿을만하지 못하다. 또한 금융가의 대세에 따르려는 습성을 지니고 있기 때문에 발빠르게 움직이지 않고, 기업에 대해 당신만큼 깊이 알지 못한다.</p></div></p><p id="64bdb7a6-2132-4483-8651-5cdbc70af217" class="">6) 그리스 문자로 된 등식<div class="indented"><p id="a76a33d3-49f7-4536-bd4d-569dba73660b" class=""> 투자는 단순하게 해야 한다. 위험을 시그마로 측정하거나 베타로 측정하는 일을 하지 마라</p></div></p><p id="9cad926d-a7b3-4279-819b-f728cfe28df7" class="">7) 너무 큰 야심<div class="indented"><p id="93d46e38-89ad-4faf-82e7-7b622923f233" class=""> 매년 15%의 수익률이면 충분하다. </p><p id="b13f921e-27a7-4cff-9ba0-9cd4a33382ae" class="">
+</p></div></p></li></ol><ol id="501e953b-5762-4ce3-8390-1eccaa7ff98e" class="numbered-list" start="4"><li>결론(요약)<p id="7b30f866-ba44-4f15-b1b4-3684ace5e06f" class="">  버핏은 그레이엄의 영향을 초기에 많이 받아서 재무 비율을 통한 일원적인 분석을 통해 큰 수익을 얻었지만, 차츰 관리하는 펀드의 규모가 커지고, 단순 수치로는 드러나지 않는 기업의 강한 경쟁력과 경영진과 같은 요소들의 중요성에 관심을 기울임에 따라 스승인 그레이엄의 단순한 양적인 분석을 넘어서서 질적인 분석을 결합한 투자 방법을 사용한다. 그는 질적인 분석을 통해 충분히 산업이 괜찮고 경영진과 같은 중요한 요소들이 충족되었다고 생각하면, 앞서 언급한 재무 비율이나, 현금흐름할인방법을 통해 기업의 내재가치를 도출하여 본다. 안전마진이 충분히 확보되었음에도 불구하고 주가가 내재가치보다 낮을 때, 그는 기업을 매수하고 장기적으로 보유하여 큰 수익을 얻는 것이다. </p><p id="a08f0b9d-4dbb-4944-84c5-ddbed27fa50a" class="">
+</p></li></ol></div></article></body></html>

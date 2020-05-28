@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>벤저민 그레이엄</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="822e028e-fec0-46a5-9e35-eabab09aed4a" class="page sans"><header><h1 class="page-title">벤저민 그레이엄</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Created</th><td><time>@May 28, 2020 12:39 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Created By</th><td><span class="user"><img src="Untitled%20822e028efec046a59e35eabab09aed4a/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Last Edited By</th><td><span class="user"><img src="Untitled%20822e028efec046a59e35eabab09aed4a/KakaoTalk_Photo_2020-04-09-16-09-35.jpeg" class="icon user-icon"/>Jang Hyun Ik</span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M6.98643729,14.0000972 C5.19579566,14.0000972 3.40419152,13.3106896 2.04245843,11.9323606 C-0.681017475,9.21200555 -0.680780251,4.76029539 2.04293482,2.04012507 C4.76664406,-0.68004331 9.22427509,-0.68004331 11.9480135,2.04013479 C13.272481,3.36277455 14,5.1330091 14,6.99552762 C14,8.87640182 13.2721894,10.6285043 11.9480135,11.9509302 C10.5679344,13.3105924 8.77756503,14.0000972 6.98643729,14.0000972 Z M10.2705296,7.00913883 L10.2705296,8.46099754 L10.2705296,8.65543362 L10.076181,8.65543362 L8.6543739,8.65543362 L5.72059514,8.65543362 L5.52619796,8.65543362 L5.52619796,8.46099754 L5.52619796,5.52541044 L5.52619796,3.37946773 L5.52619796,3.18502193 L5.72059514,3.18502193 L7.17253164,3.18502193 L7.36692883,3.18502193 L7.36692883,3.37946773 L7.36692883,6.81467358 L10.076181,6.81467358 L10.2705296,6.81467358 L10.2705296,7.00913883 Z M12.1601539,6.99552762 C12.1601539,5.61697497 11.6190112,4.32597154 10.6393933,3.34769528 C8.63253764,1.34336744 5.35197452,1.34061603 3.34153136,3.33944106 C3.33868273,3.34219247 3.33607716,3.34494388 3.33322852,3.34769528 C1.32397148,5.35459953 1.32372842,8.63641682 3.33322852,10.6433794 C5.34295224,12.6504489 8.62968901,12.6504489 10.6393933,10.6433794 C11.6190112,9.66506426 12.1601539,8.37408027 12.1601539,6.99552762 Z"></path></svg></span>Last Edited Time</th><td><time>@May 28, 2020 12:39 PM</time></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M9.625,10.8465 C8.91187,10.2891 8.12088,9.926 7,9.26013 L7,8.71938 C7.21175,8.47612 7.392,8.176 7.53813,7.83213 C7.94587,7.7315 8.3125,7.33425 8.3125,7 C8.3125,6.51788 8.1095,6.32713 7.8715,6.17137 C7.8715,6.15562 7.875,6.14162 7.875,6.125 C7.875,5.41362 7.4375,3.5 5.25,3.5 C3.0625,3.5 2.625,5.4145 2.625,6.125 C2.625,6.14162 2.6285,6.15562 2.6285,6.17137 C2.3905,6.32713 2.1875,6.51788 2.1875,7 C2.1875,7.33425 2.55413,7.7315 2.96187,7.833 C3.108,8.176 3.28825,8.47612 3.5,8.71938 L3.5,9.26013 C2.37912,9.92513 1.58812,10.2882 0.875,10.8465 C0.041125,11.4984 0,12.4688 0,14 L10.5,14 C10.5,12.4688 10.4589,11.4984 9.625,10.8465 Z M13.125,7.3465 C12.4119,6.78912 11.6209,6.426 10.5,5.76013 L10.5,5.21938 C10.7118,4.97613 10.892,4.676 11.0381,4.33213 C11.4459,4.2315 11.8125,3.83425 11.8125,3.5 C11.8125,3.01787 11.6095,2.82713 11.3715,2.67138 C11.3715,2.65562 11.375,2.64162 11.375,2.625 C11.375,1.91363 10.9375,0 8.75,0 C6.5625,0 6.125,1.9145 6.125,2.625 C6.125,2.64162 6.1285,2.65562 6.1285,2.67138 C6.11188,2.68275 6.09787,2.69588 6.08125,2.70725 C7.83212,3.066 8.59688,4.54825 8.72813,5.74787 C8.97575,6.00863 9.1875,6.39625 9.1875,7 C9.1875,7.60288 8.771,8.20312 8.18388,8.51462 C8.127,8.624 8.06662,8.729 8.00275,8.82962 C8.155,8.91537 8.30025,8.99675 8.44025,9.07463 C9.08075,9.4325 9.63375,9.74137 10.164,10.1561 C10.3022,10.2638 10.4204,10.3801 10.5289,10.4991 L14,10.4991 C14,8.96875 13.9589,7.99837 13.125,7.3465 Z"></path></svg></span>Stakeholders</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Type</th><td></td></tr></tbody></table></header><div class="page-body"><h3 id="063b5c48-ef1d-4613-9665-28971cb0b0fa" class="">벤저민 그레이엄</h3><p id="abb3a3af-6869-4781-b865-ef621bff48df" class="">
+</p><ol id="d37abfbe-76cf-4785-97a9-5354e58c0a94" class="numbered-list" start="1"><li>생애(투자 약력)</li></ol><p id="e927a87a-22fd-4920-b05d-7f8173131440" class=""> 벤저민 그레이엄(May 9, 1894 – September 21, 1976)은 1894년 런던에서 출생했다. 그의 유년 시절에 가족은 미국으로 이주했고, 어린 나이에 아버지의 사망 이후 겪은 가난한 생활과 어머니의 위험한 투자 전략은 그로 하여금 미래에 투자에 대한 안정적인 접근에 영향을 주었을지도 모른다고 한다. 1914년 20살의 나이로 컬럼비아 대학을 졸업한 이후 그는 대학에 남는 대신 월가에서 증권 분석가로 커리어를 시작했다. </p><p id="1fda3492-14b3-4da7-aff6-d020e7f1e4dd" class=""> 이윽고 1926년에 제리 뉴먼을 영입하여 그레이엄-뉴먼 펀드를 결성하여 40만 달러의 납입금으로 본인의 투자 기구를 설립한 이후 뛰어난 수익률을 거두며 1929년에는 250만 달러로 규모가 커졌지만, 대공황을 거치며 누적 70%의 손실을 거두고 만다. 이러한 시기를 거치며 그는 1929년 까지의 미국의 강세장이 주식 투자자들로 하여금 투기자로 전락했다는 생각을 하게 한다. 1932년까지 70%의 손실을 기록한 그의 펀드는 비록 많은 출자자들이 떠났지만 그레이엄-뉴먼 펀드는 그럼에도 살아남아, 1933년에는 50%가 넘는 이익을 내고 1935년 까지 그동안의 손실을 모두 회복한다. 그 후 20년에 걸쳐서 그레이엄-뉴먼 펀드는 고객들에게 엄청나게 높은 실적을 안겨주었다. 이는 수치로도 쉽게 알 수 있는데, 만약 1936년에 1만 달러를 그의 펀드에 투자했다면 20년 동안 매년 2천1백만 달러를 받고 마지막에 원금 1만 달러를 받을 수 있었을 것이다. 이는 수익률로 환산하면 약 20%의 수치로, 유명 IB인 바클레이즈의 11.2%의 수치를 아득히 능가하는 뛰어난 실적인 것이다.</p><p id="dd56e1b8-e454-4a3e-9dba-6d8b5fa6181b" class=""> 그레이엄은 대공황 시기의 손실이라는 개인적인 경험과 강단에서의 강의를 종합하여 &lt;증권 분석&gt;과 &lt;현명한 투자자&gt;라는 책을 통해 가치투자의 선두적인 인물로서 자리잡는다. 가치투자의 산 증인인 워렌 버핏은 그를 &quot;내가 지금까지 알았던 가장 현명한 사람&quot;이라고 하며 벤저민 그레이엄을 그의 가치 투자 스승이라고 할 만큼 가치투자 쪽에서 큰 족적을 남긴 인물이라고 할 수 있다. </p><p id="ba367543-96be-4771-bb1c-13a585e4d48a" class="">
+</p><ol id="ed741d8e-aaad-450a-928e-4bd21b575968" class="numbered-list" start="1"><li>그가 추구 하는 것<p id="0cf6c3ce-26b3-4e8e-a20b-5e13bbff1d7a" class="">1) 투자 원칙 :<div class="indented"><p id="e0aef789-687d-4507-9643-30c990dc5479" class=""> 그의 불우한 어린 시절과 대공황의 경험은 그에게 있어 조심스러운 투자에 대한 강조로 나타났다. 버핏이 강조했듯이 그의 강점은 건전한 투자에 있다. 그레이엄은 대공황을 겪으며 투자와 투기를 합리적으로 설명하려고 노력했다. 그에게 있어 투기는 단순히 파생상품을 사느냐 채권을 사느냐와 같은 금융상품의 종류에 달린 것이 아니고, 단기간 보유하느냐 장기간 보유하느냐와 같은 기간에 달린 것도 아니다. 핵심은 개인의 태도이다. 투기자의 관심사는 시장의 가격 변동을 예측하는 것에 있고 투자자는 반면에 기업에 대한 분석을 통해 이익을 얻으려고 하는 자이다. </p><p id="a88f670f-5d74-4c7f-9c75-75251b2d90e9" class=""> 그레이엄에게 있어 투자는 &quot;기업에 대한 ㄱ)철저한 분석에 근거하여 ㄴ)원금의 안전과 ㄷ)만족스러운 수익을 보전&quot; 하는 행위인 것이다.</p><p id="a54505d8-a077-4914-858e-52997b89de7b" class="">ㄱ) 철저한 분석</p><p id="4309a674-dd16-44b6-afda-e7b3fc751745" class=""> 그렇다면 철저한 분석이란 무엇을 말하는가? 그레이엄은 만약 우리가 어떤 기업의 20% 만큼의 주식을 살려고 할 때 우리는 그 기업이 얼마에 팔리는지 물을 것이지만, 단지 1주를 살 때에는 그런 것에 신경 쓰지 않는다고 비판한다. 하지만 그 기준이 달라서는 합리적이지 않다. 이를 알기 위해서는 사실과 추론에 의거하여 기업의 사실 자료를 비판적으로 분석해야 한다는 것이 그의 주장이다. 그는 이를 분석하는 와중에 일시적인 경기 변동과 같은 것은 분석의 대상에서 제외한다. 예컨데 우리가 좋은 위치의 슈퍼마켓을 인수한다고 할때, 현재 가게 앞 도로의 재포장이 진행되고 있어서 일시적으로 장사가 잘 안된다고 이를 기업의 가치에 반영하면 이는 비합리적인 계산인 것이다.</p><p id="f38ef2f1-8e35-46fb-a828-05c565b94780" class=""> 이러한 그의 기업의 사실에 기반한 철저한 분석과 일시적인 경기 변동을 고려하지 않음은 우리를 곧바로 그의 내재가치 개념으로 이끈다. 내재가치란 개인에게 있어서 사실에 의해 정당화되는 기업의 가격을 말한다. 처음에 내재가치는 조정된 장부가치(자산의 시장에서 팔리는 가격을 반영한 수치)와 동일한 것으로 생각되었다. 즉 기업의 장부에 기록된 자산들을 모두 시장가격으로 조정했을 때의 가치가 기업의 실질적인 가치를 말하는 것이라고 생각했다. 하지만 실제로 기업의 장부가치와 기업이 벌어들이는 돈이 큰 상관이 없다는 문제가 있다. 따라서 그레이엄은 내재가치가 &#x27;수익력&#x27;에 의해 결정된다는 견해를 표력한다. 이는 과거의 추세가 미래에 연장될 것과 같은 여러 가정들이 포함되지만, 현실적으로 미래의 이익을 도출함을 통해 기업의 가치(내재가치)를 알아보는 방법을 제공해 준다는 점에서 의미가 있다. 더군다나 그레이엄에게 있어서 정확한 수치는 필요하지 않다. 분석가는 내재가치의 대략적인 범위를 아는 것이 중요한 것이다. 예컨데 XX전자의 내재가치가 4만원에서 7만원 사이로 분석이 되었다면, 최소 평가액인 4만원 아래에서 시장 가격이 형성될 때 이 종목은 &#x27;매수 종목&#x27;이 되는 것이다.</p><p id="5a1fcb01-4d23-4bbd-a866-64e7b71acf65" class="">ㄴ)  원금의 안전</p><p id="572eaa1a-3475-42de-849f-efdc5899eeb2" class=""> 버핏이 강조했듯이, 그레이엄의 핵심 투자 철학 중 하나는 안전에 있다. 그는 가치가 지불한 시장 가격보다 훨씬 커야한다고 강조한다. 그래야지만 매수한 증권이 분석 당시에 생각했던 것보다 덜 매력적이어도 만족스러운 수익을 얻을 수 있는 것이다. 이 안전 마진의 개념이 투자와 투기를 가르는 시금석이다. 투자자는 철저한 분석을 통해 내재가치를 추론해냈기 때문에 안전마진의 개념을 향유할 수 있지만, 투기자는 주관적인 판단과 불확실한 추론을 사용하기 때문에 안전마진의 개념을 적용할 수 없다.</p><p id="18151fdc-5384-4db0-a951-ee7d0a0a8edd" class=""> 이러한 접근의 장점은 그의 책 &lt;현명한 투자자&gt; 1973년 서문에서 드러난다. 그는 여기서 1972년의 미국 주식들이, 비교적 PER이 낮은 주식조차 12배를 넘는 수준까지 올라왔고, 이러한 8.33%의 주가수익비율은 적절한 안전마진을 형성하기에는 너무 작은 수치(즉 PER이 너무 높다. 왜냐하면 주가수익비율은 PER의 역수. 이런거 탭1에서 설명 필요. 링크 필요.)이기 때문에 건전한 다각화의 상황에서도 위험이 있을 수 있다고 지적한다. 그의 이러한 예측 이후에 1973년에 대폭락이 일어났다. 강세장에서의 거품의 상황이 있었던 것이다. </p><p id="a8798e16-27a8-4a76-9a3b-aaf4f857dcd2" class="">안전마진을 정확하게 확인하는 것을 불가능하나, 정상적이고 합리적인 수치를 통해 최대한 합리적인 범위치를 산출해내야 하는 것이다.</p><p id="321974c1-964d-464b-8c7c-55f6ae11a47e" class="">ㄷ) 만족스러운 수익</p><p id="f67183f0-5d8c-44ae-93fc-da7a8152d3d8" class=""> 그는 직접 소유한 개인 기업에 대해 아는 만큼 소유한 주식에 대해서 알지 못하면 정상적인 수준을 넘는 수익을 기대하지 말라고 한다. 하지만 역설적인 것은 그가 과하다 싶을 정도로 안정적인 안전 마진을 추구하면서도 시장을 능가했다는 점에 있다. 비합리적으로 높은 수익을 목표로 하지 않고 규율 있는 틀에서 건전한 투자 원칙을 사용함으로써 그는 비정상적인 높은 수익을 달성했다. </p><p id="bed8fb4a-2ee9-4c77-924f-57617ab8d49f" class="">기타</p><p id="a4606d7a-7be8-443d-ac71-812fb167b0ff" class="">그가 초기에 구분한 투자자와 투기자의 차이는 후기에 있어서 새롭게 변모했다. 투기적 요소는 거의 모든 요소에 존재할 수 밖에 없는 개념으로 생각한 것이다. 하지만 이를 되도록 작게 하는 것이 분석가의 일이다. 이 부분은 양이 적다 싶으면 쓰고 아니면 스킵</p></div></p><p id="98bf3dae-c2f2-4ca2-8663-cc47f6a6a776" class="">
+</p><p id="53a08ca1-4d6c-407e-8a7b-c11ba7e9426e" class="">2) 세가지 가치투자 방법<div class="indented"><p id="beafdd03-dc44-4bfc-9624-83eaef56498f" class="">그레이엄은 세 가지 접근법을 말한다. 첫번째는 기업의 자산가치에 중점을 둔다. 두번째는 양적인 평가에 중점을 둔다. 세번째는 질적인 평가에 중점을 둔다. </p><ol id="b1d7db77-c7ab-4dc4-a8d7-5a098fd6e3cd" class="numbered-list" start="1"><li>유동자산 가치투자<p id="ef7efdd0-a4e8-415f-914f-60e9b6ddab81" class="">1930년대 초 그는 주가 대비 순유동자산의 가치를 보는 접근법을 개발했다. 이 접근법에서 순유동자산은 유동자산에서 유동부채를 차감한 뒤, 유동자산 항목 중에서도 가중치에 따라 차별적인 합계를 내었다. 예컨데 현금은 100%의 가치로 계산했지만, 재고자산은 50%, 매출채권은 80%의 가중치를 두어 합계를 낸 것이다. </p><p id="52bd53f7-c89c-4001-9de6-2df3c55fd181" class="">이러한 방법은 1930년대에 고유할 것이라고 생각하지만, 그레이엄은 1923-1957년 기간동안 이 방법이 가능함을 보였고, 심지어 강세장이 종식된 1971년,76년에도 50개,100개 이상의 주식이 순유동자산가치 아래에서 주가가 형성되어 있음을 보였다. 즉 이러한 주식은 전반적인 약세장에서 다양하게 발생하고, 경영진의 방만한 경영/투자자들의 단기적 실적만 참고하는 태도 등으로 인해서 생겨날 수 있는 것이다.</p><p id="8a7180c9-3008-4f91-97f0-6aef3c246871" class="">하지만 이러한 주식은 결국 &#x27;수익력&#x27;이 약한 것이 아닌가 의문이 든다. 그레이엄은 물론 모든 순유동자산에서 하회하는 주식들이 좋은 주식은 아니지만, 이중 몇몇 주식들은 경영 개선과 산업 경쟁력 개선으로 기업의 자산 수준에 상응하는 점까지 수익력이 높아질 것이라고 설명한다. </p><p id="093d7a6c-aef8-4ac3-838d-9788c1cd49b1" class="">그는 더불어서 단순한 순유동자산 방법에서 많은 추가적인 조건을 제시한다. </p><ul id="98981ffe-8eab-44b7-8d83-6f2725175767" class="bulleted-list"><li>첫번째는 재무적인 구조(양적요소)이다. 재무상태표에서의 부채 항목이나, 당좌자산의 빠른 손실등을 살펴보고, 손익계산서에서의 경상항목들의 지속성과 감가상각항목 및 장래의 우발채무들도 양적으로 살펴보아야 한다.</li></ul><ul id="992ccafb-1c37-4205-9fe6-fce93b035e98" class="bulleted-list"><li>두번째는 질적 요소들이다. 그레이엄은 양적 자료를 결정적인 것이라고 간주할 수 없다고 한다. 기업의 질적 특성을 분석함으로써 &#x27;수익력&#x27;이 얼마나 영구적인지에 대한 증거를 얻을 수 있다. 이러한 질적 특성은 기업의 독점력/경영진의 인격/산업의 전망 등을 말한다. <p id="9ebcc429-8f62-470c-ac4f-9975d21a4a9c" class="">하지만 그레이엄이 질적 요소가 중요하다고 했지만, 정말 질적인 요소에 상당한 비중을 두었는지는 의문이라고 한다. 그레이엄은 경영 능력의 가장 설득력 있는 지표로 높은 이익 실적이라는 양적인 기준을 내세운다. 여타 투자자보다 더 확실한 양적인 척도를 찾는 데 열심(p.169)이었던 그레이엄에게 있어서 질적 요소들이 얼마나 중요했는지는 의문인 것이다. </p></li></ul></li></ol><ol id="1f08b229-26f4-451f-a7d2-2cced8a83fa1" class="numbered-list" start="2"><li>방어적 가치투자<p id="2f9da4f7-05c9-4ebb-9793-a2489fd6b359" class="">방어적 가치투자는 심각한 손실을 회피하는 데 중점을 둔다. 또한 거의 투입 노력을 안들이는 데 목표가 있다. 따라서 이 방법은 시장 평균적인 수익만을 기대한다.</p><ul id="68e84653-3f1b-4dd1-88d0-0835686204ff" class="bulleted-list"><li>10-30개의 포트폴리오를 구성 : 과도하지 않는 다각화를 통해 개별 주식의 위험을 상쇄.</li></ul><ul id="8dee41c7-a537-461f-84c1-c654d7ef5aab" class="bulleted-list"><li>대기업이고 두각을 나타내야 한다 : 소기업은 평균보다 더 큰 위험이 있다. 또한 두각의 기준은 산업 집단 내에서 상위 25%를 말한다.</li></ul><ul id="f2db3db3-0678-46b0-9ede-fb41111e7f41" class="bulleted-list"><li>매우 견실한 재무 상황 : 제조 기업의 경우 유동부채의 2배 이상인 유동자산을 보유해야 하고, 장기부채는 순유동자산보다 적어야하며, 자기자본이 적어도 자산의 절반 이상이어야 한다. </li></ul><ul id="6372f9ae-2ddc-41e3-9bd2-c1ceb9c9fd45" class="bulleted-list"><li>이익과 배당의 안정성 : 기업은 10년동안 매년 이익이 있어야 하고, 배당은 20년 동안 지불했어야 하며, 주당순이익은 10년동안 적어도 1/3만큼 증가했어야 한다.</li></ul><ul id="93e942f9-93ff-4c08-8fa4-34372fae5405" class="bulleted-list"><li>PER이 적절 : 과거 3년동안 15배, 7년동안 25배, 혹은 1년동안 20배의 상한선을 제안함.</li></ul><ul id="9a3816c0-a170-4c18-ac0d-d09a53385562" class="bulleted-list"><li>주가가 순 자산가치보다 크게 높지 않아야 한다 : 즉 PBR이 1.5배 이내어야 한다.</li></ul><p id="fdb23e66-1348-49fe-826c-f29270a4c5d4" class="">
+</p></li></ol><ol id="b4b7e3b4-a502-4f4d-a070-5ac6a2e08dfa" class="numbered-list" start="3"><li>진취적 가치투자 <p id="7b43696d-59c9-405e-bcea-1ccc987bd17b" class=""> 이는 적극적이고 많은 노력이 들어가는 접근법이다. 보수적인 방법에 의해 과대 평가되지 않은 주식과 건정성에 대한 객관적인 시험을 충족하는 주식을 찾는다. 이러한 접근법을 사용할 경우, 방어적 투자자보다 더 적은 융통성을 가져야 한다고 한다. 그는 정말 잘 아는 3-4개의 기업만 분석하는 것이 낫다고 한다. 이러한 진취적 가치투자는 어렵다. 기업에 대한 고급 분석은 많은 시간과 정열의 투입을 요구하기 때문이다.</p></li></ol><p id="858ee3b9-a4f8-4524-82b3-33b2e1b8f140" class="">
+</p></div></p></li></ol><ol id="37e2cd1f-113e-4225-a680-d6b4d3838537" class="numbered-list" start="2"><li>그가 피하는 것<p id="d4415018-df70-4674-9c1d-aa6990d55a6b" class="">그레이엄이 제시한 6가지 장애물이 있다.</p><p id="ed421bd7-2b37-4c91-9079-1e6dedfc0609" class="">1) 일반적인 시장 비관/낙관주의와 휘둘리기<div class="indented"><p id="0fecf3f3-f4f8-4e24-b944-32ef4b9ce1ce" class="">많은 사람들이 일회성 거래, 스캘핑, 데이트레이딩, 스윙트레이딩, 테마주 등의 주식 거래 방법을 택하고 있기 때문에 독립적인 태도를 취하지 못할 수도 있다. 용기 있게 자신만의 추론과 경험을 쌓는 것이 중요하다. 상기 방법으로 수익을 꾸준히 얻는 사람들도 많기 때문에 어떤 한 방법이 옳은 것은 아니나 그레이엄이 추구하는 방법을 원칙으로 정했으면 각종 정보에 휘둘리거나, 시장 전반의 낙관/비관적인 정서를 따라서 거래를 하면 안될 것이다.  </p><p id="e5404722-0b8b-4f00-a925-9e6f6af30fc8" class="">
+</p></div></p><p id="65708a5e-6896-41f2-a3c0-ef40a0de1b93" class="">2) 시장, 시점 및 차트의 예상<div class="indented"><p id="8592a3cf-4b23-4c4a-86ec-7560b3f6508c" class="">그레이엄은 거시경제지표를 통해 일반 대중이 돈을 벌 수 있다는 것은 터무니 없다고 생각했다. 시장 시점 예측은 안전마진을 남기지 않는다. 그는 내재가치 분석을 통한 가격상의 매력이라는 단 하나의 기준에만 의존함으로써 자신의 분석 결과가 시장의 미래에 대한 어떤 견해에도 영향을 받지 않도록 주의했다.</p></div></p><p id="3945a916-16ba-4bf2-b477-c2a0ae712205" class="">3) 단기 전망에 의한 주식 선정<div class="indented"><p id="01820e47-b063-4b0b-8eeb-66ccb41fe0c3" class="">금융가의 많은 활동은 향후 12개월의 전망에 집중되어 있다. 하지만 주식의 가치는 장기간에 걸쳐서 &#x27;수익력&#x27;에 의존한다. 단기에 너무 많은 비중을 두어서는 안된다. 그는 단기 전망에 대해서 3가지 이유에 있어서 부정적이다. </p><ul id="71b2397e-cc4d-4fcf-a9bc-9d17fc0f9e66" class="bulleted-list"><li>분석가의 오류. 내년 실적 예상을 맞추기 힘들다</li></ul><ul id="8c3477b3-fc79-4467-a461-604ac6dafd31" class="bulleted-list"><li>예상이 정확해도 이미 시장이 선반영 했을 수 있다.</li></ul><ul id="04c2c0df-bf41-4c76-995d-1c43730aeac7" class="bulleted-list"><li>어떤 알지 못하는 변수로 가격은 예상대로 움직이지 않는 경우가 굉장히 많다.</li></ul></div></p><p id="0920d59a-4027-4a9c-92aa-6f5bc5ae6301" class="">4) 성장주<div class="indented"><p id="340e0948-285a-4d33-bee2-e1e6aefea51f" class="">그레이엄은 성장주를 &#x27;기업이 몇년동안 시장 평균적인 EPS 상승률보다 높고, 미래에도 그럴 것이라고 예상되는 주식&#x27;이라고 정의했다. 이러한 정의에 따르면 대중적인 성장주 정의는 그레이엄과 다르다고 볼 수 있다. 대중적인 성장주는 현재 성장률은 보통이지만 미래에 상승할 것이라고 예상되는 주식을 말한다. 이런 &#x27;유망주식&#x27;은 추가적인 분석이 필요하며, 그레이엄식의 성장주는 보통 시장에서 매우 비싸게 거래되거나, 기술기반적인 모습을 띤다. 하지만 기술기반 성장성에 대해서는 믿을 만한 근거가 부족하고, 매우 비싼 주식은 안전마진이 적거나 없어, 그레이엄이 추구하는 방식을 적용할 수 없다는 것이 문제이다. 만약에 비싸지 않은 성장주를 살 수 있다면, 이 투자자는 영리한 투자자이다. 당신은 영리할 확률이 적으므로 영리하고 기민한 대신에 현명한 투자를 하라는 것이 그레이엄의 조언이다. ^^</p></div></p><p id="9ec5e6d8-c365-4531-8eba-d74571a5ae9f" class="">5) 경영자 문제<div class="indented"><p id="e1ad7e95-b7cd-489c-b434-093a363b1f5d" class="">경영 상에서 문제되는 것은 첫번째는 부정직함과 이기주의, 두번째는 무능력이다. 그레이엄은 이를 면밀히 판단하여 가치판단에 적용하라고 하였다.</p></div></p><p id="f68ffff0-527d-4827-a741-2996d4a40a11" class="">6) 거품 주식<div class="indented"><p id="aaa1e84e-b0eb-4d64-bef2-6467ee280efc" class="">시장이 강세에 있어 많은 사람들이 수익을 보는데, 내가 보유한 주식은 가격이 오르지 않은 상황에 있을 때 당황스럽지만, 투기자들의 전형적인 경험은 일시적인 이익과 궁극적인 손실 경험이라고 그레이엄은 주장한다. </p></div></p><p id="bfd0190d-078a-4715-b9d1-960aeff0e4cf" class="">
+</p></li></ol><ol id="0638fb6a-c1b3-43b1-8582-af310245fec3" class="numbered-list" start="3"><li>결론(요약)</li></ol><p id="db4daf19-5c48-466f-aafe-a26386a9967f" class=""> 그가 핵심적으로 강조하는 것은 안전마진과 내재가치라고 할 수 있다. 분석가는 기업에 대한 철저한 분석을 통하여 기업의 수익력을 파악해서 이를 내재가치의 범위 추정치와 연결시켜야 한다. 오직 이럴 경우에만 투자자는 &#x27;투자&#x27; 내지 &#x27;현명한 투기&#x27;를 하고 있는 셈이다. 시장의 가격 상황과 기업의 내재가치를 비교한 후, 충분한 안전마진을 두어도 이익을 낼 수 있다고 판단한 경우에만 투자자는 그 주식을 보유해야 한다. 보유한 후에는 단기적인 전망이나 시황과 무관하게 오직 증권 가격의 매력도만으로 보유한 후 시장가격이 내재가치에 근접했을 경우 매도를 하여 수익을 향유해야 하는 것이다. 미스터 마켓(설명)이 스스로의 기쁨이나 우울함으로 인해 매일 다른 가격을 우리에게 제시할 때에 이에 일희일비할 필요가 없다. 만약에 내가 신중하고 분별력 있는 기업인이라면 내 기업의 가치는 내가 알지언데, 그가 제시하는 터무니 없는 가격에 팔지 않을 것이다. 이처럼 투자자는 분석가로서 기업의 가치에 대한 사실적인 근거를 바탕으로 내재가치를 판단한 후 매입하여 보유하다 팔면 되는 것이다. </p></div></article></body></html>
