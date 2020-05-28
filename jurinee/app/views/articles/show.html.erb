@@ -18,7 +18,7 @@
             <!-- Header -->
 								<header id="header">
                                     <!--여기에 배너 + 메뉴 넣기-->
-                                    <%= image_tag "logo_2_navy.png", :alt => "", style: 'width: 0.4em;' %>
+                                    <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
                                     <div class="actions">
                                         <% if @article.if_wiki %>
                                             <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
@@ -128,6 +128,16 @@
             
             </ul>
         </nav>
+        <!----DIY---->
+        <% if !@article.if_wiki %>
+            <section>
+                <ul class="actions">
+                    <li>
+                        <%= link_to '직접 해보러 가기', '/home', :class=>'button' %>
+                        </li>
+                </ul>
+            </section>
+        <% end %>
                 <!-- Footer -->
                     <footer id="footer">
                         <p class="copyright">2020-1 웹프로그래밍 7조 - 주린이를 위한 안내서</p>
