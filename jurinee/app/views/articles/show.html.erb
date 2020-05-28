@@ -61,7 +61,19 @@
                 <% end %>
                 </header>
                 <div><%= @article.content.html_safe %></div>
-                <h5><%= link_to '다음페이지로 이동', @next_url %></h5>
+                <h5>
+                <% if @next_url %>
+                    <%= link_to '다음페이지로 이동', @next_url %>
+                <% else %>
+                    <% if @article.if_wiki %>
+                        <%= link_to '첫 페이지로 이동', '/wiki/0' %>
+                    <% else %>
+                        <%= link_to '첫 페이지로 이동', '/expert/0' %>
+                    <% end %>
+                <% end %>
+
+                
+                </h5>
             </section>
         </div>
 </div> 

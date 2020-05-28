@@ -11,7 +11,11 @@ class ArticlesController < ApplicationController
                     if Article.where(chapter: params[:chapter], sub_chapter: (params[:sub_chapter].to_i+1).to_s, if_wiki:true).exists?
                         @next_url = '/wiki/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
                     else
-                        @next_url = '/wiki/' + (params[:chapter].to_i+1).to_s
+                        if Article.where(chapter: params[:chapter].to_i+1 ,if_wiki:true).exists?
+                            @next_url = '/wiki/' + (params[:chapter].to_i+1).to_s
+                        else
+                            @next_url = nil
+                        end
                     end
                 else
                     if Article.where(chapter: params[:chapter], if_wiki:true).exists?
@@ -46,7 +50,11 @@ class ArticlesController < ApplicationController
                         if Article.where(chapter: params[:chapter], sub_chapter: (params[:sub_chapter].to_i+1).to_s, if_wiki:false).exists?
                             @next_url = '/expert/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
                         else
-                            @next_url = '/expert/' + (params[:chapter].to_i+1).to_s
+                            if Article.where(chapter: params[:chapter].to_i+1 ,if_wiki:false).exists?
+                                @next_url = '/expert/' + (params[:chapter].to_i+1).to_s
+                            else
+                                @next_url = nil
+                            end
                         end
                     else
                         if Article.where(chapter: params[:chapter], if_wiki:false).exists?
