@@ -120,7 +120,7 @@ class ArticlesController < ApplicationController
 
     def search
         @query = params[:query]
-        @articles = (Article.where('title LIKE ?', '%'+params[:query]+'%')).or(Article.where('sub_title LIKE ?', '%'+params[:query]+'%')).or(Article.where('content LIKE ?', '%'+params[:query]+'%'))
+        @search_result = (Article.where('title LIKE ?', '%'+params[:query]+'%')).or(Article.where('sub_title LIKE ?', '%'+params[:query]+'%')).or(Article.where('content LIKE ?', '%'+params[:query]+'%'))
     end
 
 private

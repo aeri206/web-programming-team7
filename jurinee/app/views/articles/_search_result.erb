@@ -1,0 +1,26 @@
+<% if search_result.if_sub %>
+    <% if search_result.if_wiki %>
+        <%= link_to '/wiki/'+search_result.chapter.to_s + '/' + search_result.sub_chapter.to_s do %>
+            <h4><%= search_result.title + ' > ' + search_result.sub_title %></h4>
+            <h5><%= search_result.content.html_safe.first(100) %></h5>
+        <% end %>
+    <% else %>
+        <%= link_to '/expert/'+search_result.chapter.to_s + '/' + search_result.sub_chapter.to_s do %>
+            <h4><%= search_result.title + ' > ' + search_result.sub_title %></h4>
+            <h5><%= search_result.content.html_safe.first(100) %></h5>
+        <% end %>
+    <% end %>
+<% else %>
+    <% if search_result.if_wiki %>
+        <%= link_to '/wiki/'+ search_result.chapter.to_s do %>
+            <h4><%= search_result.title %></h4>
+            <h5><%= search_result.content.html_safe.first(100) %></h5>
+        <% end %>
+    <% else %>
+        <%= link_to '/expert/'+search_result.chapter.to_s do %>
+            <h4><%= search_result.title %></h4>
+            <h5><%= search_result.content.html_safe.first(100) %></h5>
+        <% end %>
+    <% end %>
+<% end %>
+<hr class="major"></hr>

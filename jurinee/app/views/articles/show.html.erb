@@ -15,28 +15,7 @@
 <div id="wrapper">
 <div id="main">
         <div class="inner">
-            <!-- Header -->
-								<header id="header">
-                                    <!--여기에 배너 + 메뉴 넣기-->
-                                    <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
-                                    <div class="actions">
-                                        <% if @article.if_wiki %>
-                                            <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
-                                        <% else %>
-                                            <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
-                                        <% end %>
-									</div>
-                                    <div class="mypage">
-                                    <% if user_signed_in? %>
-						<div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
-						<div><%= link_to "마이페이지", controller: "profile", action: "index", id: current_user.id %></div>
-					<% else %>
-						<a href="/users/sign_in"> Sign in </a>
-						<a href="/users/sign_up"> Sign up </a>
-					<% end %>
-                                        </div>
-                                    <br>
-                                </header>
+            <%= render "header",  locals: { article: @article } %>
                                 <!-- Content -->
             <section>
                 <% if @article.if_sub %>
