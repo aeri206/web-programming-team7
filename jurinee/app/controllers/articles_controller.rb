@@ -121,6 +121,10 @@ class ArticlesController < ApplicationController
     def search
         @query = params[:query]
         @search_result = (Article.where('title LIKE ?', '%'+params[:query]+'%')).or(Article.where('sub_title LIKE ?', '%'+params[:query]+'%')).or(Article.where('content LIKE ?', '%'+params[:query]+'%'))
+        @wiki_t = Article.where(if_sub:false, if_wiki:true).select(:title, :chapter)
+        @wiki_st = Article.where(if_sub:true, if_wiki:true).select(:chapter, :sub_title, :sub_chapter)
+        @expert_t = Article.where(if_sub:false, if_wiki:false).select(:title, :chapter)
+        @expert_st = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)
     end
 
 private

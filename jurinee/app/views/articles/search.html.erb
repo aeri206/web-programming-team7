@@ -25,20 +25,7 @@
             </div>
 
         </div>
-        <div id="sidebar">
-            <div class="inner">
-                <!-- Search -->
-                <section id="search" class="alt">
-                    <%= form_tag("/search", method: "get") do %>
-                        <%= text_field_tag 'query' ,nil, :placeholder => "Search" %>
-                    <% end %>
-                </section>
-                <nav id="menu"></nav>
-                <footer id="footer">
-                    <p class="copyright">2020-1 웹프로그래밍 7조 - 주린이를 위한 안내서</p>
-                </footer>
-            </div>
-        </div>
+        <%= render "sidebar" %>
     </div>
 </body>
 

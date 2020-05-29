@@ -16,7 +16,7 @@
 <div id="main">
         <div class="inner">
             <%= render "header",  locals: { article: @article } %>
-                                <!-- Content -->
+                    <!-- Content -->
             <section>
                 <% if @article.if_sub %>
                     <h5>
@@ -53,73 +53,7 @@
             </section>
         </div>
 </div> 
-<!-- Sidebar -->
-    <div id="sidebar">
-        <div class="inner">
-        <!-- Search -->
-        <section id="search" class="alt">
-            <%= form_tag("/search", method: "get") do %>
-                <%= text_field_tag 'query' ,nil, :placeholder => "Search" %>
-            <% end %>
-        </section>
-
-    <!-- Menu -->
-        <nav id="menu">
-            <header class="major">
-            <% if @article.if_wiki %>
-                <h2>주린이 WIKI</h2>
-            <% else %>
-                <h2>고수되기</h2>
-            <% end %>
-                <h2>INDEX</h2>
-            </header>
-            <ul>
-            <% if @article.if_wiki %>
-                <% @titles.each do |title| %>
-                    <li>
-                        <span class="opener">
-                        <%= link_to title.title, '/wiki/'+title.chapter.to_s %>
-                        </span>
-                        <ul>
-                        <% @sub_titles.select { |s| s.chapter == title.chapter }.each do |subs| %>
-                            <li><%= link_to subs.sub_title, '/wiki/'+subs.chapter.to_s + '/'+subs.sub_chapter.to_s %></li>
-                            <% end %>
-                        </ul>
-                    </li>
-                <% end %>                   
-            <% else %>
-                <% @titles.each do |title| %>
-                    <li>
-                        <span class="opener">
-                        <%= link_to title.title, '/expert/'+title.chapter.to_s %>
-                        </span>
-                        <ul>
-                        <% @sub_titles.select { |s| s.chapter == title.chapter }.each do |subs| %>
-                            <li><%= link_to subs.sub_title, '/expert/'+subs.chapter.to_s + '/'+subs.sub_chapter.to_s %></li>
-                            <% end %>
-                        </ul>
-                    </li>
-                <% end %>    
-            <% end %>
-            
-            </ul>
-        </nav>
-        <!----DIY---->
-        <% if !@article.if_wiki %>
-            <section>
-                <ul class="actions">
-                    <li>
-                        <%= link_to '직접 해보러 가기', '/home', :class=>'button' %>
-                        </li>
-                </ul>
-            </section>
-        <% end %>
-                <!-- Footer -->
-                    <footer id="footer">
-                        <p class="copyright">2020-1 웹프로그래밍 7조 - 주린이를 위한 안내서</p>
-                    </footer>
-        </div>
-    </div>
+<%= render "sidebar" %>
 </div> #wrapper
 </body>
 

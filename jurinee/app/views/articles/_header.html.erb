@@ -3,11 +3,14 @@
                     <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
                     <% if @article %>
                         <div class="actions">
-                        <% if @article.if_wiki %>
+                            <% if @article.if_wiki %>
+                                <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
+                            <% else %>
+                                <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
+                            <% end %>
+                    <% else %>
                             <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
-                        <% else %>
                             <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
-                        <% end %>
                     <% end %>
                     <div class="mypage">
                     <% if user_signed_in? %>
