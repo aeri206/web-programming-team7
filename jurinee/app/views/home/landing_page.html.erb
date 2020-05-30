@@ -13,8 +13,8 @@
 						<a href="/users/sign_out" data-method="delete">로그아웃</a>
 						<%= link_to "My page", controller: "profile", action: "index", id: current_user.id %>
 					<% else %>
-						<a href="/users/sign_in"> Sign in </a>
-						<a href="/users/sign_up"> Sign up </a>
+						<a href="/users/sign_in" id="sign-in"> Sign in </a>
+						<a href="/users/sign_up" id="sign-up"> Sign up </a>
 					<% end %>
 				</div>
 			</div>

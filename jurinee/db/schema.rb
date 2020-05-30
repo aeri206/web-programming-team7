@@ -10,25 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_081614) do
+ActiveRecord::Schema.define(version: 2020_05_30_130124) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.string "sub_title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "if_wiki"
     t.boolean "if_sub"
+    t.string "sub_title"
     t.integer "chapter"
     t.integer "sub_chapter"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,7 +42,9 @@ ActiveRecord::Schema.define(version: 2020_05_26_081614) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
 end

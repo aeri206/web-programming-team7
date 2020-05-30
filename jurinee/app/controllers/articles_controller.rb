@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
                     @sub_url = '/wiki/'+params[:chapter]+'/'+params[:sub_chapter]
                     @article = Article.where(chapter: params[:chapter], sub_chapter: params[:sub_chapter], if_wiki:true).first
                     if Article.where(chapter: params[:chapter], sub_chapter: (params[:sub_chapter].to_i+1).to_s, if_wiki:true).exists?
-                        @next_url = '/wiki/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
+                       @next_url = '/wiki/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
                     else
                         if Article.where(chapter: params[:chapter].to_i+1 ,if_wiki:true).exists?
                             @next_url = '/wiki/' + (params[:chapter].to_i+1).to_s
