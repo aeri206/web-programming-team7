@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/home', to: 'home#index'
   
-  
   resources :articles, only: [:new, :create]
 
   get '/wiki/:chapter' => 'articles#show', :defaults => {:type => 'wiki'}
@@ -18,4 +17,9 @@ Rails.application.routes.draw do
   get '/profile/:id', to: 'profile#index', as: 'profile'
   get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'
   # post '/profile/:id', to: 'profile#update'
+
+  get 'articles/:article_id/:uid/like', to: 'articles#like', as: 'article_like'
+  # get '/expert/:chapter/:id/like', to: 'articles#like'
+  # get '/expert/:chapter/:sub_chapter/:id/like', to: 'articles#like'
+
 end

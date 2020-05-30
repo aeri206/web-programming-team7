@@ -127,6 +127,11 @@ class ArticlesController < ApplicationController
         @expert_st = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)
     end
 
+    def like
+        ArticleLike.create(profile_id: params[:uid], article_id: params[:article_id])
+        redirect_to request.referrer
+    end
+
 private
     def article_params
         params.require(:article).permit(:title, :sub_title, :content, :if_wiki, :if_sub, :chapter, :sub_chapter)
