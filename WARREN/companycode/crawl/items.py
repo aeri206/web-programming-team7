@@ -13,7 +13,6 @@ class StockItem(scrapy.Item):
     company = scrapy.Field()
     price = scrapy.Field()
     ROE = scrapy.Field()
-    DERatio = scrapy.Field()
     PER = scrapy.Field()
     BPS = scrapy.Field()
     PBR = scrapy.Field()

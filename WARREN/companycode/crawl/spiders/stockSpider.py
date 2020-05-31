@@ -6,7 +6,7 @@ import json
 import os, sys
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname('__file__'))))))
 
-from company_code_naver import company_code
+import csv
 from crawl.items import StockItem
 
 class stockSpider(scrapy.Spider):
@@ -17,22 +17,30 @@ class stockSpider(scrapy.Spider):
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
         self.browser = webdriver.Chrome('chromedriver', chrome_options=options)
+        
+    def remove_comma(self, number):
+        number = number.replace(',','')
+        return float(number)
 
     def start_requests(self):
-        print ('start_request')
-        urls = [ {"url" : ''.join(['https://m.stock.naver.com/item/main.nhn#/stocks/', company_code[x], '/annual']), "company_name" : x} for x in company_code]
-        for link in urls:
-            print(link["url"])
+        
+        with open('company_code_only.csv', newline='') as f:
+            reader = csv.reader(f)
+            data = list(reader)
+        
+        for code in data:
+            x = code[0]
+            real_code = '0' * (6-len(x)) + x
+            url = ''.join(['https://m.stock.naver.com/item/main.nhn#/stocks/', real_code, '/annual'])
             yield scrapy.Request(
-                url=link["url"],
-                meta=link,
+                url=url,
+                meta={"url":url, "code": "A"+real_code},
                 callback=self.parse,
                 dont_filter=True
                 )
             
     def parse(self, response):
         driver = self.browser
-        print('------')
         driver.get(response.meta["url"])
         driver.implicitly_wait(10)
         price = driver.find_element_by_xpath('//*[@id="header"]/div[4]/div[1]/div/div[2]/div/div[2]/div[1]/strong').get_attribute('data-current-price')
@@ -40,22 +48,20 @@ class stockSpider(scrapy.Spider):
             price = driver.find_element_by_xpath('//*[@id="header"]/div[4]/div[1]/div/div[2]/div/div[2]/div[1]/strong').get_attribute('data-current-price')
             
         ROE = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[6]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
-        DERatio = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[7]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
         PER = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[11]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
         BPS = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[12]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
         PBR = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[13]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
-        length = [len(ROE), len(DERatio), len(PER), len(BPS), len(PBR)]
+        length = [len(ROE), len(PER), len(BPS), len(PBR)]
         lens = min(length)-1
-        print(response.meta["company_name"])
+        print('========='+response.meta["code"])
         if lens<0:
             print('error')
             return
         yield StockItem(
-            company = response.meta["company_name"],
-            price = price,
-            ROE = ROE[lens].text,
-            DERatio = DERatio[lens].text,
-            PER = PER[lens].text,
-            BPS = BPS[lens].text,
-            PBR = PBR[lens].text
+            company = response.meta["code"],
+            price = self.remove_comma(price),
+            ROE = self.remove_comma(ROE[lens].text),
+            PER = self.remove_comma(PER[lens].text),
+            BPS = self.remove_comma(BPS[lens].text),
+            PBR = self.remove_comma(PBR[lens].text)
         )
