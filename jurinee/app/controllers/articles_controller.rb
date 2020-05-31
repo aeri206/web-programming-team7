@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
                     @sub_url = '/wiki/'+params[:chapter]+'/'+params[:sub_chapter]
                     @article = Article.where(chapter: params[:chapter], sub_chapter: params[:sub_chapter], if_wiki:true).first
                     if Article.where(chapter: params[:chapter], sub_chapter: (params[:sub_chapter].to_i+1).to_s, if_wiki:true).exists?
-                        @next_url = '/wiki/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
+                       @next_url = '/wiki/' + params[:chapter].to_s + '/' + (params[:sub_chapter].to_i+1).to_s
                     else
                         if Article.where(chapter: params[:chapter].to_i+1 ,if_wiki:true).exists?
                             @next_url = '/wiki/' + (params[:chapter].to_i+1).to_s
@@ -125,6 +125,22 @@ class ArticlesController < ApplicationController
         @wiki_st = Article.where(if_sub:true, if_wiki:true).select(:chapter, :sub_title, :sub_chapter)
         @expert_t = Article.where(if_sub:false, if_wiki:false).select(:title, :chapter)
         @expert_st = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)
+    end
+
+    def like
+        @article_id = params[:article_id]
+        @article = Article.find(id=@article_id)
+        @profile_id = params[:profile_id]
+        @profile = Profile.find(id=@profile_id)
+
+        if @article.liking_users.where(id: @profile_id).exists?
+        # if @profile.liked_articles.where(id: @article_id).exists?
+            ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
+        else
+            ArticleLike.create(profile_id: @profile_id, article_id: @article_id)
+        end
+
+        redirect_to request.referrer
     end
 
 private

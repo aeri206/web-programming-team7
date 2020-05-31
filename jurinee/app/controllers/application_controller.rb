@@ -1,19 +1,18 @@
 class ApplicationController < ActionController::Base
-    # before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :configure_permitted_parameters, if: :devise_controller?
  
-    # protected
-
-    # originally commented out
-    # def configure_permitted_parameters
-    #   devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:first_name, :last_name, :email, :password, :password_confirmation])
-    # end
+    protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+      devise_parameter_sanitizer.permit(:sign_up,
+        keys: [:name, :email, :password, :password_confirmation])
+      # devise_parameter_sanitizer.permit(:sign_in,
+      #   keys: [:email, :password, :password_confirmation])
+      # devise_parameter_sanitizer.permit(:account_update,
+      #   keys: [:name, :email, :password_confirmation, :current_password])
     end
 
     before_action :store_user_location!, if: :storable_location?
-    # before_action :authenticate_user! # 로그인한 유저만 볼 수 있음. 랜딩 페이지가 자동으로 로그인으로 들어감 
 
     private
     
