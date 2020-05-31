@@ -10,7 +10,7 @@ import scrapy
 
 class StockItem(scrapy.Item):
     # define the fields for your item here like:
-    company = scrapy.Field()
+    code = scrapy.Field()
     price = scrapy.Field()
     ROE = scrapy.Field()
     PER = scrapy.Field()

@@ -58,7 +58,7 @@ class stockSpider(scrapy.Spider):
             print('error')
             return
         yield StockItem(
-            company = response.meta["code"],
+            code = response.meta["code"],
             price = self.remove_comma(price),
             ROE = self.remove_comma(ROE[lens].text),
             PER = self.remove_comma(PER[lens].text),
