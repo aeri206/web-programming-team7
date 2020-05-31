@@ -16,10 +16,7 @@ Rails.application.routes.draw do
 
   get '/profile/:id', to: 'profile#index', as: 'profile'
   get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'
-  # post '/profile/:id', to: 'profile#update'
 
-  get 'articles/:article_id/:uid/like', to: 'articles#like', as: 'article_like'
-  # get '/expert/:chapter/:id/like', to: 'articles#like'
-  # get '/expert/:chapter/:sub_chapter/:id/like', to: 'articles#like'
+  get 'articles/:article_id/:profile_id/like', to: 'articles#like', as: 'article_like'
 
 end

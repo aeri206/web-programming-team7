@@ -128,7 +128,18 @@ class ArticlesController < ApplicationController
     end
 
     def like
-        ArticleLike.create(profile_id: params[:uid], article_id: params[:article_id])
+        @article_id = params[:article_id]
+        @article = Article.find(id=@article_id)
+        @profile_id = params[:profile_id]
+        @profile = Profile.find(id=@profile_id)
+
+        if @article.liking_users.where(id: @profile_id).exists?
+        # if @profile.liked_articles.where(id: @article_id).exists?
+            ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
+        else
+            ArticleLike.create(profile_id: @profile_id, article_id: @article_id)
+        end
+
         redirect_to request.referrer
     end
 
