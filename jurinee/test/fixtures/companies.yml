@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  industry_code: 1
+  current_asset: 1
+  total_liabilities: 1
+  current_liabilities: 1
+  fixed_liabilities: 1
+  capital: 1
+  ebit: 1
+  financing_cost: 1
+  ci: 1
+  ni: 1
+  price: 1
+  ROE: 1.5
+  PER: 1.5
+  BPS: 1.5
+  PBR: 1.5
+
+two:
+  code: MyString
+  name: MyString
+  industry_code: 1
+  current_asset: 1
+  total_liabilities: 1
+  current_liabilities: 1
+  fixed_liabilities: 1
+  capital: 1
+  ebit: 1
+  financing_cost: 1
+  ci: 1
+  ni: 1
+  price: 1
+  ROE: 1.5
+  PER: 1.5
+  BPS: 1.5
+  PBR: 1.5
