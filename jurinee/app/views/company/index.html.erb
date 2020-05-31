@@ -1,0 +1,35 @@
+<head>
+		<title>웹프개 7조 - 주린이를 위한 안내서 > 주린이 WIKI</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <%= javascript_include_tag "jquery.min" %>
+        <%= javascript_include_tag "browser.min" %>
+        <%= javascript_include_tag "breakpoints.min" %>
+        <%= javascript_include_tag "util" %>
+        <%= javascript_include_tag "main" %>
+        <%= stylesheet_link_tag "main", media: "all" %>
+        
+    </head>
+<body id="diy">
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <%= render "articles/header" %>
+                <section>
+                    <header class="main">
+                        <h1>
+                            <%= link_to '직접해보기', '/diy' %>
+                        </h1>
+                    </header>
+                    <p>지금까지 배운 내용을 바탕으로 직접 투자하고 싶은 기업을 찾아보세요!</p>
+                    <div>
+                    </div>
+
+
+
+                </section>
+            </div>
+        </div>
+        <%= render "articles/sidebar" %>
+    </div>
+</body>

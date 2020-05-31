@@ -15,13 +15,13 @@
         <% if article.if_sub %>
             <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}" %>
         <% else %>
-            <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}" %>
+            <%= link_to "#{article.title}", "/wiki/#{article.chapter}" %>
         <% end %>
     <% else %>
         <% if article.if_sub %>
             <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}" %>
         <% else %>
-            <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}" %>
+            <%= link_to "#{article.title}", "/expert/#{article.chapter}" %>
         <% end %>
     <% end %>
     <br>

@@ -8,13 +8,13 @@
         </section>
         <!-- Menu -->
         <nav id="menu">
-            <% if @article and @article.if_wiki %>
+            <% if @article and @article.if_wiki and !@diy%>
                 <header class="major">
                     <h2>주린이 WIKI</h2>
                     <h2>INDEX</h2>
                 </header>
             <% else %>
-                <% if @article and !@article.if_wiki %>
+                <% if @article and !@article.if_wiki or @diy%>
                 <header class="major">
                     <h2>고수되기</h2>
                     <h2>INDEX</h2>
@@ -23,7 +23,7 @@
             <% end %>
             
             
-                <% if @article and @article.if_wiki %>
+                <% if @article and @article.if_wiki and !@diy %>
                 <ul>
                 <% @titles.each do |title| %>
                     <li>
@@ -86,11 +86,11 @@
             <% end %>
             </ul>
         </nav>
-        <% if @article and !@article.if_wiki %>
+        <% if @article and !@article.if_wiki or @diy %>
         <section>
             <ul class="actions">
                 <li>
-                    <%= link_to '직접 해보러 가기', '/home', :class=>'button' %>
+                    <%= link_to '직접 해보러 가기', '/diy', :class=>'button' %>
                     </li>
             </ul>
         </section>

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/expert' => 'articles#index', :defaults => {:type => 'expert'}
   get '/search' => 'articles#search'
 
+  get '/diy/' => 'company#index'
+
+
   get '/profile/:id', to: 'profile#index', as: 'profile'
   get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'
 

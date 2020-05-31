@@ -1,9 +1,9 @@
 <header id="header">
                     <!--여기에 배너 + 메뉴 넣기-->
                     <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
-                    <% if @article %>
+                    <% if @article or @diy %>
                         <div class="actions">
-                            <% if @article.if_wiki %>
+                            <% if !@diy and @article.if_wiki  %>
                                 <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
                             <% else %>
                                 <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
