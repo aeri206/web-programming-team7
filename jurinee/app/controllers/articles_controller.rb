@@ -134,7 +134,6 @@ class ArticlesController < ApplicationController
         @profile = Profile.find(id=@profile_id)
 
         if @article.liking_users.where(id: @profile_id).exists?
-        # if @profile.liked_articles.where(id: @article_id).exists?
             ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
         else
             ArticleLike.create(profile_id: @profile_id, article_id: @article_id)
