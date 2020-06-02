@@ -5,4 +5,12 @@ class CompanyController < ApplicationController
         @titles = Article.where(if_sub:false, if_wiki:false).select(:title, :chapter)
         @sub_titles = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)        
     end
+
+    def filter
+
+    end
+
+    def result
+
+    end
 end

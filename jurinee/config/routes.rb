@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   get '/search' => 'articles#search'
 
   get '/diy/' => 'company#index'
-
+  get '/diy/' => 'company#filter'
 
   get '/profile/:id', to: 'profile#index', as: 'profile'
   get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'
 
   get 'articles/:article_id/:profile_id/like', to: 'articles#like', as: 'article_like'
+  get 'articles/:company_id/:profile_id/like', to: 'company#like', as: 'company_lie'
 
 end

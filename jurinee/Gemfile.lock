@@ -58,7 +58,10 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    autoprefixer-rails (9.7.6)
+      execjs
     bcrypt (3.1.13)
+    bcrypt (3.1.13-java)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -84,13 +87,13 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.9.0)
+    execjs (2.7.0)
     ffi (1.12.2)
     ffi (1.12.2-java)
     ffi (1.12.2-x64-mingw32)
     ffi (1.12.2-x86-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hirb (0.7.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
@@ -105,6 +108,9 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
+    material_design_lite-sass (1.3.0.1)
+      autoprefixer-rails (>= 6.5)
+      sass (>= 3.3)
     method_source (1.0.0)
     mimemagic (0.3.5)
     mini_mime (1.0.2)
@@ -169,6 +175,11 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rubyzip (2.3.0)
+    sass (3.7.4)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
@@ -243,9 +254,9 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  hirb
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  material_design_lite-sass
   puma (~> 4.1)
   rails (~> 6.0.3)
   sass-rails (>= 6)
