@@ -1,1 +1,79 @@
-@import "material"
+@import "bootstrap";
+
+@font-face {
+    font-family: BinggraeMelona;
+    src: url('../../fonts/BinggraeMelona.otf') format("opentype");
+    font-weight: normal;
+}
+
+$default-green: #254653;
+
+* {
+    div {
+        font-family: "BinggraeMelona";
+    }
+}
+
+a {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    
+    color: #254653;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        color: #254653 !important; 
+        text-decoration: none;
+    }
+
+    &:hover strong {
+        color: inherit; 
+    }
+}
+
+.guide {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "BinggraeMelona";
+}
+
+.pbr, .per {
+    width: 300px;
+    margin-right: 20px;
+}
+
+.capital {
+    width: 400px;
+}
+
+.liabilities {
+    width: 450px;
+}
+
+.ebit, .ci {
+    width: 250px;
+}
+
+.coverage {
+    width: 600px;
+}
+
+.roe {
+    width: 350px;
+}
+
+input {
+    text-align: right;
+}
+
+.submit {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.clickable {
+    cursor: pointer;
+}
