@@ -11,8 +11,40 @@ class CompanyController < ApplicationController
     end
 
     def result
+        number = Company.count
+        company = Company.all
+        if params.has_key?(:filter_pbr)
+            company = company.where("PBR < ?", params[:pbr_value])
+        end
+
+        if params.has_key?(:filter_per)
+            company = company.where("PER < ?", params[:per_value])
+        end
+
+        if params.has_key?(:filter_capital)
+            value = params[:capital_value].to_i
+            if value <= 100 and value >= 0
+                value = number * value / 100
+                value = Company.order('capital desc').limit(value).last.capital
+                company = company.where("capital > ?", value)
+                company = company.order('capital desc')
+            end 
+        end
+
+        if params.has_key?(:filter_roe)
+            value = params[:roe_value].to_i
+            if value <= 100 and value >= 0
+                value = number * value / 100
+                value = Company.order('ROE desc').limit(value).last.ROE
+                company = company.where("ROE > ?", value)
+                company = company.order('ROE desc')
+            end 
+        end
+
+
+        # { "filter_liabilities"=>"1", "liabilities_value"=>"", "filter_coverage"=>"1", "coverage_value"=>"", "filter_roe"=>"1", "roe_value"=>"", "button"=>""}
         print(params)
-        @company = Company.order(:name).limit(10)
+        @company = company
         respond_to do |f|
             f.js
         end

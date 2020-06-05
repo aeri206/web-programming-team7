@@ -4,11 +4,17 @@
 <th>name</th>
 <th>PER</th>
 <th>PBR</th>
+<th>부채</th>
+<th>자산</th>
+<th>부채비율</th>
 </tr>
 <% @company.each do |c| %>
     <tr>
         <td><%= c.name %></td>
         <td><%= c.PER %></td>
         <td><%= c.PBR %></td>
+        <td><%= c.total_liabilities %></td>
+        <td><%= c.capital %></td>
+        <td><%= (c.total_liabilities.to_f / c.capital * 100).round(3) %></td>
     </tr>
 <% end %> </table>
