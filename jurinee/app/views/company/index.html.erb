@@ -8,8 +8,7 @@
         <%= javascript_include_tag "util" %>
         <%= javascript_include_tag "main" %>
         <%= javascript_include_tag "diy" %>
-        <%# <%= stylesheet_link_tag "main", media: "all" %>
-        <%= stylesheet_link_tag "diy", media: "all" %>
+        <%= stylesheet_link_tag "main", media: "all" %>
         
 </head>
 <body id="diy"> 
@@ -23,71 +22,43 @@
                             <%= link_to '직접해보기', '/diy' %>
                         </h1>
                     </header>
-                    <p class="guide">지금까지 배운 내용을 바탕으로 직접 투자하고 싶은 기업을 찾아보세요!</p>
-                    <div>
-                    </div>
-
-                    <%# <%= render "diy" %>
-                    <div style="display: flex; flex-direction: row;">
-                        <div class="input-group mb-3 pbr">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                                <span class="input-group-text clickable" id="basic-addon1" data-toggle="popover"
-                                    title="PBR이란?" data-content="Price to Book Ratio : 주가순자산비율, 주가를 주당순자산으로 나눈것. <br /><br /><a href='/wiki/2/3'>🐥 주린이 위키 설명 바로가기</a>">PBR<sup>?</sup></span>
-                            </div>
-                            <input type="text" class="form-control pbr-form" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">이하</span>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3 per">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input type="checkbox" aria-label="Checkbox for following text input">
-                                </div>
-                                <span class="input-group-text clickable" id="basic-addon1">PER<sup>?</sup></span>
-                            </div>
-                            <input type="text" class="form-control per-form" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">이하</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>돈이 많은 기업을 찾고 있나요?</div>
-                    <div class="input-group mb-3 capital">  
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                            <span class="input-group-text" id="basic-addon1">자본이 많은 상위</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">%</span>
-                            <span class="input-group-text" id="basic-addon2">기업</span>
-                        </div>
-                    </div>
-                   
-                    <div>부채(빚)가 적은 기업을 찾고 있나요?</div>
-                    <div class="input-group mb-3 liabilities">  
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                            <span class="input-group-text" id="basic-addon1">부채 비율이 양호한 상위</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">%</span>
-                            <span class="input-group-text" id="basic-addon2">기업</span>
-                        </div>
-                    </div>
-
-                    <div class="input-group mb-3">  
+                    <div id="diy-select-box">
+                    <%= form_with :url => "/diy/result", :method => "get" do %>
+                        <div style="display: flex; flex-direction: row;">
+                       <%= render partial: "value_form", locals: 
+                        { myclass: "pbr", 
+                        popover:true,
+                        title: "PBR이란?",
+                        data: "Price to Book Ratio : 주가순자산비율, 주가를 주당순자산으로 나눈것. <br/><br/>",
+                        link: '/wiki/2/3',
+                        sup: "PBR",
+                        addon: "이하"
+                    }
+                         %>
+                         <%= render partial: "value_form", locals: 
+                        { myclass: "per", 
+                        popover:true,
+                        title: "PER이란?",
+                        data: "PER설명추가. <br/><br/>",
+                        link: '/wiki/2',
+                        sup: "PER",
+                        addon: "이하"
+                    }
+                         %>
+                         </div>
+                         <div>돈이 많은 기업을 찾고 있나요?</div>
+                         <%= render partial: "value_form", locals: 
+                        { myclass: "capital", 
+                        title: "자본이 많은 상위",
+                        addon: "% 기업"
+                    } %>
+                         <div>부채(빚)가 적은 기업을 찾고 있나요?</div>
+                         <%= render partial: "value_form", locals: 
+                         { myclass: "liabilities", 
+                         title: "부채 비율이 양호한 상위",
+                         addon: "% 기업"
+                     } %>
+                     <div class="input-group mb-3">  
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <input type="checkbox" aria-label="Checkbox for following text input">
@@ -95,7 +66,6 @@
                             <span class="input-group-text" id="basic-addon1">(<span class="clickable">유동 부채<sup>?</sup></span> * 2 < <span class="clickable">유동자산<sup>?</sup></span>)인 기업만 고르기</span>
                         </div>
                     </div>
-
                     <div class="input-group mb-3">  
                         <div class="input-group-prepend">
                             <div class="input-group-text">
@@ -126,36 +96,22 @@
                     </div>
 
                     <div>적자 말고 이익 내는 기업을 찾고 싶나요?</div>
-                    <div class="input-group mb-3 coverage">  
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                            <span class="input-group-text" id="basic-addon1">이자 보상 비율(<span class="clickable">영업이익</span>/<span class="clickable">이자비용</span>)이 좋은 상위</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">%</span>
-                            <span class="input-group-text" id="basic-addon2">기업</span>
-                        </div>
-                    </div>
 
-                    <div class="input-group mb-3 roe">  
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
-                            </div>
-                            <span class="input-group-text" id="basic-addon1"><span class="clickable">ROE<sup>?</sup> </span> 상위</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">%</span>
-                            <span class="input-group-text" id="basic-addon2">기업</span>
-                        </div>
-                    </div>
-                
-                <button type="submit" class="submit">조건에 맞는 기업 목록 보기</button>                    
+                    <%= render partial: "value_form", locals: 
+                         { myclass: "coverage", 
+                         title: "이자 보상 비율( 영업이익 / 이자비용 )이 좋은 상위",
+                         addon: "% 기업"
+                     } %>
 
+                     <%= render partial: "value_form", locals: 
+                         { myclass: "roe", 
+                         title: "ROE 상위",
+                         addon: "% 기업"
+                     } %>
+                    <%=button_tag '조건에 맞는 기업 목록 보기', type: 'submit' %>
+                      <% end %>
+                </div>
+                <div id="result"></div>
                 </section>
             </div>
         </div>
