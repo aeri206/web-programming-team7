@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
+    t.string "sub_title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "if_wiki"
     t.boolean "if_sub"
-    t.string "sub_title"
     t.integer "chapter"
     t.integer "sub_chapter"
   end
@@ -37,20 +37,20 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
     t.string "code"
     t.string "name"
     t.integer "industry_code"
-    t.integer "current_asset" 
-    t.integer "total_liabilities" 
+    t.integer "current_asset"
+    t.integer "total_liabilities"
     t.integer "current_liabilities"
-    t.integer "fixed_liabilities" 
-    t.integer "capital" 
-    t.integer "ebit"   
-    t.integer "financing_cost" 
-    t.integer "ci" 
-    t.integer "ni" 
+    t.integer "fixed_liabilities"
+    t.integer "capital"
+    t.integer "ebit"
+    t.integer "financing_cost"
+    t.integer "ci"
+    t.integer "ni"
     t.integer "price"
     t.float "ROE"
-    t.float "PER"  
+    t.float "PER"
     t.float "BPS"
-    t.float "PBR" 
+    t.float "PBR"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

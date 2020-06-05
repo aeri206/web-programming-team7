@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/search' => 'articles#search'
 
   get '/diy/' => 'company#index'
-  get '/diy/' => 'company#filter'
+  get '/diy/result' => 'company#result'
+  get '/company/' => 'company#list' #temporary
 
   get '/profile/:id', to: 'profile#index', as: 'profile'
   get '/profile/:id/edit', to: 'profile#edit', as: 'edit_profile'

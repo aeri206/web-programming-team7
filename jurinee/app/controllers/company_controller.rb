@@ -3,14 +3,18 @@ class CompanyController < ApplicationController
         @article = Article.where(if_wiki:true).first
         @diy = true
         @titles = Article.where(if_sub:false, if_wiki:false).select(:title, :chapter)
-        @sub_titles = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)        
+        @sub_titles = Article.where(if_sub:true, if_wiki:false).select(:chapter, :sub_title, :sub_chapter)
     end
 
-    def filter
-
+    def list
+        @company = Company.order(:PER)
     end
 
     def result
-
+        print(params)
+        @company = Company.order(:name).limit(10)
+        respond_to do |f|
+            f.js
+        end
     end
 end

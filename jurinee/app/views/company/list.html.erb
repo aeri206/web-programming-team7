@@ -1,0 +1,14 @@
+<h1>Company list</h1>
+<table>
+<tr>
+<th>name</th>
+<th>PER</th>
+<th>PBR</th>
+</tr>
+<% @company.each do |c| %>
+    <tr>
+        <td><%= c.name %></td>
+        <td><%= c.PER %></td>
+        <td><%= c.PBR %></td>
+    </tr>
+<% end %> </table>
