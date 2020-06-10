@@ -1,6 +1,7 @@
 <p>Company list</p>
 <table>
 <tr>
+<th>찜하기</th>
 <th>name</th>
 <th>PER</th>
 <th>PBR</th>
@@ -10,6 +11,21 @@
 </tr>
 <% @company.each do |c| %>
     <tr>
+        <td>
+            <% if current_user.profile.liked_companies.where(id: c.id).exists? %>
+                <%= link_to image_tag('full_star.png', style: 'width: 20px;'),
+                            company_like_path(company_id: c.id),
+                            class: 'unlike',
+                            remote: true
+                            %>
+            <% else %>
+                <%= link_to image_tag('empty_star.png', style: 'width: 20px;'),
+                            company_like_path(company_id: c.id),
+                            class: 'like',
+                            remote: true
+                            %>
+            <% end %>
+        </td>
         <td><%= c.name %></td>
         <td><%= c.PER %></td>
         <td><%= c.PBR %></td>

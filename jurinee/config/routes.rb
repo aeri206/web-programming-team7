@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get 'articles/:article_id/like', to: 'articles#like', as: 'article_like'
   get 'articles/:article_id/unlike', to: 'articles#unlike', as: 'article_unlike'
-  get 'articles/:company_id/like', to: 'company#like', as: 'company_like'
+  get '/diy/result/:company_id/like', to: 'company#like', as: 'company_like'
 
 
 end

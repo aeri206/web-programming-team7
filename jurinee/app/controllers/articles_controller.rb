@@ -129,8 +129,7 @@ class ArticlesController < ApplicationController
     def like
         @article_id = params[:article_id]
         @article = Article.find(id=@article_id)
-        @profile_id = params[:profile_id]
-        @profile = Profile.find(id=@profile_id)
+        @profile_id = current_user.profile.id
 
         if @article.liking_users.where(id: @profile_id).exists?
             ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all 
@@ -140,7 +139,6 @@ class ArticlesController < ApplicationController
 
         respond_to do |format|
             format.js 
-            # format.html
         end
 
         # redirect_to request.referrer
