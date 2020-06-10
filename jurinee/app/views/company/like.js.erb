@@ -1,0 +1,8 @@
+<% if current_user.profile.liked_companies.where(id: @company.id).exists? %>
+    $(".unlike").show();
+    $(".like").hide();
+
+<% else %>
+    $(".like").show();
+    $(".unlike").hide();
+<% end %>

@@ -1,79 +1,79 @@
-@import "bootstrap";
+    @import "bootstrap";
 
-@font-face {
-    font-family: BinggraeMelona;
-    src: url('../../fonts/BinggraeMelona.otf') format("opentype");
-    font-weight: normal;
-}
+    @font-face {
+        font-family: BinggraeMelona;
+        src: url('../../fonts/BinggraeMelona.otf') format("opentype");
+        font-weight: normal;
+    }
 
-$default-green: #254653;
+    $default-green: #254653;
 
-* {
-    div {
+    * {
+        div {
+            font-family: "BinggraeMelona";
+        }
+    }
+
+    a {
+        -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        
+        color: #254653;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            color: #254653 !important; 
+            text-decoration: none;
+        }
+
+        &:hover strong {
+            color: inherit; 
+        }
+    }
+
+    .guide {
+        font-size: 20px;
+        font-weight: bold;
         font-family: "BinggraeMelona";
     }
-}
 
-a {
-    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    
-    color: #254653;
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-        color: #254653 !important; 
-        text-decoration: none;
+    .pbr, .per {
+        width: 300px;
+        margin-right: 20px;
     }
 
-    &:hover strong {
-        color: inherit; 
+    .capital {
+        width: 400px;
     }
-}
 
-.guide {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: "BinggraeMelona";
-}
+    .liabilities {
+        width: 450px;
+    }
 
-.pbr, .per {
-    width: 300px;
-    margin-right: 20px;
-}
+    .ebit, .ci {
+        width: 250px;
+    }
 
-.capital {
-    width: 400px;
-}
+    .coverage {
+        width: 600px;
+    }
 
-.liabilities {
-    width: 450px;
-}
+    .roe {
+        width: 350px;
+    }
 
-.ebit, .ci {
-    width: 250px;
-}
+    input {
+        text-align: right;
+    }
 
-.coverage {
-    width: 600px;
-}
+    .submit {
+        width: 100%;
+        border-radius: 5px;
+    }
 
-.roe {
-    width: 350px;
-}
-
-input {
-    text-align: right;
-}
-
-.submit {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.clickable {
-    cursor: pointer;
-}
+    .clickable {
+        cursor: pointer;
+    }
