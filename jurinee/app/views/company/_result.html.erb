@@ -26,7 +26,11 @@
                             %>
             <% end %>
         </td>
-        <td><%= c.name %></td>
+        <td>
+            <%= link_to c.name,
+                "https://finance.naver.com/item/main.nhn?code=#{c.code[1..-1]}",
+                target: '_blank' %>
+        </td>
         <td><%= c.PER %></td>
         <td><%= c.PBR %></td>
         <td><%= c.total_liabilities %></td>
