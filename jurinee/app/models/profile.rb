@@ -6,4 +6,3 @@ class Profile < ApplicationRecord
     has_many :company_likes, dependent: :destroy
     has_many :liked_companies, through: :company_likes, source: :company
 end
-

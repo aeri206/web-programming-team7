@@ -49,4 +49,19 @@ class CompanyController < ApplicationController
             f.js
         end
     end
+
+    def like
+        @company_id = params[:company_id]
+        @company = Article.find(id=@article_id)
+        @company_id = params[:company_id]
+        @profile = Profile.find(id=@profile_id)
+
+        if @company.liking_users.where(id: @profile_id).exists?
+            CompanyLike.where(profile_id: @profile_id, company_id: @company_id).destroy_all
+        else
+            CompanyLike.create(profile_id: @profile_id, company_id: @company_id)
+        end
+
+        redirect_to request.referrer
+    end
 end

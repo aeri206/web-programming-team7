@@ -1,2 +1,4 @@
-
-$("#result").replaceWith("<%= escape_javascript render 'result', company: @company %>");
+if($("#result").children().length > 0) {
+    $("#result").children().remove()
+}
+$("#result").append("<%= escape_javascript render 'result', company: @company %>");

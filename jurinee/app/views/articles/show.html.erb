@@ -38,15 +38,26 @@
                 </header>
                 <div><%= @article.content.html_safe %></div>
                 <h5>
-                <%# if "좋아요" -> "좋아요 취소", else -> "좋아요" %>
+
                 <% if user_signed_in? %>
-                    <% if current_user.profile.liked_articles.where(id: @article.id).exists? %>
-                        <%= link_to image_tag('full_heart.png', style: 'width: 30px;') + "좋아요 취소", article_like_path(article_id: @article.id, profile_id: current_user.profile.id) %>
-                    <% else %>
-                        <%= link_to image_tag('empty_heart.png', style: 'width: 30px;') + "좋아요", article_like_path(article_id: @article.id, profile_id: current_user.profile.id) %>
-                    <% end %>
+                    <%# <% if current_user.profile.liked_articles.where(id: @article.id).exists? %> 
+                        <%= link_to image_tag('full_heart.png', style: 'width: 30px;') + "좋아요 취소",
+                                    article_like_path(article_id: @article.id, profile_id: current_user.profile.id),
+                                    class: 'unlike',
+                                    remote: true
+                                    # style: 'display: none'
+                                    %>
+                    <%# <% else %> 
+                        <%= link_to image_tag('empty_heart.png', style: 'width: 30px;') + "좋아요",
+                                    article_like_path(article_id: @article.id, profile_id: current_user.profile.id),
+                                    class: 'like',
+                                    remote: true
+                                    # style: 'display: none'
+                                    %>
+                    <%# <% end %> 
                 <% end %>
                 <br>
+
                 <% if @next_url %>
                     <%= link_to '다음페이지로 이동', @next_url %>
                 <% else %>

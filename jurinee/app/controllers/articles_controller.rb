@@ -81,7 +81,6 @@ class ArticlesController < ApplicationController
                 redirect_to '/home'
             end
         end
-
     end
     
     def index
@@ -134,13 +133,36 @@ class ArticlesController < ApplicationController
         @profile = Profile.find(id=@profile_id)
 
         if @article.liking_users.where(id: @profile_id).exists?
-            ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
+            ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all 
         else
-            ArticleLike.create(profile_id: @profile_id, article_id: @article_id)
+            ArticleLike.create(profile_id: @profile_id, article_id: @article_id)   
         end
 
-        redirect_to request.referrer
+        respond_to do |format|
+            format.js 
+            # format.html
+        end
+
+        # redirect_to request.referrer
     end
+
+
+    # def unlike
+    #     @article_id = params[:article_id]
+    #     @article = Article.find(id=@article_id)
+    #     @profile_id = current_user.profile.id
+    #     @profile = Profile.find(id=@profile_id)
+
+    #     if @article.liking_users.where(id: @profile_id).exists? 
+    #         if ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
+    #             respond_to do |format|
+    #                 format.js
+    #             end
+    #         end
+    #     end
+
+    #     # redirect_to request.referrer
+    # end
 
 private
     def article_params
