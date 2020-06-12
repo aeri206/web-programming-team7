@@ -46,11 +46,11 @@ class stockSpider(scrapy.Spider):
         price = driver.find_element_by_xpath('//*[@id="header"]/div[4]/div[1]/div/div[2]/div/div[2]/div[1]/strong').get_attribute('data-current-price')
         while price == None:
             price = driver.find_element_by_xpath('//*[@id="header"]/div[4]/div[1]/div/div[2]/div/div[2]/div[1]/strong').get_attribute('data-current-price')
-            
-        ROE = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[6]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
-        PER = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[11]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
-        BPS = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[12]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
-        PBR = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[13]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
+        
+        ROE = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[8]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]')
+        PBR = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[15]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]') 
+        PER = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[13]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]') 
+        BPS = driver.find_elements_by_xpath('//*[@id="view"]/div/table/tbody/tr[14]/*[contains(@class, "stock_up") or contains(@class, "stock_dn")]') 
         length = [len(ROE), len(PER), len(BPS), len(PBR)]
         lens = min(length)-1
         print('========='+response.meta["code"])
