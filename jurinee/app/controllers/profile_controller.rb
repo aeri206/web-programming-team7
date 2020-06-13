@@ -3,7 +3,9 @@ class ProfileController < ApplicationController
 
     def index
         @profile = current_user.profile 
+        @profile = current_user.profile
         @articles = current_user.profile.liked_articles.all
+        @companies = current_user.profile.liked_companies.all
         render 'index'
     end
 

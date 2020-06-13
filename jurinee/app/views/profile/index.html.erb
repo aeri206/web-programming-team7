@@ -1,32 +1,82 @@
-<h1>My Page</h1>
-<%= link_to  "프로필 수정하기", edit_profile_path(current_user.id) %>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <%= javascript_include_tag "jquery.min" %>
+    <%= javascript_include_tag "browser.min" %>
+    <%= javascript_include_tag "breakpoints.min" %>
+    <%= javascript_include_tag "util" %>
+    <%= javascript_include_tag "main" %>
+    <%= stylesheet_link_tag "main", media: "all" %>
+</head>
 
-<div>이름: <%= current_user.name %></div>
+<body class="is-preload">
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <header id="header">
+                    <!--여기에 배너 + 메뉴 넣기-->
+                    <%= image_tag "logo_2_navy.png", style: 'width: 40%;' %>
 
-<h3>내가 찜한 기업</h3>
+                    <ul class="actions">
+                        <li><%= link_to "주린이 WIKI", "../wiki/wiki_0.html", class: 'button' %></li>
+                        <li><%= link_to "고수되기", "../expert/expert_company.html", class: 'button' %></li>
+                    </ul>
+                    <ul class="mypage">
+                        <li><%= link_to "초기화면", "../landing_page/landing_page.html" %></li>
+                    </ul>
+                    <br>
+                </header>
 
-<ul>
-</ul>
+                <section>
+                    <header class="main">
+                        <%= image_tag "mypage.png", style: 'width: 40%;' %> 
+                    </header>
 
-<h3>좋아요한 아티클</h3>
-<ul>
-<% @articles.each do |article| %>
-    <% if article.if_wiki %>
-        <% if article.if_sub %>
-            <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}" %>
-        <% else %>
-            <%= link_to "#{article.title}", "/wiki/#{article.chapter}" %>
-        <% end %>
-    <% else %>
-        <% if article.if_sub %>
-            <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}" %>
-        <% else %>
-            <%= link_to "#{article.title}", "/expert/#{article.chapter}" %>
-        <% end %>
-    <% end %>
-    <br>
+                        <div style="display: flex; flex-direction: row; ">
+                            <h4>이름</h4>
+                            <div style="margin: auto"><%= current_user.name %></div>
+                        </div>
 
-<% end %>
-</ul>
+                    <hr>
+                    <h4>내가 찜한 기업</h4>
+                    <br>
 
+                    <% @companies.each do |company| %>
+                        <h5>
+                            <%= link_to company.name,
+                                "https://finance.naver.com/item/main.nhn?code=#{company.code[1..-1]}",
+                                target: '_blank' %>
+                        </h5>
+                    <% end %>
+                    
+                    <hr>
+                    <h4>스크랩한 아티클</h4>
+                    <br>
+                    <h5>
+                        <% @articles.each do |article| %>
+                            <% if article.if_wiki %>
+                                <% if article.if_sub %>
+                                    <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}" %>
+                                <% else %>
+                                    <%= link_to "#{article.title}", "/wiki/#{article.chapter}" %>
+                                <% end %>
+                            <% else %>
+                                <% if article.if_sub %>
+                                    <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}" %>
+                                <% else %>
+                                    <%= link_to "#{article.title}", "/expert/#{article.chapter}" %>
+                                <% end %>
+                            <% end %>
+                            <br>
+                        <% end %>
+                    </h5>
+                </section>
 
+<%# start %>
+
+<%# end %>
+
+            </div>
+        </div>
+    </div>
+</body>
