@@ -40,8 +40,7 @@ class CompanyController < ApplicationController
                 company = company.order('ROE desc')
             end 
         end
-
-
+        
         # { "filter_liabilities"=>"1", "liabilities_value"=>"", "filter_coverage"=>"1", "coverage_value"=>"", "filter_roe"=>"1", "roe_value"=>"", "button"=>""}
         print(params)
         @company = company
@@ -54,7 +53,6 @@ class CompanyController < ApplicationController
         @company_id = params[:company_id]
         @company = Company.find(id=@company_id)
         @profile_id = current_user.profile.id
-        # @profile = Profile.find(id=@profile_id)
 
         if @company.liking_users.where(id: @profile_id).exists?
             CompanyLike.where(profile_id: @profile_id, company_id: @company_id).destroy_all

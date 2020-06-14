@@ -145,23 +145,6 @@ class ArticlesController < ApplicationController
     end
 
 
-    # def unlike
-    #     @article_id = params[:article_id]
-    #     @article = Article.find(id=@article_id)
-    #     @profile_id = current_user.profile.id
-    #     @profile = Profile.find(id=@profile_id)
-
-    #     if @article.liking_users.where(id: @profile_id).exists? 
-    #         if ArticleLike.where(profile_id: @profile_id, article_id: @article_id).destroy_all
-    #             respond_to do |format|
-    #                 format.js
-    #             end
-    #         end
-    #     end
-
-    #     # redirect_to request.referrer
-    # end
-
 private
     def article_params
         params.require(:article).permit(:title, :sub_title, :content, :if_wiki, :if_sub, :chapter, :sub_chapter)
