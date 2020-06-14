@@ -5,14 +5,24 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   
   resources :articles, only: [:new, :create] 
+  # resources :memos
 
   get '/wiki/:chapter' => 'articles#show', :defaults => {:type => 'wiki'}
   get '/wiki/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'wiki'}
   get '/wiki' => 'articles#index', :defaults => {:type => 'wiki'}
+
   get '/expert/:chapter' => 'articles#show', :defaults => {:type => 'expert'}
   get '/expert/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'expert'}
   get '/expert' => 'articles#index', :defaults => {:type => 'expert'}
+  
   get '/search' => 'articles#search'
+
+  get '/:type/:chapter/:sub_chapter/memo' => 'memos#show', as: 'memo_show' 
+  get '/:type/:chapter/:sub_chapter/memo/new' => 'memos#new', as: 'memo_new' 
+  post '/:type/:chapter/:sub_chapter/memo/create' => 'memos#create', as: 'memo_create' 
+  post '/:type/:chapter/:sub_chapter/memo/:id/edit' => 'memos#edit', as: 'memo_edit' 
+  post '/:type/:chapter/:sub_chapter/memo/:id/update' => 'memos#update', as: 'memo_update' 
+  delete '/:type/:chapter/:sub_chapter/memo/:id/delete' => 'memos#destroy', as: 'memo_delete' 
 
   get '/diy/' => 'company#index'
   get '/diy/result' => 'company#result'
