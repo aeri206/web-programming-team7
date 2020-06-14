@@ -1,15 +1,9 @@
 <% if current_user.profile.liked_articles.where(id: @article.id).exists? %>
-    <%# $(".unlike").css("display") = "block"; %>
-    <%# $(".like").css("display") = "none"; %>
     $(".unlike").show();
     $(".like").hide();
-
 <% else %>
-    <%# $(".like").css("display") = "block"; %>
-    <%# $(".unlike").css("display") = "none"; %>
     $(".like").show();
     $(".unlike").hide();
-
 <% end %>
 
 
