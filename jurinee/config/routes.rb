@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   # resources :memos
 
   get '/wiki/:chapter' => 'articles#show', :defaults => {:type => 'wiki'}
-  get '/wiki/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'wiki'}
+  get '/wiki/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'wiki'}, as: 'wiki_show'
   get '/wiki' => 'articles#index', :defaults => {:type => 'wiki'}
 
   get '/expert/:chapter' => 'articles#show', :defaults => {:type => 'expert'}
-  get '/expert/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'expert'}
+  get '/expert/:chapter/:sub_chapter' => 'articles#show', :defaults => {:type => 'expert'}, as: 'expert_show'
   get '/expert' => 'articles#index', :defaults => {:type => 'expert'}
   
   get '/search' => 'articles#search'
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   post '/:type/:chapter/:sub_chapter/memo/create' => 'memos#create', as: 'memo_create' 
   post '/:type/:chapter/:sub_chapter/memo/:id/edit' => 'memos#edit', as: 'memo_edit' 
   post '/:type/:chapter/:sub_chapter/memo/:id/update' => 'memos#update', as: 'memo_update' 
-  delete '/:type/:chapter/:sub_chapter/memo/:id/delete' => 'memos#destroy', as: 'memo_delete' 
+  delete '/:type/:chapter/:sub_chapter/memo/:memo_id/delete' => 'memos#destroy', as: 'memo_delete' 
 
   get '/diy/' => 'company#index'
   get '/diy/result' => 'company#result'

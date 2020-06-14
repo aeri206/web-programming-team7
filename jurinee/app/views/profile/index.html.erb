@@ -81,9 +81,11 @@
                             <h6><%= memo.article.title %></h6>
                             :
                             <% if memo.article.if_wiki %>
-                                <%= link_to "#{memo.text}", "wiki/#{memo.article.chapter}/#{memo.article.sub_chapter}/memo" %>
+                                 <%= link_to "#{memo.text}",
+                                    wiki_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter) %>
                             <% else %>
-                                <%= link_to "#{memo.text}", "expert/#{memo.article.chapter}/#{memo.article.sub_chapter}/memo" %>
+                                <%= link_to "#{memo.text}",
+                                    expert_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter) %>
                             <% end %>
                             <hr>
                         <% end %>

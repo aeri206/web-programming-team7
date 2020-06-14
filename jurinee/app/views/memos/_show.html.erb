@@ -1,0 +1,10 @@
+<hr>
+<h3>Memo</h3>
+<p>
+    <%= @memo.text %>
+</p>
+<% if @memo.article.if_wiki %> 
+    <%= link_to image_tag('trash', width:'30px')+'삭제', memo_delete_path(type: 'wiki', memo_id: @memo.id), method: :delete %>
+<% else %>
+    <%= link_to image_tag('trash', width:'30px')+'삭제', memo_delete_path(type: 'expert', memo_id: @memo.id), method: :delete %>
+<% end %>

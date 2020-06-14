@@ -18,7 +18,10 @@ class MemosController < ApplicationController
             @article = Article.where(if_wiki: false, chapter: @chapter, sub_chapter: @sub_chapter)
         end
 
-        render 'new'
+        respond_to do |format|
+            format.js
+        end
+        # render 'new'
     end
 
     def create 
@@ -40,7 +43,11 @@ class MemosController < ApplicationController
         @memo.article = @article
         @memo.save
         
-        redirect_to controller: 'articles', action: 'show', type: @type, chapter: @chapter, sub_chapter: @ㅡsub_chapter
+        if @type == 'wiki'
+            redirect_to wiki_show_path(chapter: @chapter, sub_chapter: @sub_chapter)
+        else
+            redirect_to expert_show_path(chapter: @chapter, sub_chapter: @sub_chapter)
+        end
     end
 
     def show
@@ -57,7 +64,12 @@ class MemosController < ApplicationController
         end
 
         @memo = Memo.where(profile: current_user.profile, article: @article).first
-        render 'show'
+        
+        respond_to do |format|
+            format.js
+        end
+        # render 'show'
+
     end
 
     def edit
@@ -77,9 +89,14 @@ class MemosController < ApplicationController
     end
 
     def destroy
-        @memo_id = params[:id]
+        @memo_id = params[:memo_id]
+        @type = params[:type]
         Memo.destroy(@memo_id)
-        redirect_to controller: 'articles', action: 'show', type: @type, chapter: @article.chapter, sub_chapter: @article.sub_chapter     
+        if @type == 'wiki'
+            redirect_to wiki_show_path
+        else
+            redirect_to expert_show_path
+        end    
     end
 
     private
