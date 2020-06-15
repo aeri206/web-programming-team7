@@ -76,19 +76,30 @@
                     </div>
                     <hr>
                     <div>
-                        <h4>내 메모</h4>
-                        <% @memos.each do |memo| %>
-                            <h6><%= memo.article.title %></h6>
-                            :
-                            <% if memo.article.if_wiki %>
-                                 <%= link_to "#{memo.text}",
-                                    wiki_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter) %>
-                            <% else %>
-                                <%= link_to "#{memo.text}",
-                                    expert_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter) %>
+                        <h4 style="margin-bottom: 10px">내 메모</h4>
+                        <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin: auto">
+                            <% @memos.each do |memo| %>
+                                <div style="border: 4px solid #254653; border-radius: 10px; width: 30%; heigt: auto; padding: 10px; margin: 10px; position: relative">
+                                    <h6><%= memo.article.sub_title %></h6>
+                                    <hr>
+                                    <% if memo.article.if_wiki %>
+                                        <%= memo.text %>
+                                        <div style="position: absolute; right: 10px; bottom: 10px;">
+                                            <%= link_to "GO!",
+                                                wiki_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                                style: "font-weight: bold; font-size: 20px;" %>
+                                        </div>
+                                    <% else %>
+                                        <%= memo.text %>
+                                        <div style="position: absolute; right: 10px; bottom: 10px">
+                                        <%= link_to "GO!",
+                                            expert_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                            style: "font-weight: bold; font-size: 20px;" %>
+                                        </div>
+                                    <% end %>
+                                </div>
                             <% end %>
-                            <hr>
-                        <% end %>
+                        </div>
                     </div>
                 </section>
             </div>

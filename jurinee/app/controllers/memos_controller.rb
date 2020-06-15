@@ -73,19 +73,28 @@ class MemosController < ApplicationController
     end
 
     def edit
-        @memo = Memo.find(params[:id])
-        render 'edit'
+        @type = params[:type]
+        @chapter = params[:chapter]
+        @sub_chapter = params[:sub_chapter]
+        @memo = Memo.find(params[:memo_id])
+        respond_to do |format|
+            format.js
+        end
+        # render 'edit'
     end
 
     def update
-        @memo = Memo.find(memo_params)
+        @memo_id = params[:memo_id]
+        @memo = Memo.find(@memo_id)
+
+        @memo.update_attribute(:text, params[:memo][:text])
         
-        @memo.text = params[:text]
-        if @memo.save
-            redirect_to controller: 'articles', action: 'show', type: @type, chapter: @article.chapter, sub_chapter: @article.sub_chapter
-        else
-            render 'update'
-        end
+        # @memo.text = params[:text]
+        # @memo.save
+
+        redirect_to request.referrer
+        # redirect_to action: 'show'
+     
     end
 
     def destroy

@@ -1,3 +1,8 @@
+<style>
+    .unlike:hover, .like:hover, .memo-button:hover, .turn-page:hover {
+        text-decoration: underline;
+    }
+</style>
 <h5>
 <% if user_signed_in? %>
     <%= link_to image_tag('full_heart.png', style: 'width: 30px; margin-right: 4px;') + "좋아요 취소",
@@ -16,17 +21,19 @@
     <br>
 
     <% if @next_url %>
-    <%= link_to image_tag('next.png', style:'width: 30px;') + '다음페이지로 이동', @next_url %><br>
+    <%= link_to image_tag('next.png', style:'width: 30px;') + '다음페이지로 이동', @next_url, class: 'turn-page' %><br>
     <% if @article.if_wiki && @article.if_sub %>
         <% if user_signed_in? %>
             <% if !current_user.profile.memos.where(profile: current_user.profile, article: @article).exists? %>
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'새 메모', 
                             memo_new_path(type: 'wiki', chapter: @article.chapter, sub_chapter: @article.sub_chapter),
+                            class: 'memo-button',
                             remote: true %> 
                 <div class="new-memo"></div>
             <% else %>               
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'메모 보기',
                             memo_show_path(type: 'wiki'),
+                            class: 'memo-button',
                             remote: true %>
                 <div class="show-memo"></div>
             <% end %>
@@ -36,11 +43,13 @@
             <% if !current_user.profile.memos.where(profile: current_user.profile, article: @article).exists? %>
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'새 메모',
                             memo_new_path(type: 'expert', chapter: @article.chapter, sub_chapter: @article.sub_chapter),
+                            class: 'memo-button',
                             remote: true %> 
                 <div class="new-memo"></div>
             <% else %>               
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'메모 보기',
                             memo_show_path(type: 'expert'),
+                            class: 'memo-button',
                             remote: true %>
                 <div class="show-memo"></div>
             <% end %>
@@ -48,31 +57,35 @@
     <% end %>               
     <% else %>
     <% if @article.if_wiki %>
-        <%= link_to image_tag('return.png', style:'width: 30px;') + '첫 페이지로 이동', '/wiki/0' %><br>
+        <%= link_to image_tag('return.png', style:'width: 30px;') + '첫 페이지로 이동', '/wiki/0', class: 'turn-page' %><br>
         <% if user_signed_in? %>
             <% if !current_user.profile.memos.where(profile: current_user.profile, article: @article).exists? %>
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'새 메모',
                             memo_new_path(type: 'wiki', chapter: @article.chapter, sub_chapter: @article.sub_chapter),
+                            class: 'memo-button',
                             remote: true %> 
                 <div class="new-memo"></div>
             <% else %>               
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'메모 보기',
                             memo_show_path(type: 'wiki'),
+                            class: 'memo-button',
                             remote: true %>
                 <div class="show-memo"></div>
             <% end %>
         <% end %>               
     <% else %>
-        <%= link_to image_tag('return.png', style:'width: 30px;') + '첫 페이지로 이동', '/expert/0' %><br>
+        <%= link_to image_tag('return.png', style:'width: 30px;') + '첫 페이지로 이동', '/expert/0', class: 'turn-page' %><br>
         <% if user_signed_in? %>
             <% if !current_user.profile.memos.where(profile: current_user.profile, article: @article).exists? %>
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'새 메모', 
                             memo_new_path(type: 'expert', chapter: @article.chapter, sub_chapter: @article.sub_chapter),
+                            class: 'memo-button',
                             remote: true %> 
                 <div class="new-memo"></div>
             <% else %>               
                 <%= link_to image_tag("memo.png", style:'width:30px; margin-right: 4px;')+'메모 보기',
                             memo_show_path(type: 'expert'),
+                            class: 'memo-button',
                             remote: true %>
                 <div class="show-memo"></div>
             <% end %>
