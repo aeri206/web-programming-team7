@@ -86,14 +86,9 @@ class MemosController < ApplicationController
     def update
         @memo_id = params[:memo_id]
         @memo = Memo.find(@memo_id)
-
         @memo.update_attribute(:text, params[:memo][:text])
-        
-        # @memo.text = params[:text]
-        # @memo.save
 
         redirect_to request.referrer
-        # redirect_to action: 'show'
      
     end
 

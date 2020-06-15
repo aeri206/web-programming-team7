@@ -7,6 +7,11 @@
     <%= javascript_include_tag "util" %>
     <%= javascript_include_tag "main" %>
     <%= stylesheet_link_tag "main", media: "all" %>
+    <style>
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="is-preload">
@@ -47,6 +52,7 @@
                                 <h5>
                                     <%= link_to company.name,
                                         "https://finance.naver.com/item/main.nhn?code=#{company.code[1..-1]}",
+                                        class: 'link',
                                         target: '_blank' %>
                                 </h5>
                             <% end %>                        
@@ -58,15 +64,15 @@
                                 <% @articles.each do |article| %>
                                     <% if article.if_wiki %>
                                         <% if article.if_sub %>
-                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}" %>
+                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}", class: 'link' %>
                                         <% else %>
-                                            <%= link_to "#{article.title}", "/wiki/#{article.chapter}" %>
+                                            <%= link_to "#{article.title}", "/wiki/#{article.chapter}", class: 'link' %>
                                         <% end %>
                                     <% else %>
                                         <% if article.if_sub %>
-                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}" %>
+                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}", class: 'link' %>
                                         <% else %>
-                                            <%= link_to "#{article.title}", "/expert/#{article.chapter}" %>
+                                            <%= link_to "#{article.title}", "/expert/#{article.chapter}", class: 'link' %>
                                         <% end %>
                                     <% end %>
                                     <br>
@@ -87,6 +93,7 @@
                                         <div style="position: absolute; right: 10px; bottom: 10px;">
                                             <%= link_to "GO!",
                                                 wiki_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                                class: 'link',
                                                 style: "font-weight: bold; font-size: 20px;" %>
                                         </div>
                                     <% else %>
@@ -94,6 +101,7 @@
                                         <div style="position: absolute; right: 10px; bottom: 10px">
                                         <%= link_to "GO!",
                                             expert_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                            class: 'link',
                                             style: "font-weight: bold; font-size: 20px;" %>
                                         </div>
                                     <% end %>
