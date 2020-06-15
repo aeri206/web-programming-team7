@@ -7,6 +7,11 @@
     <%= javascript_include_tag "util" %>
     <%= javascript_include_tag "main" %>
     <%= stylesheet_link_tag "main", media: "all" %>
+    <style>
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="is-preload">
@@ -29,53 +34,82 @@
 
                 <section>
                     <header class="main">
-                        <%= image_tag "mypage.png", style: 'width: 40%;' %> 
+                        <%= image_tag "mypage.png", style: 'width: 32%;' %> 
                     </header>
 
                         <div style="display: flex; flex-direction: row; ">
                             <h4>이름</h4>
-                            <div style="margin: auto"><%= current_user.name %></div>
+                            <div style="margin: auto 0 auto 120px"><%= current_user.name %></div>
                         </div>
 
                     <hr>
-                    <h4>내가 찜한 기업</h4>
-                    <br>
-
-                    <% @companies.each do |company| %>
-                        <h5>
-                            <%= link_to company.name,
-                                "https://finance.naver.com/item/main.nhn?code=#{company.code[1..-1]}",
-                                target: '_blank' %>
-                        </h5>
-                    <% end %>
-                    
-                    <hr>
-                    <h4>스크랩한 아티클</h4>
-                    <br>
-                    <h5>
-                        <% @articles.each do |article| %>
-                            <% if article.if_wiki %>
-                                <% if article.if_sub %>
-                                    <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}" %>
-                                <% else %>
-                                    <%= link_to "#{article.title}", "/wiki/#{article.chapter}" %>
-                                <% end %>
-                            <% else %>
-                                <% if article.if_sub %>
-                                    <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}" %>
-                                <% else %>
-                                    <%= link_to "#{article.title}", "/expert/#{article.chapter}" %>
-                                <% end %>
-                            <% end %>
+                    <div style="display: flex; flex-direction: row; ">
+                        <div class="zzim-company" style="width: 50%">
+                            <h4>내가 찜한 기업</h4>
                             <br>
-                        <% end %>
-                    </h5>
+
+                            <% @companies.each do |company| %>
+                                <h5>
+                                    <%= link_to company.name,
+                                        "https://finance.naver.com/item/main.nhn?code=#{company.code[1..-1]}",
+                                        class: 'link',
+                                        target: '_blank' %>
+                                </h5>
+                            <% end %>                        
+                        </div>
+                        <div class="scrap-articles">
+                            <h4>스크랩한 아티클</h4>
+                            <br>
+                            <h5>
+                                <% @articles.each do |article| %>
+                                    <% if article.if_wiki %>
+                                        <% if article.if_sub %>
+                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/wiki/#{article.chapter}/#{article.sub_chapter}", class: 'link' %>
+                                        <% else %>
+                                            <%= link_to "#{article.title}", "/wiki/#{article.chapter}", class: 'link' %>
+                                        <% end %>
+                                    <% else %>
+                                        <% if article.if_sub %>
+                                            <%= link_to "#{article.title} >> #{article.sub_title}", "/expert/#{article.chapter}/#{article.sub_chapter}", class: 'link' %>
+                                        <% else %>
+                                            <%= link_to "#{article.title}", "/expert/#{article.chapter}", class: 'link' %>
+                                        <% end %>
+                                    <% end %>
+                                    <br>
+                                <% end %>
+                            </h5>
+                        </div>
+                    </div>
+                    <hr>
+                    <div>
+                        <h4 style="margin-bottom: 10px">내 메모</h4>
+                        <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin: auto">
+                            <% @memos.each do |memo| %>
+                                <div style="border: 4px solid #254653; border-radius: 10px; width: 30%; heigt: auto; padding: 10px; margin: 10px; position: relative">
+                                    <h6><%= memo.article.sub_title %></h6>
+                                    <hr>
+                                    <% if memo.article.if_wiki %>
+                                        <%= memo.text %>
+                                        <div style="position: absolute; right: 10px; bottom: 10px;">
+                                            <%= link_to "GO!",
+                                                wiki_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                                class: 'link',
+                                                style: "font-weight: bold; font-size: 20px;" %>
+                                        </div>
+                                    <% else %>
+                                        <%= memo.text %>
+                                        <div style="position: absolute; right: 10px; bottom: 10px">
+                                        <%= link_to "GO!",
+                                            expert_show_path(chapter: memo.article.chapter, sub_chapter: memo.article.sub_chapter),
+                                            class: 'link',
+                                            style: "font-weight: bold; font-size: 20px;" %>
+                                        </div>
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
                 </section>
-
-<%# start %>
-
-<%# end %>
-
             </div>
         </div>
     </div>

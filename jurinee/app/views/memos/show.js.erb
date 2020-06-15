@@ -1,0 +1,7 @@
+if($('.show-memo').children().length > 0) {
+    $('.show-memo').children().remove()
+} else {
+    $('.show-memo').append("<%= escape_javascript render 'show' %>");
+}
+
+

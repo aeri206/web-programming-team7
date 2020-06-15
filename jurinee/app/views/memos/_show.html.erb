@@ -1,0 +1,21 @@
+<head>
+    <style>
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<div class="memo-container">
+    <hr>
+    <h3>Memo</h3>
+    <p style="background-color: rgba(37, 70, 83, 0.2); padding: 20px; border-radius: 10px">
+        <%= @memo.text %>
+    </p>
+    <% if @memo.article.if_wiki %> 
+        <%= link_to image_tag('edit', width:'30px')+'수정', memo_edit_path(type: 'wiki', memo_id: @memo.id), class: 'link', remote: true %>
+        <%= link_to image_tag('trash', width:'30px')+'삭제', memo_delete_path(type: 'wiki', memo_id: @memo.id), class: 'link', method: :delete, data: {confirm: "메모를 삭제하시겠습니까?"} %>
+    <% else %>
+        <%= link_to image_tag('edit', width:'30px')+'수정', memo_edit_path(type: 'expert', memo_id: @memo.id), class: 'link', remote: true %>
+        <%= link_to image_tag('trash', width:'30px')+'삭제', memo_delete_path(type: 'expert', memo_id: @memo.id), class: 'link', method: :delete, data: {confirm: "메모를 삭제하시겠습니까?"} %>
+    <% end %>
+<div>

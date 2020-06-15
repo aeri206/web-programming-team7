@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_140022) do
+ActiveRecord::Schema.define(version: 2020_06_14_074958) do
 
   create_table "article_likes", force: :cascade do |t|
     t.integer "profile_id", null: false
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.string "sub_title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "if_wiki"
     t.boolean "if_sub"
+    t.string "sub_title"
     t.integer "chapter"
     t.integer "sub_chapter"
   end
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
     t.index ["profile_id"], name: "index_company_likes_on_profile_id"
   end
 
+  create_table "memos", force: :cascade do |t|
+    t.text "text"
+    t.integer "profile_id", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_memos_on_article_id"
+    t.index ["profile_id"], name: "index_memos_on_profile_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -82,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -89,5 +100,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_140022) do
   add_foreign_key "article_likes", "profiles"
   add_foreign_key "company_likes", "companies"
   add_foreign_key "company_likes", "profiles"
+  add_foreign_key "memos", "articles"
+  add_foreign_key "memos", "profiles"
   add_foreign_key "profiles", "users"
 end

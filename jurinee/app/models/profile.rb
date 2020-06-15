@@ -5,4 +5,5 @@ class Profile < ApplicationRecord
     has_many :liked_articles, through: :article_likes, source: :article
     has_many :company_likes, dependent: :destroy
     has_many :liked_companies, through: :company_likes, source: :company
+    has_many :memos, dependent: :destroy
 end

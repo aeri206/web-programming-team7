@@ -1,0 +1,6 @@
+if($('.new-memo').children().length > 0) {
+    $('.new-memo').children().remove()
+} else {
+    $('.new-memo').append("<%= escape_javascript render 'new' %>");
+}
+
