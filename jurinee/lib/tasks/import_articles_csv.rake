@@ -12,11 +12,16 @@ namespace :import_articles_csv do
       content = data['content']
       title = data['title']
       sub_title = data['sub_title']
-      article = Article.find(id)
-      article.title = title
-      article.sub_title = sub_title
-      article.content = content
-      article.save()
+      if Article.exists?(id)
+        article = Article.find(id)
+        article.title = title
+        article.sub_title = sub_title
+        article.content = content
+        article.save()
+      else
+        Article.create!(data)
+      end
+      
     end
   end
 end
