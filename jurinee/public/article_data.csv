@@ -1,5 +1,5 @@
 id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
-0,1.주식이 뭐냐고요? 알아봅시다,,,TRUE,FALSE,0,
+0,1.주식이 뭐냐고요? 알아봅시다,,<p> Sub Title </p>,TRUE,FALSE,0,
 1,1.주식이 뭐냐고요? 알아봅시다,A.주식이 대체 뭐예요?,"<h3>마법🧙 같은 3줄 요약</h3>
 <br>
 <h4>
@@ -224,8 +224,7 @@ id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
 	<a href=""https://brunch.co.kr/@thecapitalist/52"" target=""_blank"">왜 주식투자인가? (2)저금리</a><br>
 	<a href=""https://brunch.co.kr/@thecapitalist/53"" target=""_blank"">왜 주식투자인가? (3)경제적 자유</a><br>
 	<a href=""http://ecodemy.cafe24.com/m/sies.html"" target=""_blank"">주식투자로 경제공부하기</a>
-</h4>
-",TRUE,TRUE,0,1
+</h4>",TRUE,TRUE,0,1
 3,1.주식이 뭐냐고요? 알아봅시다,C.주식하면 패가망신하나요?,"<h3>마법🧙 같은 3줄 요약</h3>
 <br>
 <h4>
@@ -360,8 +359,7 @@ id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
 <h3>이 글도 읽어보시겠어요?</h3>
 <h4>
 	<a href=""https://brunch.co.kr/@thecapitalist/44"" target=""_blank"">주식 투자에 대한 우리들의 편견 3가지</a>
-</h4>
-",TRUE,TRUE,0,2
+</h4>",TRUE,TRUE,0,2
 4,1.주식이 뭐냐고요? 알아봅시다,D.어떻게 하면 주식 잘 할 수 있어요?,"<h3>마법🧙 같은 3줄 요약</h3>
 <br>
 <h4>
@@ -510,16 +508,15 @@ id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
 	이런 주식투자, 주린이 백과사전과 함께 하세요.<br><br>
 
 	같이 가봐요.
-</p>
-",,,,
-6,2.일단 시작해보자! 따라만 와!,,,TRUE,FALSE,1,
+</p>",,,,
+6,2.일단 시작해보자! 따라만 와!,,<p> Sub Title </p>,TRUE,FALSE,1,
 7,2.일단 시작해보자! 따라만 와!,A.증권사 어플 다운로드와 가입,,TRUE,TRUE,1,0
 8,2.일단 시작해보자! 따라만 와!,B.주식 한 번 사보시겠어요?,,TRUE,TRUE,1,1
 9,2.일단 시작해보자! 따라만 와!,C.주식 떡상했나요? 팔아봅시다.,,TRUE,TRUE,1,2
 10,2.일단 시작해보자! 따라만 와!,D.차트 보는 법!,,TRUE,TRUE,1,3
 11,2.일단 시작해보자! 따라만 와!,E.기업 뉴스 모아보기,,TRUE,TRUE,1,4
-12,3.용어사전,,,TRUE,FALSE,2,
-13,3.용어사전,A.주식 용어 가이드 모음,<p> dummy </p>,TRUE,TRUE,2,0
+12,3.용어사전,,<p> Sub Title </p>,TRUE,FALSE,2,
+13,3.용어사전,A.주식 용어 가이드 모음,,TRUE,TRUE,2,0
 14,3.용어사전,B.기업 회계지표,"<h3>자본</h3>
 <br>
 <h4>자본 = 자산총액 - 부채총액</h4>
@@ -580,13 +577,13 @@ id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
 <p>기업이 영업이익으로 이자를 감당할 수 있는가, 감당한 후 얼마나 여유가 있는가를 알아보는 지표<br>
 이자보상비율 = 1 ; 영업이익으로 번 돈을 모두 이자를 값는데 쓴다는 의미</p>",TRUE,TRUE,2,1
 15,3.용어사전,C.재무제표 영어용어,<p> dummy </p>,TRUE,TRUE,2,2
-16,"4.이 사이트, 추천합니다.",,<p> 대문 </p>,TRUE,FALSE,4,
-17,"4.이 사이트, 추천합니다.",A.투자자라면 꼭 알아야 할 사이트,<p> dummy </p>,TRUE,TRUE,4,0
-18,"4.이 사이트, 추천합니다.",B.투자 블로그 및 카페,<p> dummy </p>,TRUE,TRUE,4,1
+16,"4.이 사이트, 추천합니다.",,<p> 대문 </p>,TRUE,FALSE,3,
+17,"4.이 사이트, 추천합니다.",A.투자자라면 꼭 알아야 할 사이트,,TRUE,TRUE,3,0
+18,"4.이 사이트, 추천합니다.",B.투자 블로그 및 카페,,TRUE,TRUE,3,1
 19,"4.이 사이트, 추천합니다.",C.투자 유튜브 채널,,,,,
 20,고수 지망생이 읽어야 할 글,,<p> 업종별분석 대문 콘텐츠 </p>,FALSE,FALSE,0,
-21,고수 지망생이 읽어야 할 글,A.주린이용 책 추천,<p> TOP10은 뭐가 있을까요 </p>,FALSE,TRUE,0,0
-22,고수 지망생이 읽어야 할 글,B.우리가 주식에 실패하는 이유,<p> 화장품 컨텐츠 </p>,FALSE,TRUE,0,1
+21,고수 지망생이 읽어야 할 글,A.주린이용 책 추천,,FALSE,TRUE,0,0
+22,고수 지망생이 읽어야 할 글,B.우리가 주식에 실패하는 이유,,FALSE,TRUE,0,1
 23,고수 지망생이 읽어야 할 글,C.주식 공부는 왜 해야할까?,,,,,
 24,고수 지망생이 읽어야 할 글,D.개미들을 위한 안내서,,,,,
 25,고수 지망생이 읽어야 할 글,E.주식투자하는데 글을 써야 한다고?,,,,,
@@ -675,9 +672,9 @@ id,title,sub_title,content,if_wiki,if_sub,chapter,sub_chapter
 
 
 									<br><br>",FALSE,TRUE,1,0
-30,대가들의 투자,B.워렌 버핏,<p> 워렌버핏 </p>,FALSE,TRUE,1,1
-31,대가들의 투자,C.존 네프,<p> 존 네프 </p>,FALSE,TRUE,1,2
-32,대가들의 투자,D.피터 린치,<p> 피터 린치 </p>,FALSE,TRUE,1,3
-33,대가들의 투자,E.필립 피셔,<p> 필립 피셔 </p>,FALSE,TRUE,1,4
-34,대가들의 투자,F.종합,,,,,
-35,직접 해보기 가이드,,,,,,
+30,대가들의 투자,B.워렌 버핏,,FALSE,TRUE,1,1
+31,대가들의 투자,C.존 네프,,FALSE,TRUE,1,2
+32,대가들의 투자,D.피터 린치,,FALSE,TRUE,1,3
+33,대가들의 투자,E.필립 피셔,,FALSE,TRUE,1,4
+34,대가들의 투자,F.종합,,FALSE,TRUE,1,5
+35,직접 해보기 가이드,직접해보기 가이드,,FALSE,FALSE,2,

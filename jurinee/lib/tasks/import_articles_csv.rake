@@ -10,18 +10,23 @@ namespace :import_articles_csv do
       data = row.to_hash
       id = data['id']
       content = data['content']
-      title = data['title']
-      sub_title = data['sub_title']
-      if Article.exists?(id)
-        article = Article.find(id)
-        article.title = title
-        article.sub_title = sub_title
-        article.content = content
-        article.save()
+      if data.key?("content") && !content.nil?
+        title = data['title']
+        sub_title = data['sub_title']
+        if Article.exists?(id)
+          article = Article.find(id)
+          article.title = title
+          article.sub_title = sub_title
+          article.content = content
+          article.save()
+        else
+          Article.create!(data)
+        end
       else
-        Article.create!(data)
+        if Article.exists?(id)
+          Article.find(id).destroy
+        end
       end
-      
     end
   end
 end
