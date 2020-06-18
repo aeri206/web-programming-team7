@@ -1,7 +1,7 @@
 <hr>
 <h3>메모 수정</h3>
 
-<%= form_for :memo, url: "/#{@type}/#{@chapter}/#{@sub_chapter}/memo/#{@memo.id}/update" do |f| %>
+<%= form_for :memo, :html => {:id=>'text-input-box'}, url: "/#{@type}/#{@chapter}/#{@sub_chapter}/memo/#{@memo.id}/update" do |f| %>
     <p>
         <%= f.label :text %>
         <%= f.text_area :text %>

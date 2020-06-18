@@ -19,7 +19,7 @@
                 <section>
                     <header class="main">
                         <h1>
-                            <%= link_to '직접해보기', '/diy' %>
+                            <%= link_to '기업 스크리닝', '/diy' %>
                         </h1>
                     </header>
                     <div id="diy-select-box">
@@ -67,12 +67,14 @@
                          title: "부채 비율이 양호한 상위",
                          addon: "% 기업"
                      } %>
-                     <div class="input-group mb-3">  
+
+
+                     <div class="input-group mb-3 current_liabilities">  
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
+                                <%= check_box_tag "filter_current-liabilities" %>
                             </div>
-                            <span class="input-group-text" id="basic-addon1">
+                            <span class="input-group-text">
                             (<span class="clickable" data-toggle="popover" title="유동 부채?"
                             data-content="1년 내로 갚아야 하는 빚<br />장기대출을 1년 내로 갚아야 한다면 그 또한 유동부채 <br/><br/>
                             <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">유동 부채<sup>?</sup>
@@ -82,12 +84,17 @@
                             인 기업만 고르기</span>
                         </div>
                     </div>
-                    <div class="input-group mb-3">  
+
+
+
+
+
+                    <div class="input-group mb-3 fixed_liabilities">  
                         <div class="input-group-prepend">
                             <div class="input-group-text">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
+                            <%= check_box_tag "filter_fixed-liabilities" %>
                             </div>
-                            <span class="input-group-text" id="basic-addon1">
+                            <span class="input-group-text">
                             (<span class="clickable" data-toggle="popover" title="비유동부채?"
                                     data-content="유동부채가 아닌 부채<br/>1년 안에 안 갚아도 되는 부채<br/><br/>
                                     <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">비유동부채<sup>?</sup></span>
@@ -99,9 +106,9 @@
                         <div class="input-group mb-3 ebit">  
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                    <%= check_box_tag "filter_ebit" %>
                                 </div>
-                                <span class="input-group-text" id="basic-addon1">
+                                <span class="input-group-text">
                                 <span class="clickable" data-toggle="popover" title="영업이익?"
                                     data-content="순수하게 기업이 영업에서 번 이익<br/><br/>
                                     <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">영업이익<sup>?</sup></span>
@@ -124,14 +131,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div>적자 말고 이익 내는 기업을 찾고 싶나요?</div>
-
-                    <%= render partial: "value_form", locals: 
-                         { myclass: "coverage", 
-                         title: "이자 보상 비율( 영업이익 / 이자비용 )이 좋은 상위",
-                         addon: "% 기업"
-                     } %>
 
                      <%= render partial: "value_form", locals: 
                          { myclass: "roe", 

@@ -1,3 +1,36 @@
 header.major > h3.search-sidebar {
     margin: 0.5em 0 0.5em 0;
 }
+
+header#header .button-box{
+    display:inline-block;
+    margin-right:1em;
+}
+
+header#header .actions {
+    display:inline-block;
+    margin-top:8%;
+    text-align:center;
+}
+
+header#header .actions div.mypage, header#header .actions div.mypage > div {
+    display:inline-block;
+    vertical-align:bottom;
+}
+
+a.turn-page{
+    float:right;
+}
+
+a.like, a.unlike, a.memo-button{
+    padding:0 10px 0 10px;
+}
+
+a.like > img, a.turn-page > img, a.memo-button > img, a.unlike > img, a.link > img{
+    vertical-align: middle;
+    margin-right:5px;
+}
+
+form#text-input-box label {
+    display:none;
+}

@@ -1033,12 +1033,14 @@ header p {
   letter-spacing: 0.075em;
   margin-top: -0.5em;
   text-transform: uppercase; }
-
+header.major {
+  text-align-last:center;
+}
 header.major > :last-child {
-  border-bottom: solid 3px #254653;
+  /* border-bottom: solid 1px #254653; */
   display: inline-block;
   margin: 0 0 2em 0;
-  padding: 0 0.75em 0.5em 0; }
+  padding: 0 0.5em 0.5em 0.5em; }
 
 header.main > :last-child {
   margin: 0 0 1em 0; }

@@ -26,4 +26,12 @@ namespace :import_companies_csv do
       comp.save()
     end
   end
+
+  task :update_field => :environment do
+    comps = Company.all()
+    comps.each do |c|
+      c.liabilities = (c.total_liabilities.to_f / c.capital * 100).round(5)
+      c.save()
+    end
+  end
 end

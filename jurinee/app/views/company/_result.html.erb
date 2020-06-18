@@ -13,11 +13,11 @@
     </style>
   </head>
   <body>
-    <p>Company list</p>
+    <p><%='총 ' + @company.count.to_s + ' 개의 기업이 검색되었습니다 ' %></p>
     <table style="border: none;">
     <thead>
-    <th>찜하기</th>
-    <th>name</th>
+    <% if user_signed_in? %><th>찜하기</th><% end %>
+    <th>기업명</th>
     <th>PER</th>
     <th>PBR</th>
     <th>부채</th>
@@ -26,28 +26,29 @@
     </thead>
     <% @company.each do |c| %>
         <tr>
-            <td>
+            
                 <% if user_signed_in? %>
-                    <%= link_to image_tag('full_star.png', style: 'width: 20px; margin: 4px 0;'),
+                    <td class="center">
+                    <%= link_to image_tag('full_star.png', style: 'width: 20px; margin: 8px 0 0;'),
                                 company_like_path(company_id: c.id),
                                 class: "unlike#{c.id}",
                                 style: "display: #{'none' if !current_user.profile.liked_companies.where(id: c.id).exists?}",
                                 remote: true
                                 %>
-                    <%= link_to image_tag('empty_star.png', style: 'width: 20px; margin: 4px 0;'),
+                    <%= link_to image_tag('empty_star.png', style: 'width: 20px; margin: 8px 0 0;'),
                                 company_like_path(company_id: c.id),
                                 class: "like#{c.id}",
                                 style: "display: #{'none' if current_user.profile.liked_companies.where(id: c.id).exists?}",
                                 remote: true
                                 %>
+                        </td>
                 <% end %>
-            </td>
-            <td><%= c.name %></td>
-            <td><%= c.PER %></td>
-            <td><%= c.PBR %></td>
-            <td><%= c.total_liabilities %></td>
-            <td><%= c.capital %></td>
-            <td><%= (c.total_liabilities.to_f / c.capital * 100).round(3) %></td>
+            <td class="center"><%= c.name %></td>
+            <td class="center"><%= c.PER %></td>
+            <td class="center"><%= c.PBR %></td>
+            <td class="right"><%= number_to_currency(c.total_liabilities, :precision => 0, :format=> "₩ %n") %></td>
+            <td class="right"><%= number_to_currency(c.capital, :precision => 0, :format=> "₩ %n") %></td>
+            <td class="right"><%= c.liabilities.round(1).to_s + ' %' %></td>
             
         </tr>
     <% end %> </table>

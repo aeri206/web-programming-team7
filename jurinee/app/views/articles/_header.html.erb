@@ -3,11 +3,13 @@
                     <%= link_to(image_tag("logo_2_navy.png", :alt => "logo", :style => 'width: 100%;'), "/home") %>
                     <% if @article or @diy %>
                         <div class="actions">
+                        <div class="button-box">
                             <% if !@diy and @article.if_wiki  %>
                                 <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
                             <% else %>
                                 <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
                             <% end %>
+                            </div>
                     <% else %>
                             <%= link_to '고수되기', '/expert/0', :class=> 'button' %>
                             <%= link_to '주린이 WIKI', '/wiki/0', :class=> 'button' %>
