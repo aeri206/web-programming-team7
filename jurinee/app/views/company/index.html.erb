@@ -26,10 +26,12 @@
                     <%= form_with :url => "/diy/result", :method => "get" do %>
                         <div style="display: flex; flex-direction: row;">
                        <%= render partial: "value_form", locals: 
-                        { myclass: "pbr", 
+                       { myclass: "pbr", 
                         popover:true,
                         title: "PBR이란?",
-                        data: "Price to Book Ratio : 주가순자산비율, 주가를 주당순자산으로 나눈것. <br/><br/>",
+                        data: "기업의 순자산에 비해 주가가 얼마나 싼지/비싼지?<br />
+                                낮으면? 저평가된 싼 주식일 수도, 망해가는 걸 수도.<br />
+                                높으면? 성장하고 있을 수도, 거품일 수도. <br/><br/>",
                         link: '/wiki/2/3',
                         sup: "PBR",
                         addon: "이하"
@@ -39,8 +41,10 @@
                         { myclass: "per", 
                         popover:true,
                         title: "PER이란?",
-                        data: "PER설명추가. <br/><br/>",
-                        link: '/wiki/2',
+                        data: "주가수익비율(PER) = 주가 / 주당순이익<br />
+                                기업이 벌어들이는 이익에 비해, 주가가 얼마나 싼지/비싼지?<br />
+                                일반적으로 낮을수록 좋음 (벌어들이는 돈에 비해 주가가 저렴하구나?)<br/><br/>",
+                        link: '/wiki/2/2',
                         sup: "PER",
                         addon: "이하"
                     }
@@ -49,7 +53,12 @@
                          <div>돈이 많은 기업을 찾고 있나요?</div>
                          <%= render partial: "value_form", locals: 
                         { myclass: "capital", 
-                        title: "자본이 많은 상위",
+                        popover:true,
+                        title: "자본?",
+                        data: "자본=자산총액-부채총액<br />
+                                전체 재산에서 빚만큼을 뺀 금액<br /><br />",
+                        link: '/wiki/2/1', 
+                        sup: '자본',
                         addon: "% 기업"
                     } %>
                          <div>부채(빚)가 적은 기업을 찾고 있나요?</div>
@@ -63,7 +72,14 @@
                             <div class="input-group-text">
                                 <input type="checkbox" aria-label="Checkbox for following text input">
                             </div>
-                            <span class="input-group-text" id="basic-addon1">(<span class="clickable">유동 부채<sup>?</sup></span> * 2 < <span class="clickable">유동자산<sup>?</sup></span>)인 기업만 고르기</span>
+                            <span class="input-group-text" id="basic-addon1">
+                            (<span class="clickable" data-toggle="popover" title="유동 부채?"
+                            data-content="1년 내로 갚아야 하는 빚<br />장기대출을 1년 내로 갚아야 한다면 그 또한 유동부채 <br/><br/>
+                            <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">유동 부채<sup>?</sup>
+                            </span>* 2 < <span class="clickable" data-toggle="popover" title="유동 자산?"
+                                    data-content="1년 내로 현금으로 바꿀 수 있는 자산<br/>현금, 예금, 재고자산 등<br/>금융자산도 1년 내로 현금으로 받을 수 있으면 들어감 <br/><br/>
+                                    <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">유동자산<sup>?</sup></span>)
+                            인 기업만 고르기</span>
                         </div>
                     </div>
                     <div class="input-group mb-3">  
@@ -71,7 +87,11 @@
                             <div class="input-group-text">
                                 <input type="checkbox" aria-label="Checkbox for following text input">
                             </div>
-                            <span class="input-group-text" id="basic-addon1">(<span class="clickable">비유동부채<sup>?</sup></span> < <span class="clickable">유동자산<sup>?</sup></span> - <span class="clickable">유동부채<sup>?</sup></span>)인 기업만 고르기</span>
+                            <span class="input-group-text" id="basic-addon1">
+                            (<span class="clickable" data-toggle="popover" title="비유동부채?"
+                                    data-content="유동부채가 아닌 부채<br/>1년 안에 안 갚아도 되는 부채<br/><br/>
+                                    <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">비유동부채<sup>?</sup></span>
+                                    < 유동자산 - 유동부채)인 기업만 고르기</span>
                         </div>
                     </div>
 
@@ -81,7 +101,11 @@
                                 <div class="input-group-text">
                                     <input type="checkbox" aria-label="Checkbox for following text input">
                                 </div>
-                                <span class="input-group-text" id="basic-addon1"><span class="clickable">영업이익<sup>?</sup></span>이 0보다 큰 기업</span>
+                                <span class="input-group-text" id="basic-addon1">
+                                <span class="clickable" data-toggle="popover" title="영업이익?"
+                                    data-content="순수하게 기업이 영업에서 번 이익<br/><br/>
+                                    <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">영업이익<sup>?</sup></span>
+                                    이 0보다 큰 기업</span>
                             </div>
                         </div>
 
@@ -90,7 +114,13 @@
                                 <div class="input-group-text">
                                     <input type="checkbox" aria-label="Checkbox for following text input">
                                 </div>
-                                <span class="input-group-text" id="basic-addon1"><span class="clickable">총포괄이익<sup>?</sup></span>이 0보다 큰 기업</span>
+                                <span class="input-group-text" id="basic-addon1">
+                                <span class="clickable"
+                                data-toggle="popover" title="총포괄이익?"
+                                    data-content="포괄적인 이익 성과를 알려주는 지표<br/>
+                                    총포괄이익=당기손이익+기타포괄손익<br/>(당기손이익에 포함시킬 수 없는 기타손익)<br/><br/>
+                                    <a href='/wiki/2/1'>🐥 주린이 위키 설명 바로가기</a>">총포괄이익<sup>?</sup></span>
+                                    이 0보다 큰 기업</span>
                             </div>
                         </div>
                     </div>
