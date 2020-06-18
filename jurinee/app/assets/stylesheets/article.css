@@ -34,3 +34,11 @@ a.like > img, a.turn-page > img, a.memo-button > img, a.unlike > img, a.link > i
 form#text-input-box label {
     display:none;
 }
+
+header#header a.log-out-button {
+    margin-left:10px;
+
+}
+header#header .actions div.mypage {
+    margin-left:20px;
+}

@@ -34,6 +34,7 @@
                                 높으면? 성장하고 있을 수도, 거품일 수도. <br/><br/>",
                         link: '/wiki/2/3',
                         sup: "PBR",
+                        sub: "",
                         addon: "이하"
                     }
                          %>
@@ -46,6 +47,7 @@
                                 일반적으로 낮을수록 좋음 (벌어들이는 돈에 비해 주가가 저렴하구나?)<br/><br/>",
                         link: '/wiki/2/2',
                         sup: "PER",
+                        sub: "",
                         addon: "이하"
                     }
                          %>
@@ -59,6 +61,7 @@
                                 전체 재산에서 빚만큼을 뺀 금액<br /><br />",
                         link: '/wiki/2/1', 
                         sup: '자본',
+                        sub: "",
                         addon: "% 기업"
                     } %>
                          <div>부채(빚)가 적은 기업을 찾고 있나요?</div>
@@ -131,12 +134,19 @@
                             </div>
                         </div>
                     </div>
-
                      <%= render partial: "value_form", locals: 
-                         { myclass: "roe", 
-                         title: "ROE 상위",
-                         addon: "% 기업"
-                     } %>
+                     { myclass: "roe", 
+                     popover:true,
+                     title: "ROE?",
+                     data: "ROE=당기순이익/자기자본<br />
+                     연 수익률을 나타내는 ROE는 높을수록 좋음<br />
+                     그러나 의도적으로 ROE를 부풀릴 수 있기 때문에 잘 확인해야 함
+                     <br /><br />",
+                     link: '/wiki/2/5', 
+                     sup: 'ROE',
+                     sub: ' 상위',
+                     addon: "% 기업"
+                 } %>
                     <%=button_tag '조건에 맞는 기업 목록 보기', type: 'submit' %>
                       <% end %>
                 </div>

@@ -13,15 +13,16 @@
     </style>
   </head>
   <body>
+  <% if @query %>
     <p><%='총 ' + @company.count.to_s + ' 개의 기업이 검색되었습니다 ' %></p>
     <table style="border: none;">
     <thead>
     <% if user_signed_in? %><th>찜하기</th><% end %>
     <th>기업명</th>
-    <th>PER</th>
-    <th>PBR</th>
-    <th>부채</th>
-    <th>자산</th>
+    <th style="witdh:10%;">PER</th>
+    <th style="witdh:10%;">PBR</th>
+    <th style="witdh:20%;">부채</th>
+    <th style="witdh:20%;">자산</th>
     <th>부채비율</th>
     </thead>
     <% @company.each do |c| %>
@@ -32,18 +33,23 @@
                     <%= link_to image_tag('full_star.png', style: 'width: 20px; margin: 8px 0 0;'),
                                 company_like_path(company_id: c.id),
                                 class: "unlike#{c.id}",
-                                style: "display: #{'none' if !current_user.profile.liked_companies.where(id: c.id).exists?}",
+                                style: "display: #{'none' if !@likes.where(company_id: c.id).exists?}",
                                 remote: true
                                 %>
                     <%= link_to image_tag('empty_star.png', style: 'width: 20px; margin: 8px 0 0;'),
                                 company_like_path(company_id: c.id),
                                 class: "like#{c.id}",
-                                style: "display: #{'none' if current_user.profile.liked_companies.where(id: c.id).exists?}",
+                                style: "display: #{'none' if @likes.where(company_id: c.id).exists?}",
                                 remote: true
                                 %>
                         </td>
                 <% end %>
-            <td class="center"><%= c.name %></td>
+            <td class="center">
+            <%= link_to c.name,
+                                        "https://finance.naver.com/item/main.nhn?code=#{c.code[1..-1]}",
+                                        class: 'link',
+                                        target: '_blank' %>
+                                        </td>
             <td class="center"><%= c.PER %></td>
             <td class="center"><%= c.PBR %></td>
             <td class="right"><%= number_to_currency(c.total_liabilities, :precision => 0, :format=> "₩ %n") %></td>
@@ -52,6 +58,9 @@
             
         </tr>
     <% end %> </table>
+    <% else %>
+    <p style="color:red;">기업 스크리닝을 위해 조건을 선택해주세요</p>
+    <% end %>
 
     </body>
 </html>

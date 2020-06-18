@@ -11,8 +11,18 @@ class CompanyController < ApplicationController
     end
 
     def result
+
         number = Company.count
         company = Company.all # TODO - fixed
+        if(params.has_key?(:filter_pbr) || params.has_key?(:filter_per) || 
+            params.has_key?(:filter_capital) || params.has_key?(:filter_liabilities) || 
+            params.has_key?(:'filter_current-liabilities') || params.has_key?(:'filter_fixed-liabilities') || 
+            params.has_key?(:filter_ebit) || params.has_key?(:filter_roe))
+            @query = true
+        else
+            @query = false
+        end
+        @likes = CompanyLike.where(profile_id:current_user.profile.id)
         if params.has_key?(:filter_pbr)
             company = company.where("PBR < ?", params[:pbr_value])
         end
@@ -23,23 +33,33 @@ class CompanyController < ApplicationController
 
         if params.has_key?(:filter_capital)
             value = params[:capital_value].to_i
-            if value <= 100 and value >= 0
-                value = number * value / 100
-                value = Company.order('capital desc').limit(value).last.capital
-                company = company.where("capital > ?", value)
-                company = company.order('capital desc')
-            end 
+            if value >= 100
+                value = 100
+            else
+                if value <= 0
+                    value = 0
+                end
+            end
+            value = number * value / 100
+            value = Company.order('capital desc').limit(value).last.capital
+            company = company.where("capital > ?", value)
+            company = company.order('capital desc') 
         end
 
         if params.has_key?(:filter_liabilities)
             value = params[:liabilities_value].to_i
-            if value <= 100 and value >= 0
-                value = number * value / 100
-                value = Company.order('liabilities').limit(value).last.liabilities
-                company = company.where("liabilities < ?", value)
-                company = company.where("liabilities > ?", 0)
-                company = company.order('liabilities')
-            end 
+            if value >= 100
+                value = 100
+            else
+                if value <= 0
+                    value = 0
+                end
+            end
+            value = number * value / 100
+            value = Company.order('liabilities').limit(value).last.liabilities
+            company = company.where("liabilities < ?", value)
+            company = company.where("liabilities > ?", 0)
+            company = company.order('liabilities')
         end
 
         if params.has_key?(:'filter_current-liabilities')
@@ -58,16 +78,19 @@ class CompanyController < ApplicationController
 
         if params.has_key?(:filter_roe)
             value = params[:roe_value].to_i
-            if value <= 100 and value >= 0
-                value = number * value / 100
-                value = Company.order('ROE desc').limit(value).last.ROE
-                company = company.where("ROE > ?", value)
-                company = company.order('ROE desc')
-            end 
+            if value >= 100
+                value = 100
+            else
+                if value <= 0
+                    value = 0
+                end
+            end
+            value = number * value / 100
+            value = Company.order('ROE desc').limit(value).last.ROE
+            company = company.where("ROE > ?", value)
+            company = company.order('ROE desc')
         end
-        
-        # {  "filter_coverage"=>"1", "coverage_value"=>"", "filter_roe"=>"1", "roe_value"=>"", "button"=>""}
-        print(params)
+
         @company = company
         respond_to do |f|
             f.js

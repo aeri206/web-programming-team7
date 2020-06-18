@@ -6,7 +6,7 @@
 
 <% if local_assigns[:popover]%>
     <span class="input-group-text clickable" data-toggle="popover"
-    title=<%= title %> data-content='<%= data %> <a href=<%= link %> > 🐥 주린이 위키 설명 바로가기</a>'    ><%= sup %> <sup>?</sup></span>
+    title=<%= title %> data-content='<%= data %> <a href=<%= link %> > 🐥 주린이 위키 설명 바로가기</a>'    ><%= sup %> <sup>?</sup><%= sub %></span>
 <% else %>
     <span class="input-group-text" ><%= title %></span>
 <% end %>
